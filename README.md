@@ -39,7 +39,7 @@ Life with sneakers
 
 ## 設計書
 
-<image>[ER図.pdf](https://github.com/katsumi-watanabe/webcamp_pf/files/6912521/ER.pdf)
+[ER図.pdf](https://github.com/katsumi-watanabe/webcamp_pf/files/6912521/ER.pdf)
 
 ## チャレンジ要素一覧
 
