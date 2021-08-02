@@ -41,6 +41,10 @@ Life with sneakers
 
 ![ER図](https://user-images.githubusercontent.com/83859027/127767887-2389c1f8-25b3-4784-9e1c-39b5c1d1f624.png)
 
+## デザイン案
+<p>![デザイン案](https://user-images.githubusercontent.com/83859027/127797817-e859c821-740a-4ddc-bc93-300e3193e91c.png)</p>
+
+
 ## チャレンジ要素一覧
 
 <https://docs.google.com/spreadsheets/d/1Kw6TP73oBpYtoWJXQbsDERp9_5lJdEvSeOCMHaZbsJo/edit?usp=sharing>
