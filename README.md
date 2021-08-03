@@ -38,7 +38,17 @@ Life with sneakers
 
 ## 設計書
 
-![ER図](https://user-images.githubusercontent.com/83859027/127856008-fe2518ae-1fa4-4374-a0fa-5b0b0e80f690.png)
+### ER図
+
+![ER図](https://user-images.githubusercontent.com/83859027/128043973-251f6f40-5a73-4a33-819d-3e9b0d695623.png)
+
+### テーブル設計書
+
+<p>https://drive.google.com/file/d/1bJpucEKni6Ik4u6wRQkFHtmxGD-Aru4G/view?usp=sharing</p>
+
+### アプリケーション詳細設計書
+
+<p>https://docs.google.com/spreadsheets/d/1VZiUrk_eXwp80yeDTS5Acw3velxd5EsnI0Ll87FxtYU/edit?usp=sharing</p>
 
 ## デザイン案
 <p>https://user-images.githubusercontent.com/83859027/127856325-9a669632-6d0d-4157-9b8c-8db2edc89df3.png</p>
