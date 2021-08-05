@@ -10,3 +10,6 @@ Admin.find_or_create_by(id: 1) do |admin|
  admin.email = "admin@admin.com"
  admin.password = "admins"
 end
+
+User.create!(email: "user@user.com",
+ password: "userss")
