@@ -1,2 +1,25 @@
-<h1>User::PostSneakers#new</h1>
-<p>Find me in app/views/user/post_sneakers/new.html.erb</p>
+<div class="post_sneaker_new">
+  <%= form_with model: @post_sneaker, local: true do |f| %>
+    <div>
+      <%= f.text_field :sneakers_name, class: "text-field" %>
+    </div>
+    <div>
+      <%= f.attachment_field :post_image %>
+    </div>
+    <div>
+        <%= f.radio_button :gender_selection, :mens, checked: "checked" %>
+        <%= f.label :gender_selection, "Men's" %>
+        <%= f.radio_button :gender_selection, :women %>
+        <%= f.label :gender_selection, "Women's" %>
+        <%= f.radio_button :gender_selection, :kids %>
+        <%= f.label :gender_selection, "Kid's" %>
+    </div>
+
+    <div>
+      <%= f.text_area :caption, class: "text-field" %>
+    </div>
+    <div>
+      <%= f.submit '投稿' %>
+    </div>
+  <% end %>
+</div>

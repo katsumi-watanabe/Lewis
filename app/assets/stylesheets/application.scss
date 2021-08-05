@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
 
 
 // リセットCSS
@@ -57,11 +58,6 @@ h6 {
   font-weight: normal;
 }
 
-img {
-  width: 100%;
-  height: auto;
-}
-
 ul {
   margin: 0;
   padding: 0;
@@ -90,6 +86,16 @@ table {
 
 .sp {
   display: none;
+}
+
+// headerからmainまでの隙間
+.header-bottm {
+  min-height: 80px;
+}
+
+// header
+.notice.alert-view {
+  text-align: center;
 }
 
 
