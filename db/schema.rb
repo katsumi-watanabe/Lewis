@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2021_08_05_085110) do
   create_table "post_sneakers", force: :cascade do |t|
     t.integer "user_id"
     t.string "sneakers_name"
-    t.string "post_sneakers_image"
+    t.string "post_image_id"
     t.integer "gender_selection"
     t.text "caption"
     t.datetime "created_at", null: false

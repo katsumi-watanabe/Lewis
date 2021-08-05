@@ -1,2 +1,7 @@
-<h1>User::PostSneakers#index</h1>
-<p>Find me in app/views/user/post_sneakers/index.html.erb</p>
+<% @post_sneakers.each do |post_sneaker| %>
+
+  <%= link_to post_sneakers_path(post_sneaker.id) do %>
+    <%= attachment_image_tag post_sneaker, :post_image, :fill, 180, 180, format: 'jpeg', class: "sneaker-image" %>
+  <% end %>
+
+<% end %>

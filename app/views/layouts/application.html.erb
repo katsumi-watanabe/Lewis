@@ -11,6 +11,13 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <%= yield %>
+    <div class="header-bottm">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key} alert-view") %>
+      <% end %>
+    </div>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
