@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  scope module: :user do
+    resources :post_sneakers
+  end
+
   devise_for :users, controllers: {
     sessions: 'user/users/sessions',
     passwords: 'user/users/passwords',
