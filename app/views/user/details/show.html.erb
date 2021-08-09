@@ -1,0 +1,32 @@
+<div>
+  <div class="d-flex">
+    <div>
+      <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "comment-user-image-2" %>
+    </div>
+    <div>
+      <div class="d-flex">
+        <p><%= current_user.name %></p>
+        <% if current_user.id == @user.id %>
+          <p><%= link_to "プロフィール編集", edit_user_detail_path(current_user), class: "btn btn-outline-dark" %></p>
+        <% end %>
+      </div>
+      <div class="d-flex">
+        <p>投稿件数<%= @user.post_sneakers.count %>件</p>
+        <p>フォロー<%= @user.post_sneakers.count %>人</p>
+        <p>フォロワー<%= @user.post_sneakers.count %>人</p>
+      </div>
+    </div>
+  </div>
+
+  <p><%= @user.introduction %></p>
+
+  <% if @post_sneakers.present? %>
+    <% @user.post_sneakers.each do |post_sneaker| %>
+      <%= link_to post_sneaker_path(post_sneaker.id) do %>
+        <%= attachment_image_tag post_sneaker, :post_image, :fill, 260, 260, format: 'jpeg', class: "sneaker-image" %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p>投稿はありません</p>
+  <% end %>
+</div>

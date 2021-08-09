@@ -12,4 +12,5 @@ Admin.find_or_create_by(id: 1) do |admin|
 end
 
 User.create!(email: "user@user.com",
+ name: "user",
  password: "userss")

@@ -1,0 +1,27 @@
+<div class="sneaker">
+  <%= form_with model: @user, url: user_detail_path, method: :patch, local: true do |f| %>
+  <div>
+    <div class="div-bottom">
+      <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "comment-user-image-3" %>
+      <%= f.attachment_field :profile_image, class: "profile_image_field ml-3" %>
+    </div>
+    <div class="div-bottom">
+      <%= f.text_field :name, class: "text-field", placeholder: "名前" %>
+    </div>
+    <div class="div-bottom">
+      <%= f.radio_button :gender_selection, :"Men's", checked: "checked" %>
+      <%= f.label :gender_selection, "Men's" %>
+      <%= f.radio_button :gender_selection, :"Women's" %>
+      <%= f.label :gender_selection, "Women's" %>
+      <%= f.radio_button :gender_selection, :"Kid's" %>
+      <%= f.label :gender_selection, "Kid's" %>
+    </div>
+    <div class="div-bottom">
+      <%= f.text_area :introduction, class: "text-area", placeholder: "自己紹介" %>
+    </div>
+    <div class="text-center">
+      <%= f.submit '投稿', class: "btn-3" %>
+    </div>
+  </div>
+  <% end %>
+</div>
