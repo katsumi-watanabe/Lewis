@@ -10,13 +10,13 @@ class User::DetailsController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    @user.update(user_params)
+    @user.update(admin_user_params)
     redirect_to user_detail_path(@user)
   end
 
   private
 
-  def user_params
+  def admin_user_params
     params.require(:user).permit(:name, :email, :introduction, :profile_image)
   end
 end

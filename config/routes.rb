@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   }
 
   scope module: :user do
-    resource :relationships, only: [:create, :destroy]
+      post "relationshops/:user_id" => 'relationships#create', as: "relationships"
+      delete "relationshops/:user_id" => 'relationships#destroy', as: "relationship"
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
     resources :post_sneakers do

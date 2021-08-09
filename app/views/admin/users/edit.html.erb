@@ -1,2 +1,27 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+<div class="sneaker-width">
+  <div class="edit">
+    <div class="edit-width">
+      <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "comment-user-image-2" %>
+    </div>
+    <div class="edit-width">
+      <p>ユーザーID</p>
+      <p>ユーザー名</p>
+      <p>ユーザーメールアドレス</p>
+      <p>ユーザーステータス</p>
+
+    <%= form_with model: @user, url: admin_user_path, method: :patch, local: true do |f| %>
+      <p><%= f.submit '編集', class: "btn btn-success btn-1" %></p>
+
+    </div>
+    <div class="edit-width">
+      <p><%= @user.id %></p>
+      <p><%= f.text_field :name, class: "text-field" %></p>
+      <p><%= f.text_field :email, class: "text-field" %></p>
+      <%= f.radio_button :is_deleted, false %>
+      <%= f.label :is_deleted, "有効", {value: :true, style: "display: inline-block;"} %>
+      <%= f.radio_button :is_deleted, true %>
+      <%= f.label :is_deleted, "退会", {value: :false, style: "display: inline-block;"} %>
+      <% end %>
+    </div>
+  </div>
+</div>

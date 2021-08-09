@@ -1,5 +1,5 @@
-<div>
-  <h2>ユーザー一覧</h2>
+<div class="sneaker-width text-center">
+  <h2 class="font-weight-bold mb-5">ユーザー一覧</h2>
   <table class="table">
     <thead class="thead">
       <tr>
@@ -13,13 +13,13 @@
       <% @users.each do |user| %>
       <tr>
         <td><%= user.id %></td>
-        <td><%= user.name %></td>
+        <td><%= link_to user.name, admin_user_path(user) %></td>
         <td><%= user.email %></td>
         <td>
           <% if user.is_deleted == false %>
-            <p class="text-success">有効</p>
+            <p class="text-success font-weight-bold">有効</p>
           <% else %>
-            <p>退会</p>
+            <p class="font-weight-bold">退会</p>
           <% end %>
         </td>
       </tr>
