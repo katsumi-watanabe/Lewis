@@ -1,0 +1,29 @@
+<div class="sneaker">
+  <%= form_with model: @post_sneaker, local: true do |f| %>
+    <div class="div-bottom">
+      <%= f.text_field :sneakers_name, class: "text-field", placeholder: "スニーカー名前" %>
+    </div>
+    <div class="div-bottom">
+      <%= f.attachment_field :post_image %>
+    </div>
+    <div class="div-bottom">
+      <%= f.radio_button :gender_selection, :"Men's", checked: "checked" %>
+      <%= f.label :gender_selection, "Men's" %>
+      <%= f.radio_button :gender_selection, :"Women's" %>
+      <%= f.label :gender_selection, "Women's" %>
+      <%= f.radio_button :gender_selection, :"Kid's" %>
+      <%= f.label :gender_selection, "Kid's" %>
+    </div>
+
+    <div class="div-bottom">
+      <%= f.text_area :caption, class: "text-area", placeholder: "キャプション"  %>
+    </div>
+    <div class="text-center">
+      <% if post_sneaker.created_at %>
+        <%= f.submit '保存', class: "btn-3" %>
+      <% else %>
+        <%= f.submit '投稿', class: "btn-3" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

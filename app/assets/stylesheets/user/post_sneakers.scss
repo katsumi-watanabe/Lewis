@@ -3,23 +3,107 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-// new.html.erb 幅のサイズ
-
-.post_sneaker_new {
-  width: 25%;
+// index.html.erb
+.post_sneaker_index {
+  width: 70%;
   margin: 0 auto;
 }
 
-.text-field {
-  width: 100%;
+// sneaker_image_並び方
+.sneaker_image_index {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-div {
-  margin-bottm: 50px;
+.sneaker-image {
+  margin: 10px;
 }
-
-// index.html.erb
 
 .sneaker-image:hover {
   filter: brightness(50%);
 }
+
+// indexここまで---
+
+
+// show.html.erb
+.post_sneaker_show {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.show-width {
+  width: 50%;
+  position: relative;
+}
+
+// sneaker-image
+.sneaker_image {
+  width: 100%;
+}
+
+// btn高さ設定
+a.btn.btn-success, a.btn.btn-danger {
+  line-height: 26px;
+}
+
+.btn-bottom {
+  bottom: 6px;
+  position: absolute;
+}
+
+// caption折り返し
+.caption {
+  overflow-wrap: break-word;
+  font-size: 65%;
+}
+
+// btn上下の隙間
+.submit {
+  height: 40px;
+  margin: 10px 0;
+}
+
+.comment-box {
+  margin: 80px 0 50px;
+  text-decoration: underline;
+}
+
+
+
+// 日付右寄せ
+.create-day:last-child {
+  margin-left: auto;
+}
+
+// comment font-size調整
+.comment-text-size {
+  font-size: 80%;
+}
+
+// comment編集・削除ボタン
+.comment-btn {
+  width: 4rem!important ;
+  height: 2rem!important ;
+  line-height: 15px!important;
+  font-size: 80%;
+}
+
+.new-comment {
+  margin: 0 auto;
+}
+
+.comment-text-form {
+  width: 70%;
+  height: 200px;
+}
+
+.comment-send-btn {
+  border-radius: 10px!important;
+}
+
+.like-count {
+  font-size: 70%;
+}
+
+// showここまで---
