@@ -90,6 +90,15 @@ table {
   display: none;
 }
 
+// リセットcssここまで---
+
+// ページ横幅サイズ
+
+.sneaker-width {
+  width: 80%;
+  margin: 0 auto;
+}
+
 // alert表示位置
 .notice.alert-view {
   text-align: center;
@@ -164,17 +173,23 @@ ul.footer.icon {
   height: 40px;
   border-radius: 25px;
 }
-.btn-1 a {
-  line-height: 40px;
+a.btn-1 {
+  line-height: 28px;
 }
+
 
 .btn-2 {
   width: 110px;
   height: 40px;
   border-radius: 25px;
   background-color: #fff;
-  border: 1px solid #212121;
   text-align: center;
+  box-shadow: 2px 2px 4px gray;
+}
+
+a.btn-2 {
+  font-size: 70%;
+  line-height: 28px;
 }
 
 .btn-3 {
@@ -193,17 +208,11 @@ ul.footer.icon {
 }
 
 // いいねボタンcolor
-.heart_red {
+.red {
   color:#FF734A;
 }
-.heart_blue {
+.blue {
   color:#528fff;
-}
-
-// いいねボタン調整
-a.heart_red, a.heart_blue {
-  font-size: 80%;
-  line-height: 40px;
 }
 
 // いいねの人数文字

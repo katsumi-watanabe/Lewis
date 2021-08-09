@@ -20,30 +20,12 @@
           <%= @post_sneaker.gender_selection %>
         </div>
 
+        <!----いいねrender/フォローrender---->
         <div class="submit">
-        <% if current_user != @user %>
-          <% if current_user.following?(@user) %>
-            <%= link_to "フォロー外す", relationships_path(@user.id), method: :delete, class: "btn btn-primary" %>
-          <% else %>
-            <%= link_to "フォローする", relationships_path(@user.id), method: :post, class: "btn btn-success" %>
-          <% end %>
-        <% end %>
+          <%= render 'like', post_sneaker: @post_sneaker %>
+          <%= render 'follow', user: @user %>
         </div>
-        <p class="like-count"><span class="man-count"><%= @user.followings.count %></span>人がいいねといっています</p>
-
-        <div class="submit">
-          <% if @post_sneaker.liked_by?(current_user) %>
-              <%= link_to post_sneaker_like_path(@post_sneaker), method: :delete, class: "fas fa-heart heart_red btn-2" do %>
-                いいね
-              <% end %>
-          <% else %>
-              <%= link_to post_sneaker_like_path(@post_sneaker), method: :post, class: "fas fa-heart heart_blue  btn-2" do %>
-                いいね
-              <% end %>
-          <% end %>
-        </div>
-        <p class="like-count"><span class="man-count"><%= @post_sneaker.likes.count %></span>人がいいねといっています</p>
-
+        <p class="like-count mb-2"><span class="man-count"><%= @post_sneaker.likes.count %></span>人がいいねといっています</p>
 
         <div class="caption">
           <%= @post_sneaker.caption %>
@@ -55,6 +37,7 @@
           <% end %>
         </div>
       </div>
+      
     </div>
   </div>
 

@@ -1,3 +1,19 @@
 // Place all the styles related to the admin/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.edit {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.edit-width {
+  margin: 0;
+  text-align: left;
+}
+
+.edit-width p {
+  margin-bottom: 20px;
+}
