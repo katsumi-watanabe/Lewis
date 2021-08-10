@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :post_sneakers, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  # いいね順
+  has_many :liked_posts, through: :likes, source: :post
 
   # 自分がフォローされる（被フォロー）側の関係性
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
@@ -20,8 +22,8 @@ class User < ApplicationRecord
   attachment :profile_image
 
   validates :name, presence: true, length: { maximum: 30 }
-  validates :email, presence: true
-  validates :password, presence: true
+  #validates :email, presence: true
+  #validates :password, presence: true
   validates :introduction, length: { minimum: 1, maximum: 50 }
 
   def follow(user_id)
