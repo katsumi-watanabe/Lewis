@@ -1,0 +1,29 @@
+<div class="sneaker-width text-center">
+  <h2 class="font-weight-bold mb-5">ユーザー一覧</h2>
+  <table class="table">
+    <thead class="thead">
+      <tr>
+        <th>ユーザーID</th>
+        <th>ユーザー名</th>
+        <th>ユーザーemail</th>
+        <th>退会ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= link_to user.name, admin_user_path(user) %></td>
+        <td><%= user.email %></td>
+        <td>
+          <% if user.is_deleted == false %>
+            <p class="text-success font-weight-bold">有効</p>
+          <% else %>
+            <p class="font-weight-bold">退会</p>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

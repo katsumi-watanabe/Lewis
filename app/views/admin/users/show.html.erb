@@ -1,0 +1,24 @@
+<div class="sneaker-width">
+  <div class="edit">
+    <div class="edit-width">
+      <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "comment-user-image-2" %>
+    </div>
+    <div class="edit-width">
+      <p>ユーザーID</p>
+      <p>ユーザー名</p>
+      <p>ユーザーメールアドレス</p>
+      <p>ユーザーステータス</p>
+      <%= link_to "編集", edit_admin_user_path, class: "btn btn-success btn-1" %>
+    </div>
+    <div class="edit-width">
+      <p><%= @user.id %></p>
+      <p><%= @user.name %></p>
+      <p><%= @user.email %></p>
+      <% if @user.is_deleted == false %>
+        <p class="text-success font-weight-bold">有効</p>
+      <% else %>
+        <p class="font-weight-bold">退会</p>
+      <% end %>
+    </div>
+  </div>
+</div>

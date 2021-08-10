@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  scope module: :user do
-    resources :post_sneakers
-  end
-
   devise_for :users, controllers: {
     sessions: 'user/users/sessions',
     passwords: 'user/users/passwords',
@@ -15,6 +11,29 @@ Rails.application.routes.draw do
    passwords: 'admin/admins/passwords',
    registrations: 'admin/admins/registrations'
   }
+
+  scope module: :user do
+      get 'search' => 'homes#search'
+      post "relationshops/:user_id" => 'relationships#create', as: "relationships"
+      delete "relationshops/:user_id" => 'relationships#destroy', as: "relationship"
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+    resources :post_sneakers do
+      get 'search' => 'post_sneakers#search'
+      resources :comments, only: [:create, :edit, :update, :destroy]
+      resource :like, only: [:create, :destroy]
+    end
+  end
+
+  namespace :user do
+    resources :details, only: [:show, :edit, :update]
+  end
+
+  namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update]
+  end
+
+
 
   root to: 'user/homes#top'
 end
