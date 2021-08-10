@@ -99,6 +99,19 @@ table {
   margin: 0 auto;
 }
 
+// ページ横幅サイズ
+
+.sneaker-width-1 {
+  width: 70%;
+  margin: 0 auto;
+}
+
+// 新規投稿・編集ページ幅サイズ
+.sneaker {
+  width: 37%;
+  margin: 0 auto;
+}
+
 // alert表示位置
 .notice.alert-view {
   text-align: center;
@@ -245,12 +258,6 @@ a.btn-2 {
 // editページdiv下の空白
 .div-bottom {
   margin-bottom: 2.5rem;
-}
-
-// 新規投稿・編集ページ幅サイズ
-.sneaker {
-  width: 37%;
-  margin: 0 auto;
 }
 
 .text-field {

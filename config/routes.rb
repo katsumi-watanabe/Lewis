@@ -13,11 +13,13 @@ Rails.application.routes.draw do
   }
 
   scope module: :user do
+      get 'search' => 'homes#search'
       post "relationshops/:user_id" => 'relationships#create', as: "relationships"
       delete "relationshops/:user_id" => 'relationships#destroy', as: "relationship"
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
     resources :post_sneakers do
+      get 'search' => 'post_sneakers#search'
       resources :comments, only: [:create, :edit, :update, :destroy]
       resource :like, only: [:create, :destroy]
     end
@@ -30,6 +32,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
   end
+
+
 
   root to: 'user/homes#top'
 end
