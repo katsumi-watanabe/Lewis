@@ -39,12 +39,22 @@ class User::PostSneakersController < ApplicationController
     @post_sneaker.destroy
     redirect_to post_sneakers_path
   end
+
   # Total, Men's, Women's, Kid's絞り込み
   def search
-    @post_sneaker = PostSneaker.find(params[:id])
-    @post_sneakers = PostSneaker.search(params[:keyword])
-    @keyword = params[:keyword]
-    render :index
+    if params[:type].to_i == 0
+      @post_sneakers = PostSneaker.search(params[:keyword])
+      @keyword = params[:keyword]
+      render :index
+    elsif params[:type].to_s == new
+      selection = params[:type]
+      @post_sneakers = PostSneaker.sort(selection)
+      render :index
+    elsif params[:type].to_s == likes
+      selection = params[:type]
+      @post_sneakers = PostSneaker.sort(selection)
+      render :index
+    end
   end
 
    private
