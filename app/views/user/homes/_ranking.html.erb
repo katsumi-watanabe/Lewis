@@ -1,0 +1,33 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <%= form_with url: post_sneakers_search_path, method: :get, local: true do |f| %>
+      <%= f.hidden_field :keyword %>
+      <%= f.hidden_field :type, value: 0 %>
+      <%= f.submit "Total", class: "nav-link active" %>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= form_with url: post_sneakers_search_path, method: :get, local: true do |f| %>
+      <%= f.hidden_field :keyword, value: 0 %>
+      <%= f.hidden_field :type, value: 0 %>
+      <%= f.submit "Men's", class: "nav-link active" %>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= form_with url: post_sneakers_search_path, method: :get, local: true do |f| %>
+      <%= f.hidden_field :keyword, value: 1 %>
+      <%= f.hidden_field :type, value: 0 %>
+      <%= f.submit "Women's", class: "nav-link active" %>
+      <% end %>
+    </li>
+
+    <% if "user/homes/top" %>
+    <else>
+    <li class="nav-item">
+      <%= form_with url: post_sneakers_search_path, method: :get, local: true do |f| %>
+      <%= f.hidden_field :type, value: 1 %>
+      <%= f.submit "タイムライン", class: "nav-link active" %>
+      <% end %>
+    </li>
+    <% end %>
+  </ul>
