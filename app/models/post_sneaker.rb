@@ -10,7 +10,7 @@ class PostSneaker < ApplicationRecord
   # 性別選択
   enum gender_selection: { "Men's": 0, "Women's": 1, }
 
-  # 検索機能
+  # 性別検索機能
   def self.search(keyword)
     where(["gender_selection like?", "%#{keyword}%"])
   end
@@ -20,12 +20,13 @@ class PostSneaker < ApplicationRecord
     likes.where(user_id: user.id).exists?
   end
 
+  # いいね順、新着順
   def self.sort(selection)
     case selection
     when 'new'
       return all.order(created_at: :DESC)
     when 'likes'
-      return find(Favorite.group(:post_sneaker_id).order(Arel.sql('count(post_sneaker_id) desc')).pluck(:post_sneaker_id))
+      return find(Like.group(:post_sneaker_id).order(Arel.sql('count(post_sneaker_id) desc')).pluck(:post_sneaker_id))
     end
   end
 
