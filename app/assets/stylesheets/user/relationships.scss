@@ -1,3 +1,46 @@
 // Place all the styles related to the user/relationships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sneaker-1 {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center!important;
+}
+
+
+// text-field
+.log {
+  width: 100%;
+}
+
+// log-btn-size
+.log-btn {
+  width: 100%;
+  height: 46px;
+  border-radius: 0.2rem;
+  color: #fff;
+  border: 0px;
+}
+
+// 新規登録-btn
+.log-btn.log {
+  background-color: #3583C6;
+}
+
+// ゲストログイン-btn
+.log-btn.gest-log {
+  background-color: #5635C6;
+}
+
+// ログイン-btn
+.log-btn.log-in {
+  background-color: #FF734A;
+}
+
+
+
+
+.underline {
+  border-bottom: 1px solid #666;
+}

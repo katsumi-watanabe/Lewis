@@ -22,9 +22,7 @@ class User < ApplicationRecord
   attachment :profile_image
 
   validates :name, presence: true, length: { maximum: 30 }
-  #validates :email, presence: true
-  #validates :password, presence: true
-  validates :introduction, length: { minimum: 1, maximum: 50 }
+  validates :introduction, length: { maximum: 50 }
 
   def follow(user_id)
     relationships.create(followed_id: user_id)
@@ -37,4 +35,5 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
+
 end
