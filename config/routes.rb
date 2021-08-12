@@ -17,12 +17,13 @@ Rails.application.routes.draw do
       get 'post_sneakers/search' => 'post_sneakers#search'
       post "relationshops/:user_id" => 'relationships#create', as: "relationships"
       delete "relationshops/:user_id" => 'relationships#destroy', as: "relationship"
-      get 'followings' => 'relationships#followings', as: 'followings'
-      get 'followers' => 'relationships#followers', as: 'followers'
+      get '/users/:user_id/followings' => 'relationships#followings', as: 'followings'
+      get '/users/:user_id/followers' => 'relationships#followers', as: 'followers'
     resources :post_sneakers do
       resources :comments, only: [:create, :edit, :update, :destroy]
       resource :like, only: [:create, :destroy]
     end
+    resources :chats, only: [:create, :show, :edit, :update, :destroy]
   end
 
   namespace :user do
@@ -31,9 +32,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
+    resources :chats, only: [:index, :create, :show, :edit, :update, :destroy]
   end
 
   root to: 'user/homes#top'
-
 
 end

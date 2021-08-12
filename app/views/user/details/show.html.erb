@@ -12,8 +12,12 @@
       </div>
       <div class="d-flex">
         <p>投稿件数<%= @user.post_sneakers.count %>件</p>
-        <p>フォロー<%= @user.post_sneakers.count %>人</p>
-        <p>フォロワー<%= @user.post_sneakers.count %>人</p>
+        <%= link_to followings_path(@user) do %>
+        <p>フォロー<%= @user.followings.count %>人</p>
+        <% end %>
+        <%= link_to followers_path(@user) do %>
+        <p>フォロワー<%= @user.followers.count %>人</p>
+        <% end %>
       </div>
     </div>
   </div>

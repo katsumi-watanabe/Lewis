@@ -1,0 +1,20 @@
+<div class="sneaker-width text-center">
+  <h2 class="font-weight-bold mb-5">ユーザー一覧</h2>
+  <table class="table">
+    <% if @users.exists? %>
+    <thead class="thead">
+      <tr>
+        <th>ユーザー名</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+      </tr>
+      <% end %>
+    </tbody>
+    <% end %>
+
+  </table>
+</div>
