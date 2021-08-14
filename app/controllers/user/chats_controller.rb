@@ -20,6 +20,7 @@ class User::ChatsController < ApplicationController
    def create
     @chat = current_user.chats.create(chat_params)
     @chats = @chat.chat_room.chats
+    redirect_to chat_path(@chat)
    end
 
   def edit
@@ -34,6 +35,6 @@ class User::ChatsController < ApplicationController
   private
 
   def chat_params
-    params.require(:chat).permit(:message, :chat_room_id)
+    params.require(:chat).permit(:message, :chat_room_id, :is_admin_send)
   end
 end
