@@ -19,11 +19,12 @@ Rails.application.routes.draw do
       delete "relationshops/:user_id" => 'relationships#destroy', as: "relationship"
       get '/users/:user_id/followings' => 'relationships#followings', as: 'followings'
       get '/users/:user_id/followers' => 'relationships#followers', as: 'followers'
+    resources :chats, only: [:create, :show, :edit, :update, :destroy]
+    resources :chat_rooms, only: [:new, :show]
     resources :post_sneakers do
       resources :comments, only: [:create, :edit, :update, :destroy]
       resource :like, only: [:create, :destroy]
     end
-    resources :chats, only: [:create, :show, :edit, :update, :destroy]
   end
 
   namespace :user do
@@ -31,10 +32,12 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+
     resources :users, only: [:index, :show, :edit, :update]
     resources :chats, only: [:index, :create, :show, :edit, :update, :destroy]
   end
 
   root to: 'user/homes#top'
+  get '/admins/top' => 'admin/homes#top'
 
 end

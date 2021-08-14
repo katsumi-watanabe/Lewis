@@ -1,16 +1,26 @@
 class User::ChatsController < ApplicationController
   before_action :authenticate_user!
 
+  # def show
+  #   chat_room = current_user.chat_rooms.find_or_create_by!(user: current_user)
+  #   redirect_to chat_room_path(chat_room)
+  # end
   def show
-    chat_room = current_user.chat_rooms.find_or_create_by!(user: current_user)
+    user_chat_room = current_user.chat_room
+    chat_room = nil
+    if user_chat_room.nil?
+      chat_room = ChatRoom.create(user_id: current_user.id)
+    else
+      chat_room = user_chat_room
+    end
     @chats = chat_room.chats.includes(:user)
     @chat = Chat.new(chat_room_id: chat_room.id)
   end
 
-  def create
+   def create
     @chat = current_user.chats.create(chat_params)
     @chats = @chat.chat_room.chats
-  end
+   end
 
   def edit
   end
@@ -22,6 +32,7 @@ class User::ChatsController < ApplicationController
   end
 
   private
+
   def chat_params
     params.require(:chat).permit(:message, :chat_room_id)
   end

@@ -9,7 +9,9 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   # いいね順
   has_many :liked_posts, through: :likes, source: :post
-  has_many :chat_rooms, dependent: :destroy
+  #
+  has_many :chats, dependent: :destroy
+  has_one :chat_room, dependent: :destroy
 
 
   # 自分がフォローされる（被フォロー）側の関係性
