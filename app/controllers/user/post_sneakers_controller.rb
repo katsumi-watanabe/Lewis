@@ -40,19 +40,22 @@ class User::PostSneakersController < ApplicationController
     redirect_to post_sneakers_path
   end
 
-  # Total, Men's, Women's, Kid's絞り込み
+  # Total, Men's, Women's絞り込み
   def search
-    if params[:type].to_i == 0
+    if params[:type] == "0"
       @post_sneakers = PostSneaker.search(params[:keyword])
       @keyword = params[:keyword]
       render :index
-    elsif params[:type].to_s == new
+    elsif params[:type] == "new"
       selection = params[:type]
       @post_sneakers = PostSneaker.sort(selection)
       render :index
-    elsif params[:type].to_s == likes
+    elsif params[:type] == "likes"
       selection = params[:type]
       @post_sneakers = PostSneaker.sort(selection)
+      render :index
+    elsif params[:type] == "1"
+     @post_sneakers = PostSneaker.where(user_id: [current_user.id, *current_user.following_ids])
       render :index
     end
   end

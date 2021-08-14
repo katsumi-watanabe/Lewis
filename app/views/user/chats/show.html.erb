@@ -1,0 +1,42 @@
+<div class="sneaker-width">
+  <h2>chat</h2>
+
+  チャットメッセージ投稿フォーム
+  <% @chats.each do |chat| %>
+      <!--顧客(user)のチャット内容-->
+      <% if chat.user_id == current_user.id %>
+        <div class="text-right mt-4">
+          <p style="font-size: 11px" class="mb-0 mr-2">
+            <%= l chat.created_at %>
+            <span class="ml-3 font-weight-bold"><%= chat.user.name %></span>
+          </p>
+          <div class="chat-bubble text-left">
+            <%= chat.message %>
+          </div>
+        </div>
+      <!--管理者(admin)のチャット内容-->
+      <% elsif chat.admin_id != nil %>
+      <div class="mt-4">
+        <p style="font-size: 11px" class="mb-0 ml-2">
+          <span class="font-weight-bold">VegeCook事務局</span>
+          <span class="ml-2"><%= l chat.created_at %></span>
+        </p>
+        <div class="chat-bubble receiver-chat-bubble">
+          <%= chat.message %>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+
+    <%= form_with model: @chat, url: chats_path, local: true do |f| %>
+    <div class="form-group">
+    <%= f.text_area :message, size: '45x4', placeholder: "メッセージを入力してください" %>
+    <%= f.hidden_field :chat_room_id %>
+    <%= f.hidden_field :is_admin_send %>
+    </div>
+
+    <div>
+      <%= f.submit "送信" %>
+    </div>
+  <% end %>
+</div>

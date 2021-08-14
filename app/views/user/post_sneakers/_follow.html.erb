@@ -1,7 +1,0 @@
-<% if current_user != @user %>
-  <% if current_user.following?(@user) %>
-    <%= link_to "フォロー中", relationship_path(@user.id), method: :delete, class: "red btn btn-2" %>
-  <% else %>
-    <%= link_to "フォロー", relationships_path(@user.id), method: :post, class: "blue btn btn-2" %>
-  <% end %>
-<% end %>
