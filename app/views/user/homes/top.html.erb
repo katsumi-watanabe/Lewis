@@ -7,7 +7,29 @@
   </div>
 
   <div id="top">
-    <%= render 'ranking' %>
+    <ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.hidden_field :keyword %>
+    <%= f.hidden_field :type, value: 0 %>
+    <%= f.submit "Total", class: "nav-link active" %>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.hidden_field :keyword, value: 0 %>
+    <%= f.hidden_field :type, value: 0 %>
+    <%= f.submit "Men's", class: "nav-link active" %>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.hidden_field :keyword, value: 1 %>
+    <%= f.hidden_field :type, value: 0 %>
+    <%= f.submit "Women's", class: "nav-link active" %>
+    <% end %>
+  </li>
+</ul>
   </div>
 
   <div>

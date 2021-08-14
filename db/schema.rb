@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 2021_08_12_025551) do
   end
 
   create_table "chats", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "admin_id", null: false
+    t.integer "user_id"
+    t.integer "admin_id"
     t.integer "chat_room_id"
     t.string "message"
     t.boolean "is_admin_send", default: false, null: false
