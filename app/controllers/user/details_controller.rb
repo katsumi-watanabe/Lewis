@@ -14,6 +14,16 @@ class User::DetailsController < ApplicationController
     redirect_to user_detail_path(@user)
   end
 
+  def followings
+    user = User.find(params[:user_id])
+    @users = user.followings
+  end
+
+  def followers
+    user = User.find(params[:user_id])
+    @users = user.followers
+  end
+
   private
 
   def admin_user_params

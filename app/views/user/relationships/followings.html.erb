@@ -1,0 +1,20 @@
+<div class="sneaker-width text-center">
+  <h2 class="font-weight-bold mb-5">ユーザー一覧</h2>
+  <table class="table">
+    <thead class="thead">
+      <tr>
+        <th>ユーザーID</th>
+        <th>ユーザー名</th>
+        <th>ユーザーemail</th>
+        <th>退会ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

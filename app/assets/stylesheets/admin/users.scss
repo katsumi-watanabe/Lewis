@@ -2,18 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// admin/user-edit 画面広さ
 .edit {
   width: 80%;
   margin: 0 auto;
-  display: flex;
   justify-content: space-around;
 }
 
-.edit-width {
-  margin: 0;
-  text-align: left;
+.edit-form {
+  width: 100%;
 }
 
-.edit-width p {
-  margin-bottom: 20px;
+// image-size
+.edit-box {
+  width: 30%;
+  text-align: center;
+}
+
+.edit-box-1 {
+  width: 70%;
+}
+
+div.edit-box-1 div.d-flex p, input.text-field {
+  width: 50%;
+ margin-bottom: 20px;
+ font-size: 95%;
 }
