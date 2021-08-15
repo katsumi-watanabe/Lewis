@@ -20,7 +20,6 @@ class User::ChatsController < ApplicationController
    def create
     @chat = current_user.chats.create(chat_params)
     @chats = @chat.chat_room.chats
-    redirect_to chat_path(@chat)
    end
 
   def edit

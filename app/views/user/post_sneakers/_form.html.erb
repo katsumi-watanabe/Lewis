@@ -1,6 +1,6 @@
 <%= form_with(model:[post_sneaker, comment], remote: true) do |f| %>
   <div class="new-comment text-center">
-    <p><%= f.text_area :comment, placeholder: "コメント", class: "comment-text-form text-left" %></p>
+    <p><%= f.text_area :comment, placeholder: "コメント", class: "comment-text-form text-left", id: "text-filed" %></p>
     <% if comment.created_at %>
       <p><%= f.submit "編集を送信", class: "btn btn-outline-secondary comment-send-btn  btn-1" %></p>
     <% else %>

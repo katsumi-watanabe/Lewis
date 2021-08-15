@@ -1,5 +1,5 @@
 <% if post_sneaker.liked_by?(current_user) %>
-  <%= link_to "いいね", post_sneaker_like_path(post_sneaker), method: :delete, remote: :true, class: "fas fa-heart red btn btn-2" %>
+  <%= link_to "いいね", post_sneaker_like_path(post_sneaker), method: :delete, remote: true, class: "fas fa-heart red btn btn-2" %>
 <% else %>
-  <%= link_to "いいね", post_sneaker_like_path(post_sneaker), method: :post, remote: :true, class: "fas fa-heart blue btn btn-2" %>
+  <%= link_to "いいね", post_sneaker_like_path(post_sneaker), method: :post, remote: true, class: "fas fa-heart blue btn btn-2" %>
 <% end %>
