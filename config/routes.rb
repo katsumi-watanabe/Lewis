@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+# deviseルーティング
   devise_for :users, controllers: {
     sessions: 'user/users/sessions',
     passwords: 'user/users/passwords',
@@ -11,6 +12,17 @@ Rails.application.routes.draw do
    passwords: 'admin/admins/passwords',
    registrations: 'admin/admins/registrations'
   }
+
+  # guest-user
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'user/users/sessions#guest_sign_in'
+  end
+  # guest-admin
+  devise_scope :admin do
+    post 'admins/guest_sign_in', to: 'admin/admins/sessions#guest_sign_in'
+  end
+
+  # userルーティング
 
   scope module: :user do
       get 'search' => 'homes#search'
@@ -30,6 +42,8 @@ Rails.application.routes.draw do
   namespace :user do
     resources :details, only: [:show, :edit, :update]
   end
+
+ # adminルーティング
 
   namespace :admin do
 

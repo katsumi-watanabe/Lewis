@@ -20,6 +20,7 @@ class User::ChatsController < ApplicationController
    def create
     @chat = current_user.chats.create(chat_params)
     @chats = @chat.chat_room.chats
+    redirect_to chat_path(@chat)
    end
 
   def edit
@@ -29,6 +30,12 @@ class User::ChatsController < ApplicationController
   end
 
   def destroy
+    @chat = Chat.find(params[:id])
+    @chat.user_id = current_user.id
+    @post_sneaker.destroy
+    @chats = Chat.all
+    @chat.delete
+    redirect_to chat_path(@chat)
   end
 
   private

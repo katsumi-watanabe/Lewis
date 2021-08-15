@@ -9,7 +9,7 @@
   </div>
 
   <div class="div-bottom">
-  <%= link_to new_user_registration_path do %>
+  <%= link_to users_guest_sign_in_path, method: :post do %>
     <p class="log-btn gest-log">ゲストログイン</p>
   <% end %>
   </div>
@@ -18,11 +18,11 @@
   </div>
 
   <div class="div-bottom">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "log", placeholder: "log in"  %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "log", placeholder: "メールアドレス"  %>
   </div>
 
   <div class="div-bottom">
-    <%= f.password_field :password, autocomplete: "current-password", class: "log", placeholder: "email"  %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "log", placeholder: "パスワード"  %>
   </div>
 
   <%# if devise_mapping.rememberable? %>
@@ -37,5 +37,10 @@
   </div>
 <% end %>
 
-<%= render "user/users/shared/links" %>
+  <div class="mt-2">
+    <%= link_to new_admin_session_path, class: "text-primary mt-2" do  %>
+    <p>管理者のログインはこちら<i class="fas fa-sign-in-alt"></i></p>
+    <% end %>
+    <%= render "user/users/shared/links" %>
+  </div>
 </div>

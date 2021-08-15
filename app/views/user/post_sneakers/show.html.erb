@@ -22,8 +22,8 @@
 
         <!----いいねrender/フォローrender---->
         <div class="submit d-flex">
-           <div id="likes_buttons_<%= @post_sneaker.id %>">
-             <%= render partial: 'user/likes/like', locals: { post_sneaker: @post_sneaker } %>
+          <div id="likes_buttons_<%= @post_sneaker.id %>">
+            <%= render partial: 'user/likes/like', locals: { post_sneaker: @post_sneaker } %>
           </div>
           <div id="follow_buttons_<%= @user.id %>", class="ml-2">
             <%= render partial: 'user/relationships/follow', locals: { user: @user } %>
@@ -55,9 +55,9 @@
     <%= render partial: "user/comments/comment", locals: { post_sneaker: @post_sneaker, comments: @comments } %>
   </div>
 
-    <div id="comment-form">
-      <%= render partial: "form", locals: { post_sneaker: @post_sneaker, comment: @comment } %>
-    </div>
+  <div id="comment-form">
+    <%= render partial: "form", locals: { post_sneaker: @post_sneaker, comment: @comment } %>
+  </div>
 
   </div>
 </div>
