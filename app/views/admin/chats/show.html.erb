@@ -1,20 +1,21 @@
-<h2>showpage</h2>
-<div class="sneaker-width text-center">
-  <h2>chat</h2>
+<div class="sneaker-width-1 text-center">
+  <h2>お問い合わせ</h2>
+  <p class="mb-5">チャット</p>
 
-  チャットメッセージ投稿フォーム
-  <div id="chat-text">
-    <%= render partial: 'chat_bubbles', locals: { chats: @chats, user: @user } %>
+  <div class="add-chat-bubble">
+    <%= render partial: 'chat_bubbles', locals: { chats: @chats, user: @user  } %>
   </div>
 
-    <%= form_with model: @chat, url: chats_path, remote: true do |f| %>
-      <div class="form-group">
-      <%= f.text_area :message, size: '45x4', placeholder: "メッセージを入力してください", id: "text-area" %>
+  <!--チャットメッセージ投稿フォーム-->
+  <%= form_with model: [:admin, @chat], local: true do |f| %>
+    <div class="form-group mb-1 mx-auto">
+      <%= f.text_area :message, placeholder: "メッセージを入力", class: 'chat-form' %>
       <%= f.hidden_field :chat_room_id %>
       <%= f.hidden_field :is_admin_send %>
-      </div>
-    <div>
-      <%= f.submit "送信" %>
+    </div>
+    <div class="text-center">
+      <%= f.submit "送信", class: "btn-3 btn btn-secondary" %>
     </div>
   <% end %>
+
 </div>

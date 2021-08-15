@@ -6,4 +6,11 @@ class Admin < ApplicationRecord
 
 # chat
   has_many :chats, dependent: :destroy
+
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |admin|
+      admin.password = SecureRandom.urlsafe_base64
+      admin.id = 2
+    end
+  end
 end
