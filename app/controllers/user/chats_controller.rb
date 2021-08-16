@@ -30,6 +30,12 @@ class User::ChatsController < ApplicationController
   end
 
   def destroy
+    @chat = Chat.find(params[:id])
+    @chat.user_id = current_user.id
+    @post_sneaker.destroy
+    @chats = Chat.all
+    @chat.delete
+    redirect_to chat_path(@chat)
   end
 
   private

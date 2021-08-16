@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   # いいね順
   has_many :liked_posts, through: :likes, source: :post
-  #
+  # chat
   has_many :chats, dependent: :destroy
   has_one :chat_room, dependent: :destroy
 
@@ -28,6 +28,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 30 }
   validates :introduction, length: { maximum: 50 }
 
+  # follow/unfollow
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
@@ -38,6 +39,16 @@ class User < ApplicationRecord
 
   def following?(user)
     followings.include?(user)
+  end
+
+  # guestログイン
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.id = 2
+      user.name = "ゲスト会員"
+      user.introduction = "ゲストアカウント（会員）です。"
+    end
   end
 
 end

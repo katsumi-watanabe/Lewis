@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// top-image
 .top-image {
   background-image: image-url("top-image.jpg");
   width: 100%;
@@ -11,7 +12,15 @@
   background-position: center;
   position: relative;
   margin: 0 auto;
-  // filter: brightness(75%);
+
+}
+
+// top-image暗く
+.top-image-box {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .top-text {
@@ -19,6 +28,33 @@
   z-index: 10;
 }
 
+// top-text暗く
+.top-text.box {
+  width: 55%;
+  height: 200px;
+  text-align: center;
+  border: 1px solid #fff;
+  position: absolute;
+  left: 23%;
+  top: 33%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+// Lewis
+.top-text.box-1 {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-top: 3%;
+}
+// 今すぐ投稿する
+.top-text.box-2 {
+  font-size: 1.2rem ;
+  font-weight: bold;
+  border: 3px solid #fff;
+  border-radius: 25px;
+  width: 12rem;
+  margin: 3% auto;
+}
 
 .top-text.box {
   width: 60%;

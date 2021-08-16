@@ -11,10 +11,12 @@
         <li>管理者</li>
         <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
         <li><%= link_to "user一覧", admin_users_path %></li>
+        <li><%= link_to "chat", admin_chats_path %></li>
       <% else %>
-        <li>ゲストユーザー</li>
         <li><%= link_to "新規登録", new_user_registration_path %></li>
         <li><%= link_to "ログイン", new_user_session_path %></li>
+        <li><%= link_to "管理者ゲストログイン", admins_guest_sign_in_path, method: :post %></li>
+        <li><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %></li>
       <% end %>
     </ul>
   </nav>

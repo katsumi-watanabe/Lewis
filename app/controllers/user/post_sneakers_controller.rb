@@ -19,6 +19,7 @@ class User::PostSneakersController < ApplicationController
     @post_sneaker = PostSneaker.new(post_sneaker_params)
     @post_sneaker.user_id = current_user.id
     @post_sneaker.save
+    flash[:notice] = "投稿が完了しました"
     redirect_to post_sneakers_path
   end
 

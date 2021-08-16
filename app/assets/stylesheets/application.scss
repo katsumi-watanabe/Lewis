@@ -123,13 +123,16 @@ header {
   height: 80px;
   background-color: #212121;
   color: #fff;
-  position: fixed;
-  z-index: 10;
 }
 
 // headerからmainまでの隙間
 .header-bottm {
-  min-height: 150px;
+  min-height: 100px;
+}
+
+.alert-view {
+  color: #fff;
+  background-color: #FF5C2C;
 }
 
 // footer設定
@@ -220,6 +223,10 @@ a.btn-2 {
   border-bottom: none;
 }
 
+.btn-4 {
+  border-radius: 50%;
+}
+
 // いいねボタンcolor
 .red {
   color:#FF734A;
@@ -255,6 +262,9 @@ a.btn-2 {
   object-fit: cover;
 }
 
+// post-sneaker
+
+
 // editページdiv下の空白
 .div-bottom {
   margin-bottom: 2.5rem;
@@ -268,3 +278,23 @@ a.btn-2 {
   width: 100%;
   height: 200px;
 }
+
+// chatフォームsize
+.chat-form {
+  width: 50%;
+  height: 200px;
+}
+
+// chatフォームアンダーライン
+.delete-btn-box {
+  border-bottom: solid 1px gray;
+  position: relative;
+}
+
+// chatdeleteボタン
+a.delete-btn {
+  position: absolute;
+  left: 0;
+  top: 50px;
+}
+

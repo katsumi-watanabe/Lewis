@@ -22,14 +22,15 @@
 
         <!----いいねrender/フォローrender---->
         <div class="submit d-flex">
-           <div id="likes_buttons_<%= @post_sneaker.id %>">
-             <%= render partial: 'user/likes/like', locals: { post_sneaker: @post_sneaker } %>
+          <div id="likes_buttons_<%= @post_sneaker.id %>">
+            <%= render partial: 'user/likes/like', locals: { post_sneaker: @post_sneaker } %>
           </div>
-          <div class="ml-2", id="follow_bottons_<%= @user.id %>">
+          <div id="follow_buttons_<%= @user.id %>", class="ml-2">
             <%= render partial: 'user/relationships/follow', locals: { user: @user } %>
           </div>
         </div>
-        <p class="like-count mb-2"><span class="man-count"><%= @post_sneaker.likes.count %></span>人がいいねといっています</p>
+
+          <p class="like-count mb-2"><span class="man-count"><%= @post_sneaker.likes.count %></span>人がいいねといっています</p>
 
         <div class="caption">
           <%= @post_sneaker.caption %>
@@ -49,12 +50,14 @@
     コメント
   </h2>
   <div>
-    
 
-    <div id="comment-form">
-      <%= render partial: "form", locals: { post_sneaker: @post_sneaker, comment: @comment } %>
-    </div>
+  <div id="comment-text-field">
+    <%= render partial: "user/comments/comment", locals: { post_sneaker: @post_sneaker, comments: @comments } %>
+  </div>
 
+  <div id="comment-form">
+    <%= render partial: "form", locals: { post_sneaker: @post_sneaker, comment: @comment } %>
+  </div>
 
   </div>
 </div>

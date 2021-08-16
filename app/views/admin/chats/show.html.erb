@@ -1,1 +1,21 @@
-<h2>show</h2>
+<div class="sneaker-width-1 text-center">
+  <h2>お問い合わせ</h2>
+  <p class="mb-5">チャット</p>
+
+  <div class="add-chat-bubble">
+    <%= render partial: 'chat_bubbles', locals: { chats: @chats, user: @user  } %>
+  </div>
+
+  <!--チャットメッセージ投稿フォーム-->
+  <%= form_with model: [:admin, @chat], local: true do |f| %>
+    <div class="form-group mb-1 mx-auto">
+      <%= f.text_area :message, placeholder: "メッセージを入力", class: 'chat-form' %>
+      <%= f.hidden_field :chat_room_id %>
+      <%= f.hidden_field :is_admin_send %>
+    </div>
+    <div class="text-center">
+      <%= f.submit "送信", class: "btn-3 btn btn-secondary" %>
+    </div>
+  <% end %>
+
+</div>

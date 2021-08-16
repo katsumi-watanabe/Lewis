@@ -8,6 +8,11 @@
       <li>
         <%= link_to 'お問い合わせ', chat_path(current_user) %>
       </li>
+      <% elsif admin_signed_in? %>
+      <li>
+        <%= link_to 'お問い合わせ', admin_chats_path %>
+      </li>
+      <% else %>
       <% end %>
     </ul>
   </div>
