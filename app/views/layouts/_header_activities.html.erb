@@ -1,0 +1,9 @@
+<% if current_user.activities.present? %>
+  <% current_user.activities.each do |activity| %>
+  <%= render 'layouts/header_activities', activity: activity %>
+    = render "shared/#{activity.action_type}", activity: activity
+<% else %>
+  
+- else
+  .dropdown-item
+    | お知らせはありません 
