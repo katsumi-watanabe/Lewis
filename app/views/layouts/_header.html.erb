@@ -1,23 +1,43 @@
-<header>
-  <nav>
-    <ul class="d-flex">
-      <% if user_signed_in? %>
-        <li>ユーザー</li>
-        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to "post_sneaker", post_sneakers_path %></li>
-        <li><%= link_to "新規投稿", new_post_sneaker_path %></li>
-        <li><%= link_to "ユーザー編集", edit_user_detail_path(current_user) %></li>
-      <% elsif admin_signed_in? %>
-        <li>管理者</li>
-        <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-        <li><%= link_to "user一覧", admin_users_path %></li>
-        <li><%= link_to "chat", admin_chats_path %></li>
-      <% else %>
-        <li><%= link_to "新規登録", new_user_registration_path %></li>
-        <li><%= link_to "ログイン", new_user_session_path %></li>
-        <li><%= link_to "管理者ゲストログイン", admins_guest_sign_in_path, method: :post %></li>
-        <li><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %></li>
-      <% end %>
-    </ul>
-  </nav>
+<header class="p-3 border-bottom">
+  <div class="container p-3">
+    <nav>
+      <ul class="d-flex">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start nav-adjust">
+    <div class="d-flex align-items-center mb-2 mb-lg-0">
+      <%= link_to"Lewis", root_path, class: "text-center" %>
+    </div>
+          <% if user_signed_in? %>
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><%= link_to "投稿一覧", post_sneakers_path, class: "nav-link px-2 link-dark" %></li>
+              <li><%= link_to "投稿画面", new_post_sneaker_path, class: "nav-link px-2 link-dark" %></li>
+            </ul>
+            <li class="dropdown text-end">
+              <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "comment-user-image-4" %>
+              </a>
+              <ul class="dropdown-menu text-small align-items-center" aria-labelledby="dropdownUser1">
+                <li><%= link_to "マイページ", user_detail_path(current_user), class: "dropdown-item" %></li>
+                <li><%= link_to "通知一覧", activities_path, class: "dropdown-item" %></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+              </ul>
+            </li>
+            <form class="col-12 col-lg-auto mb-lg-0 me-lg-3">
+              <input type="search" class="form-control" placeholder="検索...">
+            </form>
+          <% elsif admin_signed_in? %>
+            <li>管理者</li>
+            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <li><%= link_to "user一覧", admin_users_path %></li>
+            <li><%= link_to "chat", admin_chats_path %></li>
+          <% else %>
+            <li><%= link_to "新規登録", new_user_registration_path %></li>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+            <li><%= link_to "管理者ゲストログイン", admins_guest_sign_in_path, method: :post %></li>
+            <li><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %></li>
+          <% end %>
+        </div>
+      </ul>
+    </nav>
+  </div>
 </header>

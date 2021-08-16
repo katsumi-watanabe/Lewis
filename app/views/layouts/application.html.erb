@@ -13,7 +13,7 @@
     <%= render 'layouts/header' %>
     <div class="header-bottm">
       <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "#{key} alert-view") %>
+        <%= content_tag(:div, value, class: "#{key} alert-view text-center") %>
       <% end %>
     </div>
     <main>

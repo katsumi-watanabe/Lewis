@@ -25,17 +25,20 @@ Rails.application.routes.draw do
   # userルーティング
 
   scope module: :user do
-      get 'search' => 'homes#search'
-      get 'post_sneakers/search' => 'post_sneakers#search'
-      post "relationshops/:user_id" => 'relationships#create', as: "relationships"
-      delete "relationshops/:user_id" => 'relationships#destroy', as: "relationship"
-      get '/users/:user_id/followings' => 'relationships#followings', as: 'followings'
-      get '/users/:user_id/followers' => 'relationships#followers', as: 'followers'
+    get 'search' => 'homes#search'
+    get 'post_sneakers/search' => 'post_sneakers#search'
+    post "relationshops/:user_id" => 'relationships#create', as: "relationships"
+    delete "relationshops/:user_id" => 'relationships#destroy', as: "relationship"
+    get '/users/:user_id/followings' => 'relationships#followings', as: 'followings'
+    get '/users/:user_id/followers' => 'relationships#followers', as: 'followers'
     resources :chats, only: [:create, :show, :edit, :update, :destroy]
     resources :chat_rooms, only: [:new, :show]
     resources :post_sneakers do
-      resources :comments, only: [:create, :edit, :update, :destroy]
-      resource :like, only: [:create, :destroy]
+    resources :comments, only: [:create, :edit, :update, :destroy]
+    resource :like, only: [:create, :destroy]
+    end
+    resources :activities, only: [:index] do
+      patch :read, on: :member
     end
   end
 

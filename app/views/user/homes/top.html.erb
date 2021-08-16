@@ -1,4 +1,5 @@
 <div class="sneaker-width-1">
+
   <div class="top-image">
     <div class="top-image-box">
       <div class="top-text box">
@@ -37,7 +38,7 @@
   <div>
     <% @post_sneakers.each do |post_sneaker| %>
       <%= link_to post_sneaker_path(post_sneaker) do %>
-      <%= attachment_image_tag post_sneaker, :post_image, :fill, 300, 300, format: 'jpeg', class: "sneaker-image" %>
+      <%= attachment_image_tag post_sneaker, :post_image, :fill, 280, 280, format: 'jpeg', class: "sneaker-image" %>
       <% end %>
     <% end %>
   </div>
