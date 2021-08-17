@@ -74,8 +74,6 @@
   text-decoration: underline;
 }
 
-
-
 // 日付右寄せ
 .create-day:last-child {
   margin-left: auto;
@@ -116,3 +114,45 @@
 }
 
 // showここまで---
+
+
+// user-sign_inページ
+.sneaker-1 {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center!important;
+}
+
+
+// text-field
+.log {
+  width: 100%;
+}
+
+// log-btn-size
+.log-btn {
+  width: 100%;
+  height: 46px;
+  border-radius: 0.2rem;
+  color: #fff;
+  border: 0px;
+}
+
+// 新規登録-btn
+.log-btn.log {
+  background-color: #3583C6;
+}
+
+// ゲストログイン-btn
+.log-btn.gest-log {
+  background-color: #5635C6;
+}
+
+// ログイン-btn
+.log-btn.log-in {
+  background-color: #FF5C2C;
+}
+
+.underline {
+  border-bottom: 1px solid #666;
+}

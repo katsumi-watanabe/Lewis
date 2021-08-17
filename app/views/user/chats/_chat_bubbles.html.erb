@@ -3,7 +3,7 @@
   <% if chat.user_id == current_user.id %>
     <div class="text-right my-5 delete-btn-box">
       <div class="tdelete-btn-box">
-        <%= link_to "×", chat_path(chats), method: :delete, class: "btn btn-danger btn-4 text-right delete-btn", data: { confirm: "本当に消しますか？" } %>
+        <%= link_to "×", chat_path(chat), method: :delete, class: "btn btn-danger btn-4 text-right delete-btn", data: { confirm: "本当に消しますか？" } %>
           <%= chat.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[chat.created_at.wday]})") %>
           <span class="ml-3 font-weight-bold"><%= chat.user.name %></span>
           <%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "comment-user-image-1", fallback: "pagu.jpeg" %>
@@ -21,6 +21,18 @@
 
     <div class="my-5">
       <%= chat.message %>
+    </div>
+
+    <div class="mb-2 d-flex">
+      <div class="d-flex">
+      <% if chat.chat_room.solution_status == "未解決" %>
+        <%= form_with model: chat, local: true do |f| %>
+          <%= f.hidden_field :solution_status, value: "解決" %>
+          <span class="font-weight-bold mr-4">解決しましたか？</span>
+          <%= f.submit "解決", class: "btn btn-outline-secondary btn-6" %>
+        <% end %>
+      <% end %>
+      </div>
     </div>
   </div>
   <% end %>

@@ -13,11 +13,11 @@ class Activity < ApplicationRecord
   def redirect_path
     case action_type.to_sym
     when :commented_to_own_post
-      post_path(subject.post_sneaker, anchor: "comment-#{subject.id}")
+      post_sneaker_path(subject.post_sneaker, anchor: "comment-#{subject.id}")
     when :liked_to_own_post
-      post_path(subject.post_sneaker)
+      post_sneaker_path(subject.post_sneaker)
     when :followed_me
-      user_path(subject.follower)
+      user_detail_path(subject.follower)
     end
   end
 end
