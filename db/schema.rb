@@ -12,18 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2021_08_16_123957) do
 
-  create_table "actibities", force: :cascade do |t|
-    t.string "subject_type"
-    t.integer "subject_id"
-    t.integer "user_id"
-    t.integer "action_type", null: false
-    t.boolean "read", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["subject_type", "subject_id"], name: "index_actibities_on_subject_type_and_subject_id"
-    t.index ["user_id"], name: "index_actibities_on_user_id"
-  end
-
   create_table "activities", force: :cascade do |t|
     t.string "subject_type"
     t.integer "subject_id"
@@ -50,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_08_16_123957) do
 
   create_table "chat_rooms", force: :cascade do |t|
     t.integer "user_id", null: false
+    t.integer "solution_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -60,7 +49,6 @@ ActiveRecord::Schema.define(version: 2021_08_16_123957) do
     t.integer "chat_room_id"
     t.string "message"
     t.boolean "is_admin_send", default: false, null: false
-    t.integer "solution_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

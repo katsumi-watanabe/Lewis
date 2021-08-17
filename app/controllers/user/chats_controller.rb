@@ -1,10 +1,7 @@
 class User::ChatsController < ApplicationController
   before_action :authenticate_user!
 
-  # def show
-  #   chat_room = current_user.chat_rooms.find_or_create_by!(user: current_user)
-  #   redirect_to chat_room_path(chat_room)
-  # end
+  # chat_roomがなければ作成、存在すれば表示
   def show
     user_chat_room = current_user.chat_room
     chat_room = nil
@@ -17,8 +14,17 @@ class User::ChatsController < ApplicationController
     @chat = Chat.new(chat_room_id: chat_room.id)
   end
 
-   def create
+  def create
     @chat = current_user.chats.create(chat_params)
+    @chats = @chat.chat_room.chats
+    # chatがcreateされるとsolution_statusを未解決に設定
+    @chat.chat_room.update(solution_status: "未解決")
+    redirect_to chat_path(@chat)
+  end
+
+   def solution
+    @user = User.find(params[:id])
+    @chat = current_user.chats.create(solution_params)
     @chats = @chat.chat_room.chats
     redirect_to chat_path(@chat)
    end
@@ -27,12 +33,15 @@ class User::ChatsController < ApplicationController
   end
 
   def update
+    @chat = Chat.find(params[:id])
+    @chat.chat_room.update(solution_params)
+    redirect_to chat_path(@chat)
   end
 
   def destroy
     @chat = Chat.find(params[:id])
     @chat.user_id = current_user.id
-    @post_sneaker.destroy
+    @chat.destroy
     @chats = Chat.all
     @chat.delete
     redirect_to chat_path(@chat)
@@ -42,5 +51,9 @@ class User::ChatsController < ApplicationController
 
   def chat_params
     params.require(:chat).permit(:message, :chat_room_id, :is_admin_send)
+  end
+
+  def solution_params
+    params.require(:chat).permit(:solution_status)
   end
 end

@@ -24,7 +24,7 @@
 html {
   margin: 0;
   padding: 0;
-  font-size: 90%;
+  font-size: 90%!important;
 }
 
 /* All */
@@ -119,8 +119,15 @@ header {
   color: #fff;
 }
 
+header.border-bottom {
+  border-bottom: 0!important;
+}
 .dropdown-toggle::after {
   margin-top: 8px;
+}
+
+.pr-1 {
+  padding: 7.2px;
 }
 
 // headerからmainまでの隙間
@@ -131,6 +138,7 @@ header {
 .alert-view {
   color: #fff;
   background-color: #FF5C2C;
+  font-size: 80%;
 }
 
 // footer設定
@@ -223,6 +231,19 @@ a.btn-2 {
 
 .btn-4 {
   border-radius: 50%;
+}
+
+.btn-5 {
+  width: 110px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.btn-6 {
+  width: 90px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 60%;
 }
 
 // いいねボタンcolor

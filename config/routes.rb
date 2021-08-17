@@ -32,7 +32,8 @@ Rails.application.routes.draw do
     get '/users/:user_id/followings' => 'relationships#followings', as: 'followings'
     get '/users/:user_id/followers' => 'relationships#followers', as: 'followers'
     resources :chats, only: [:create, :show, :edit, :update, :destroy]
-    resources :chat_rooms, only: [:new, :show]
+    post 'solution/:user_id' => 'chat#:user_id', as: "solution"
+    resources :chat_rooms, only: [:update]
     resources :post_sneakers do
     resources :comments, only: [:create, :edit, :update, :destroy]
     resource :like, only: [:create, :destroy]

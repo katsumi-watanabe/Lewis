@@ -22,7 +22,7 @@
 
         <!----いいねrender/フォローrender---->
         <div class="submit d-flex">
-          <!--div id="likes_buttons_<%#= @post_sneaker.id %>"-->
+          <!--<div id="likes_buttons_<%#= @post_sneaker.id %>" %>-->
           <div id="likes_buttons">
             <%= render partial: 'user/likes/like', locals: { post_sneaker: @post_sneaker } %>
           </div>
@@ -47,7 +47,7 @@
             });
           })
         </script>
-        
+
         <div class="caption">
           <%= @post_sneaker.caption %>
         </div>

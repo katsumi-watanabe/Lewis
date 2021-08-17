@@ -52,8 +52,6 @@ class User::PostSneakersController < ApplicationController
       @post_sneakers = PostSneaker.sort(selection)
       render :index
     elsif params[:type] == "likes"
-      #selection = params[:type]
-      #@post_sneakers = PostSneaker.sort(selection)
       @post_sneakers = PostSneaker.includes(:likes).sort {|a,b|b.likes.size <=> a.likes.size}
       render :index
     elsif params[:type] == "1"
