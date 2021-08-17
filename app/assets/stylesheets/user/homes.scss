@@ -12,6 +12,7 @@
   background-position: center;
   position: relative;
   margin: 0 auto;
+
 }
 
 // top-image暗く
@@ -54,4 +55,21 @@
   border-radius: 25px;
   width: 12rem;
   margin: 3% auto;
+}
+
+.top-text.box {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid #fff;
+}
+
+.top-text.box-1 {
+  font-size: 6rem;
+  font-weight: bold;
+}
+
+.top-text.box-2 {
+  font-size: 1.6rem;
+  font-weight: bold;
 }
