@@ -38,7 +38,6 @@
         <script>
           $(function(){
             $('#likes_buttons').on('click',function(e){
-              console.log($(e.target).attr('data-method'));
               if ($(e.target).attr('data-method') == 'post') {
                 $('#like-count').html( Number($('#like-count').text())+1 );
               } else {

@@ -3,7 +3,9 @@
   <% if chat.user_id == current_user.id %>
     <div class="text-right my-5 delete-btn-box">
       <div class="tdelete-btn-box">
-        <%= link_to "×", chat_path(chat), method: :delete, class: "btn btn-danger btn-4 text-right delete-btn", data: { confirm: "本当に消しますか？" } %>
+        <%= link_to chat_path(chat),method: :delete, class: "btn btn-danger btn-4 text-right delete-btn", data: { confirm: "本当に消しますか？" } do %>
+        <p>×</p>
+        <% end %>
           <%= chat.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[chat.created_at.wday]})") %>
           <span class="ml-3 font-weight-bold"><%= chat.user.name %></span>
           <%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "comment-user-image-1", fallback: "pagu.jpeg" %>
