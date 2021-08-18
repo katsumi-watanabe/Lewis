@@ -33,7 +33,7 @@ body {
   padding: 0;
   color: #666;
   font-family: Adobe Clean;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   text-align: left;
   line-height: 2;
   -webkit-text-size-adjust: 100%;
@@ -58,6 +58,15 @@ h6 {
   margin: 0;
   padding: 0;
   font-weight: normal;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  font-weight: bold;
+  font-size: 140%;
+  border-bottom: 1px solid #dee2e6;
 }
 
 ul {
@@ -119,9 +128,15 @@ header {
   color: #fff;
 }
 
+.header-title {
+  font-size: 150%;
+  font-weight: bold;
+}
+
 header.border-bottom {
   border-bottom: 0!important;
 }
+
 .dropdown-toggle::after {
   margin-top: 8px;
 }
@@ -132,7 +147,7 @@ header.border-bottom {
 
 // headerからmainまでの隙間
 .header-bottm {
-  min-height: 100px;
+  min-height: 50px;
 }
 
 .alert-view {

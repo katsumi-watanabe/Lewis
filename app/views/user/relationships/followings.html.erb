@@ -9,7 +9,11 @@
     <tbody>
       <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
+        <td>
+          <%= link_to user_detail_path(user.id) do %>
+          <%= user.name %>
+          <% end %>
+        </td>
       </tr>
       <% end %>
     </tbody>
