@@ -1,36 +1,27 @@
-<div class="post_sneaker_index">
-
-  <div>
-    <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <%= form_with url: post_sneakers_search_path, method: :get, local: true do |f| %>
+<div class="text-center">
+  <div id="top", class="post-sneaker-box flex-sm-row">
+    <%= form_with url: post_sneakers_search_path, method: :get, class: "top-nav-list", local: true do |f| %>
     <%= f.hidden_field :keyword %>
     <%= f.hidden_field :type, value: 0 %>
-    <%= f.submit "Total", class: "nav-link active" %>
+    <%= f.submit "Total", class: "active flex-sm-fill text-sm-center nav-link nav-list col-sm-12" %>
     <% end %>
-  </li>
-  <li class="nav-item">
-    <%= form_with url: post_sneakers_search_path, method: :get, local: true do |f| %>
+
+    <%= form_with url: post_sneakers_search_path, method: :get, class: "top-nav-list", local: true do |f| %>
     <%= f.hidden_field :keyword, value: 0 %>
     <%= f.hidden_field :type, value: 0 %>
-    <%= f.submit "Men's", class: "nav-link active" %>
+    <%= f.submit "Men's", class: "active flex-sm-fill text-sm-center nav-link nav-list" %>
     <% end %>
-  </li>
-  <li class="nav-item">
-    <%= form_with url: post_sneakers_search_path, method: :get, local: true do |f| %>
+
+    <%= form_with url: post_sneakers_search_path, method: :get, class: "top-nav-list", local: true do |f| %>
     <%= f.hidden_field :keyword, value: 1 %>
     <%= f.hidden_field :type, value: 0 %>
-    <%= f.submit "Women's", class: "nav-link active" %>
+    <%= f.submit "Women's", class: "active flex-sm-fill text-sm-center nav-link nav-list" %>
     <% end %>
-  </li>
 
-  <li class="nav-item">
-    <%= form_with url: post_sneakers_search_path, method: :get, local: true do |f| %>
+    <%= form_with url: post_sneakers_search_path, method: :get, class: "top-nav-list", local: true do |f| %>
     <%= f.hidden_field :type, value: 1 %>
-    <%= f.submit "タイムライン", class: "nav-link active" %>
+    <%= f.submit "タイムライン", class: "active flex-sm-fill text-sm-center nav-link nav-list" %>
     <% end %>
-  </li>
-</ul>
   </div>
 
   <div class="text-right mr-5">
@@ -40,11 +31,11 @@
   <% end %>
   </div>
 
-  <div class="tab-content sneaker_image_index" id="nav-tabContent">
+  <div>
     <% @post_sneakers.each do |post_sneaker| %>
-    <%= link_to post_sneaker_path(post_sneaker.id) do %>
-      <%= attachment_image_tag post_sneaker, :post_image, :fill, 300, 300, format: 'jpeg', class: "sneaker-image" %>
+      <%= link_to post_sneaker_path(post_sneaker) do %>
+      <%= attachment_image_tag post_sneaker, :post_image, :fill, 300, 300, format: 'jpeg', class: "col-md-3 col-sm-5 m-2 p-0" %>
+      <% end %>
     <% end %>
-  <% end %>
   </div>
 </div>

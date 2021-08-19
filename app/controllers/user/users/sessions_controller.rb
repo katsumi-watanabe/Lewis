@@ -1,11 +1,25 @@
 # frozen_string_literal: true
 
 class User::Users::SessionsController < Devise::SessionsController
-  
+
   def guest_sign_in
     user = User.guest
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
+  protected
+
+  def reject_user
+    @user = User.find_by(email: params[:user][:email].downcase)
+    if @user
+      if (@user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false))
+        flash[:error] = "退会済みです。"
+        redirect_to new_user_session_path
+      end
+    else
+      flash[:error] = "必須項目を入力してください。"
+    end
   end
   # before_action :configure_sign_in_params, only: [:create]
 

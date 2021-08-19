@@ -1,23 +1,56 @@
 <header>
-  <nav>
-    <ul class="d-flex">
+  <nav class="navbar navbar-expand-md navbar-dark bg-main">
+    <div class="container">
+      <h1 class="m-0">
+        <%= link_to"Lewis", root_path, class: "text-center header-title navbar-brand d-block" %>
+      </h1>
       <% if user_signed_in? %>
-        <li>ユーザー</li>
-        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to "post_sneaker", post_sneakers_path %></li>
-        <li><%= link_to "新規投稿", new_post_sneaker_path %></li>
-        <li><%= link_to "ユーザー編集", edit_user_detail_path(current_user) %></li>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#grobalNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="grobalNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item pl-4 active">
+            <%= link_to "投稿一覧", post_sneakers_path, class: "nav-link text-center font-weight-bold" %>
+          </li>
+          <li class="nav-item pl-4 active">
+            <%= link_to "投稿画面", new_post_sneaker_path, class: "nav-link text-center font-weight-bold" %>
+          </li>
+          <li class="nav-item pl-4 dropdown text-center pr-image">
+            <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "comment-user-image-4" %>
+            </a>
+          <div class="dropdown-menu">
+            <%= link_to "マイページ", user_detail_path(current_user), class: "dropdown-item" %>
+            <%= link_to "通知一覧", activities_path, class: "dropdown-item" %>
+            <hr class="dropdown-divider">
+            <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+          </li>
+          <li>
+            <form class="col-12 col-lg-auto mb-lg-0 me-lg-3 mt-2">
+              <input type="search" class="form-control" placeholder="検索...">
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
       <% elsif admin_signed_in? %>
         <li>管理者</li>
         <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
         <li><%= link_to "user一覧", admin_users_path %></li>
         <li><%= link_to "chat", admin_chats_path %></li>
+        <li><%= link_to "通知一覧", admin_activities_path %></li>
       <% else %>
         <li><%= link_to "新規登録", new_user_registration_path %></li>
         <li><%= link_to "ログイン", new_user_session_path %></li>
         <li><%= link_to "管理者ゲストログイン", admins_guest_sign_in_path, method: :post %></li>
         <li><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %></li>
       <% end %>
-    </ul>
-  </nav>
+        </div>
+      </ul>
+    </nav>
+  </div>
 </header>

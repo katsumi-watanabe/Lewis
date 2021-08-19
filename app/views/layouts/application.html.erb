@@ -13,13 +13,15 @@
     <%= render 'layouts/header' %>
     <div class="header-bottm">
       <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "#{key} alert-view") %>
+        <%= content_tag(:div, value, class: "#{key} alert-view text-center p-0 m-0") %>
       <% end %>
     </div>
     <main>
+      <div class="container">
       <%= yield %>
+      </div>
     </main>
-    <footer>
+    <footer class="text-center">
       <%= render 'layouts/footer' %>
     </footer>
   </body>

@@ -11,10 +11,10 @@
     <div class="form-group mb-1 mx-auto">
       <%= f.text_area :message, placeholder: "メッセージを入力", class: 'chat-form' %>
       <%= f.hidden_field :chat_room_id %>
-      <%= f.hidden_field :is_admin_send %>
+      <%= f.hidden_field :is_admin_send, value: true %>
     </div>
     <div class="text-center">
-      <%= f.submit "送信", class: "btn-3 btn btn-secondary" %>
+      <%= f.submit "送信", class: "btn btn-outline-secondary btn-5" %>
     </div>
   <% end %>
 

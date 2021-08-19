@@ -4,9 +4,10 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-# chat
+  # chat
   has_many :chats, dependent: :destroy
 
+  # admin側ゲスト会員
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |admin|
       admin.password = SecureRandom.urlsafe_base64

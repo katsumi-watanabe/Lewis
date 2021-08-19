@@ -1,4 +1,5 @@
 class Admin::ChatsController < ApplicationController
+
   def index
 
     @chats = Chat.all.includes(:user).group(:user_id).order(created_at: "DESC")
@@ -32,7 +33,6 @@ class Admin::ChatsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @chat = Chat.find(params[:id])
     @chat.destroy
     redirect_to admin_chat_path

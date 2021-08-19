@@ -22,15 +22,30 @@
 
         <!----いいねrender/フォローrender---->
         <div class="submit d-flex">
-          <div id="likes_buttons_<%= @post_sneaker.id %>">
+          <!--<div id="likes_buttons_<%#= @post_sneaker.id %>" %>-->
+          <div id="likes_buttons">
             <%= render partial: 'user/likes/like', locals: { post_sneaker: @post_sneaker } %>
           </div>
+          <!----フォローrender---->
           <div id="follow_buttons_<%= @user.id %>", class="ml-2">
             <%= render partial: 'user/relationships/follow', locals: { user: @user } %>
           </div>
         </div>
 
-          <p class="like-count mb-2"><span class="man-count"><%= @post_sneaker.likes.count %></span>人がいいねといっています</p>
+        <!----いいねカウント---->
+        <p class="like-count mb-2"><span id="like-count" class="man-count"><%= @post_sneaker.likes.count %></span>人がいいねといっています</p>
+
+        <script>
+          $(function(){
+            $('#likes_buttons').on('click',function(e){
+              if ($(e.target).attr('data-method') == 'post') {
+                $('#like-count').html( Number($('#like-count').text())+1 );
+              } else {
+                $('#like-count').html( Number($('#like-count').text())-1 );
+              }
+            });
+          })
+        </script>
 
         <div class="caption">
           <%= @post_sneaker.caption %>

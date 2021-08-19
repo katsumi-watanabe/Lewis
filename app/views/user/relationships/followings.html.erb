@@ -3,16 +3,17 @@
   <table class="table">
     <thead class="thead">
       <tr>
-        <th>ユーザーID</th>
         <th>ユーザー名</th>
-        <th>ユーザーemail</th>
-        <th>退会ステータス</th>
       </tr>
     </thead>
     <tbody>
       <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
+        <td>
+          <%= link_to user_detail_path(user.id) do %>
+          <%= user.name %>
+          <% end %>
+        </td>
       </tr>
       <% end %>
     </tbody>
