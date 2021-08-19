@@ -4,6 +4,7 @@ class CreateActivities < ActiveRecord::Migration[5.2]
       t.references :subject, polymorphic: true
       t.references :user, foreign_key: true
       t.integer :action_type, null: false
+      t.boolean :activity_status, default: false, null: false
       t.boolean :read, null: false, default: false
 
       t.timestamps

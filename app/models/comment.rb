@@ -10,7 +10,7 @@ class Comment < ApplicationRecord
   private
 
   def create_activities
-    Activity.create(subject: self, user: self.post_sneaker.user, action_type: :commented_to_own_post)
+    Activity.create(subject: self, user: self.post_sneaker.user, action_type: :commented_to_own_post, activity_status: :user_activity)
   end
 
 end
