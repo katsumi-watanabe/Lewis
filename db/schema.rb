@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2021_08_16_123957) do
     t.integer "subject_id"
     t.integer "user_id"
     t.integer "action_type", null: false
+    t.boolean "activity_status", default: false, null: false
     t.boolean "read", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

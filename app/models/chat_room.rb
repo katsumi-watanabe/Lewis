@@ -5,13 +5,13 @@ class ChatRoom < ApplicationRecord
   enum solution_status: { "未解決": 0, "解決": 1, }
 
   # ポリモーフィック(通知機能)
-  # has_one :activity, as: :subject, dependent: :destroy
+  has_one :activity, as: :subject, dependent: :destroy
 
-  # after_create_commit :create_activities
+  after_create_commit :create_activities
 
-  # private
+  private
 
-  # def create_activities
-  #   Activity.create(subject: self, user: self.chat_room.user, action_type: :solutioned_status)
-  # end
+  def create_activities
+    Activity.create(subject: self, user: self.chat_room.user, action_type: :solutioned_status, activity_status: :admin_activity)
+  end
 end

@@ -5,14 +5,14 @@
     <%= render partial: 'chat_bubbles', locals: { chats: @chats, user: @user } %>
   </div>
 
-    <%= form_with model: @chat, url: chats_path, local: true do |f| %>
-      <div class="form-group">
-        <%= f.text_area :message, placeholder: "メッセージを入力してください", id: "text-area", class: 'chat-form' %>
-        <%= f.hidden_field :chat_room_id %>
-        <%= f.hidden_field :is_admin_send, value: false %>
-      </div>
-    <div class="text-center">
-      <%= f.submit "送信", class: "btn btn-outline-secondary btn-5" %>
+  <%= form_with model: @chat, url: chats_path, local: true do |f| %>
+    <div class="form-group">
+      <%= f.text_area :message, placeholder: "メッセージを入力してください", id: "text-area", class: 'chat-form' %>
+      <%= f.hidden_field :chat_room_id %>
+      <%= f.hidden_field :is_admin_send, value: false %>
     </div>
+  <div class="text-center">
+    <%= f.submit "送信", class: "btn btn-outline-secondary btn-5" %>
+  </div>
   <% end %>
 </div>

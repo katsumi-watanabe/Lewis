@@ -4,10 +4,10 @@
       <h1 class="m-0">
         <%= link_to"Lewis", root_path, class: "text-center header-title navbar-brand d-block" %>
       </h1>
-      <% if user_signed_in? %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#grobalNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <% if user_signed_in? %>
       <div id="grobalNav" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item pl-4 active">
@@ -18,11 +18,12 @@
           </li>
           <li class="nav-item pl-4 dropdown text-center pr-image">
             <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "comment-user-image-4" %>
+              <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: asset_path("pagu.jpeg"), class: "comment-user-image-4" %>
             </a>
           <div class="dropdown-menu">
             <%= link_to "マイページ", user_detail_path(current_user), class: "dropdown-item" %>
             <%= link_to "通知一覧", activities_path, class: "dropdown-item" %>
+            <%= link_to 'お問い合わせ', chat_path(current_user), class: "dropdown-item" %>
             <hr class="dropdown-divider">
             <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
