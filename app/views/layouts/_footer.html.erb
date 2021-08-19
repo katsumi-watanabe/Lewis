@@ -1,38 +1,33 @@
-<div>
-  <div class="my-5">
-    <ul class="footer my-5">
-      <li><%= link_to"サイトTOP", root_path %></li>
-      <li><a href="#">Lewisについて</a></li>
-      <li><a href="#">写真の撮り方</a></li>
-      <% if user_signed_in? %>
-      <li>
-        <%= link_to 'お問い合わせ', chat_path(current_user) %>
-      </li>
+<div class="footer-top mt-4">
+  <div class="container">
+  	<div class="row mt-5 mb-4">
+  		<div class="col-md-3 footer-about wow animated">
+  			<p><%= link_to"サイトTOP", root_path %></p>
+      </div>
+  		<div class="col-md-3 footer-contact wow animated">
+  			<p>
+  			  <a href="#">Lewisについて</a>
+  			 </p>
+      </div>
+      <div class="col-md-3 footer-links wow animated">
+  			<p><a href="#">写真の撮り方</a></p>
+      </div>
+      <div class="col-md-3 footer-links wow animated">
+  		<% if user_signed_in? %>
+        <p><%= link_to 'お問い合わせ', chat_path(current_user) %></p>
       <% elsif admin_signed_in? %>
-      <li>
-        <%= link_to 'お問い合わせ', admin_chats_path %>
-      </li>
+        <p><%= link_to 'お問い合わせ', admin_chats_path %></p>
       <% else %>
       <% end %>
-    </ul>
+      </div>
+      <div class="col footer-social d-flex sns">
+        <p class="sns-icon"><a href="https://ja-jp.facebook.com/"><%= image_tag('icon_facebook.svg') %></a></p>
+        <p class="sns-icon"><a href="https://twitter.com/"><%= image_tag('icon_twitter.svg') %></a></p>
+        <p class="sns-icon"><a href="https://www.instagram.com/"><%= image_tag('icon_instagram.svg') %></a></p>
+      </div>
+    </div>
   </div>
-
-  <div>
-    <ul class="footer icon">
-      <li class="sns-icon">
-        <a href="https://ja-jp.facebook.com/"><%= image_tag('icon_facebook.svg') %></a>
-        </li>
-      <li class="sns-icon">
-        <a href="https://www.instagram.com/"><%= image_tag('icon_instagram.svg') %></a>
-      </li>
-      <li class="sns-icon">
-        <a href="https://twitter.com/"><%= image_tag('icon_twitter.svg') %></a>
-      </li>
-    </ul>
+  <div class="p-2 copyright" style="color: #666;">
+  © 2021 Lewis
   </div>
 </div>
-
-<div class="copyright">
-  <p>©2021 Lewis️</p>
-</div>
-

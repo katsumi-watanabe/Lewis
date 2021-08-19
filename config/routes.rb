@@ -53,6 +53,9 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :show, :edit, :update]
     resources :chats, only: [:index, :create, :show, :edit, :update, :destroy]
+    resources :activities, only: [:index] do
+      patch :read, on: :member
+    end
   end
 
   root to: 'user/homes#top'
