@@ -4,8 +4,7 @@ class Activity < ApplicationRecord
   belongs_to :subject, polymorphic: true
   belongs_to :user
 
-  enum action_type: { commented_to_own_post: 0, liked_to_own_post: 1, followed_me: 2 }
-
+  enum action_type: { commented_to_own_post: 0, liked_to_own_post: 1, followed_me: 2, chated: 3, chated_admin: 4, solutioned_status: 5 }
   include Rails.application.routes.url_helpers
   # 既読/未読
   enum read: { unread: false, read: true }
@@ -18,6 +17,12 @@ class Activity < ApplicationRecord
       post_sneaker_path(subject.post_sneaker)
     when :followed_me
       user_detail_path(subject.follower)
+    when :chated
+      chat_path(subject.chat_room)
+    when :chated_admin
+      admin_chat_path(subject.chat_room)
+    when :solutioned_status
+      admin_chat_path(subject.chat_room)
     end
   end
 end

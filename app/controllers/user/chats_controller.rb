@@ -42,8 +42,6 @@ class User::ChatsController < ApplicationController
     @chat = Chat.find(params[:id])
     @chat.user_id = current_user.id
     @chat.destroy
-    @chats = Chat.all
-    @chat.delete
     redirect_to chat_path(@chat)
   end
 
