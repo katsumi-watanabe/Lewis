@@ -2,7 +2,7 @@ class Admin::ActivitiesController < ApplicationController
   #before_action :authenticate_admin!
 
   def index
-   @activities = Activity.where(action_type: 4..5)
+   @activities = Activity.where(activity_status: "admin_activity")
   end
 
   def read

@@ -2,7 +2,7 @@ class User::ActivitiesController < ApplicationController
   #before_action :require_login, only: %i[read]
 
   def index
-    @activities = Activity.where(user_id: current_user.id)
+    @activities = @activities = Activity.where(user_id: current_user.id, activity_status: "user_activity")
   end
 
   def read
