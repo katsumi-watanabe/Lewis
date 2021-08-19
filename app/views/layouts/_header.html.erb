@@ -18,7 +18,7 @@
           </li>
           <li class="nav-item pl-4 dropdown text-center pr-image">
             <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: asset_path("pagu.jpeg"), class: "comment-user-image-4" %>
+              <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "comment-user-image-4" %>
             </a>
           <div class="dropdown-menu">
             <%= link_to "マイページ", user_detail_path(current_user), class: "dropdown-item" %>
