@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 // index.html.erb
 .post_sneaker_index {
   width: 70%;
@@ -41,20 +40,9 @@
   margin: 0 auto;
 }
 
-.show-width {
-  width: 50%;
-  position: relative;
-}
-
 // sneaker-image
 .sneaker_image {
   width: 100%;
-}
-
-
-.btn-bottom {
-  bottom: 6px;
-  position: absolute;
 }
 
 // caption折り返し

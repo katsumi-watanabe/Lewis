@@ -1,15 +1,15 @@
-<div class="post_sneaker_show">
+<div>
   <h2 class="text-center mb-5 font-weight-bold">
     <%= @post_sneaker.sneakers_name %>
   </h2>
 
   <div>
-    <div class="d-flex">
-      <div class="show-width">
+    <div class="d-flex row">
+      <div class="col-12 col-sm-6">
         <%= attachment_image_tag @post_sneaker, :post_image, :fill, 600, 600, format: 'jpeg', class: "sneaker_image" %>
       </div>
 
-      <div class="show-width ml-4">
+      <div class="col-12 col-sm-6">
         <div>
           <span class="font-weight-bold">
             <%= link_to user_detail_path(@user) do %>

@@ -103,6 +103,13 @@ table {
 // 共通
 .table thead th {
   border-top: 0px;
+  margin: 0 auto;
+}
+
+// 新規投稿・編集ページ幅サイズ
+.sneaker {
+  width: 45%;
+  margin: 0 auto;
 }
 
 // topページここから---
@@ -136,12 +143,6 @@ table {
 }
 
 // topページここまで---
-
-// 新規投稿・編集ページ幅サイズ
-.sneaker {
-  width: 45%;
-  margin: 0 auto;
-}
 
 // header設定
 header {
@@ -215,7 +216,6 @@ ul.footer.icon {
   justify-content: center;
 }
 
-
 // sns-icon設定
 .sns-icon {
   width: 40px;
@@ -238,7 +238,7 @@ ul.footer.icon {
 
 // btn設定
 .btn-1 {
-  width: 110px;
+  width: 100px;
   height: 40px;
   border-radius: 25px;
 }
@@ -247,7 +247,7 @@ a.btn-1 {
 }
 
 .btn-2 {
-  width: 110px;
+  width: 100px;
   height: 40px;
   border-radius: 25px;
   background-color: #fff;

@@ -1,16 +1,16 @@
-<div class="sneaker-1">
+<div class="sneaker">
 <%= form_with model: @user, url: user_session_path, local: true do |f| %>
   <p  class="div-bottom">アカウントをお持ちでない方はこちら</p>
 
   <div class="div-bottom">
   <%= link_to new_user_registration_path do %>
-    <p class="log-btn log">新規登録</p>
+    <p class="log-btn log text-center">新規登録</p>
   <% end %>
   </div>
 
   <div class="div-bottom">
   <%= link_to users_guest_sign_in_path, method: :post do %>
-    <p class="log-btn gest-log">ゲストログイン</p>
+    <p class="log-btn gest-log text-center">ゲストログイン</p>
   <% end %>
   </div>
 

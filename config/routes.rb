@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :user do
+    get 'chat_rooms/update'
+  end
 # deviseルーティング
   devise_for :users, controllers: {
     sessions: 'user/users/sessions',
