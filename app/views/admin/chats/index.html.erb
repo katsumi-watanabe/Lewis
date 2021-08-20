@@ -1,36 +1,35 @@
-<div class="sneaker-width-1 text-center">
+<div class="text-center table-responsive">
   <h2 class="font-weight-bold mb-5">お問い合わせ一覧</h2>
-    <table class="table">
-      <thead class="thead">
-        <tr class="mt-5 border-bottom">
-          <th>お問い合わせ日時</th>
-          <th>ユーザー名</th>
-          <th>chat</th>
-          <th>ステータス</th>
-        </tr>
-      </thead>
-      <% @chats.each do |chat| %>
-        <% if chat.user != nil %>
-        <tbody>
-          <td>
-            <%= chat.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[chat.created_at.wday]})") %>
-          </td>
-          <td>
-            <%= link_to chat.user.name, admin_user_path(chat.user.id) %>
-          </td>
-          <td>
-            <%= link_to "チャットへ", admin_chat_path(chat.user.id), class: 'btn btn-outline-warning' %>
-          </td>
-          <td>
-          <% if chat.chat_room.solution_status == "解決" %>
-            <p class="font-weight-bold">解決</p>
-          <% else %>
-            <p class="text-danger font-weight-bold">未解決</p>
-          <% end %>
-          </td>
-        </tbody>
+  <table class="table text-nowrap">
+    <thead class="thead">
+      <tr class="mt-5 border-bottom">
+        <th>お問い合わせ日時</th>
+        <th>ユーザー名</th>
+        <th>chat</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    <% @chats.each do |chat| %>
+      <% if chat.user != nil %>
+      <tbody>
+        <td>
+          <%= chat.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[chat.created_at.wday]})") %>
+        </td>
+        <td>
+          <%= link_to chat.user.name, admin_user_path(chat.user.id) %>
+        </td>
+        <td>
+          <%= link_to "チャットへ", admin_chat_path(chat.user.id), class: 'btn-7' %>
+        </td>
+        <td>
+        <% if chat.chat_room.solution_status == "解決" %>
+          <p class="font-weight-bold">解決</p>
+        <% else %>
+          <p class="text-danger font-weight-bold">未解決</p>
         <% end %>
+        </td>
+      </tbody>
       <% end %>
-    </table>
-  </div>
+    <% end %>
+  </table>
 </div>

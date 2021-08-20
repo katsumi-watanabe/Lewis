@@ -1,6 +1,5 @@
-<div class="sneaker-width-1 text-center">
+<div class="text-center">
   <h2>お問い合わせ</h2>
-  <p class="mb-5">チャット</p>
 
   <div class="add-chat-bubble">
     <%= render partial: 'chat_bubbles', locals: { chats: @chats, user: @user  } %>
@@ -8,8 +7,8 @@
 
   <!--チャットメッセージ投稿フォーム-->
   <%= form_with model: [:admin, @chat], local: true do |f| %>
-    <div class="form-group mb-1 mx-auto">
-      <%= f.text_area :message, placeholder: "メッセージを入力", class: 'chat-form' %>
+    <div class="form-group mx-auto text-center">
+      <%= f.text_area :message, placeholder: "メッセージを入力", class: 'chat-form col-12 col-sm-8 cpl-md-7 col-lg-6 text-center',style: "width: 90%;" %>
       <%= f.hidden_field :chat_room_id %>
       <%= f.hidden_field :is_admin_send, value: true %>
     </div>

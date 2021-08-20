@@ -20,14 +20,6 @@
   flex-wrap: wrap;
 }
 
-.sneaker-image {
-  margin: 2%;
-  width: 28%;
-}
-.sneaker-image-1 {
-  margin: 10px;
-}
-
 .sneaker-image:hover {
   filter: brightness(50%);
 }
@@ -49,6 +41,7 @@
 .caption {
   overflow-wrap: break-word;
   font-size: 65%;
+  height: 73px;
 }
 
 // btn上下の隙間
@@ -123,23 +116,4 @@
   border-radius: 0.2rem;
   color: #fff;
   border: 0px;
-}
-
-// 新規登録-btn
-.log-btn.log {
-  background-color: #3583C6;
-}
-
-// ゲストログイン-btn
-.log-btn.gest-log {
-  background-color: #5635C6;
-}
-
-// ログイン-btn
-.log-btn.log-in {
-  background-color: #FF5C2C;
-}
-
-.underline {
-  border-bottom: 1px solid #666;
 }
