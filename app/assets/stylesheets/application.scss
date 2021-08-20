@@ -103,6 +103,13 @@ table {
 // 共通
 .table thead th {
   border-top: 0px;
+  margin: 0 auto;
+}
+
+// 新規投稿・編集ページ幅サイズ
+.sneaker {
+  width: 45%;
+  margin: 0 auto;
 }
 
 // topページここから---
@@ -137,12 +144,6 @@ table {
 
 // topページここまで---
 
-// 新規投稿・編集ページ幅サイズ
-.sneaker {
-  width: 45%;
-  margin: 0 auto;
-}
-
 // header設定
 header {
   width: 100%;
@@ -150,14 +151,10 @@ header {
   color: #fff;
 }
 
+// h1「Lewis」size調整
 .header-title {
   font-size: 120%;
   font-weight: bold;
-}
-
-.header-title {
-  display: flex;
-  justify-content: flex-start;
 }
 
 .pr-image {
@@ -215,7 +212,6 @@ ul.footer.icon {
   justify-content: center;
 }
 
-
 // sns-icon設定
 .sns-icon {
   width: 40px;
@@ -238,7 +234,7 @@ ul.footer.icon {
 
 // btn設定
 .btn-1 {
-  width: 110px;
+  width: 100px;
   height: 40px;
   border-radius: 25px;
 }
@@ -247,7 +243,7 @@ a.btn-1 {
 }
 
 .btn-2 {
-  width: 110px;
+  width: 100px;
   height: 40px;
   border-radius: 25px;
   background-color: #fff;
@@ -292,12 +288,24 @@ a.btn-2 {
   font-size: 60%;
 }
 
+.btn-7 {
+  border: 1px solid #FF734A;
+  font-size: 70%;
+  color: #FF734A;
+  padding: 6% 4%;
+  border-radius: 6px;
+}
+.btn-7:hover {
+  color: #fff;
+  background-color: #FF734A;
+}
+
 // いいねボタンcolor
 .red {
-  color:#FF734A;
+  color: #FF734A;
 }
 .blue {
-  color:#528fff;
+  color: #528fff;
 }
 
 // いいねの人数文字
@@ -336,7 +344,7 @@ a.btn-2 {
 
 // editページdiv下の空白
 .div-bottom {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 
@@ -347,7 +355,6 @@ a.btn-2 {
 
 // chatフォームsize
 .chat-form {
-  width: 50%;
   height: 200px;
 }
 
@@ -370,3 +377,74 @@ a.delete-btn {
 }
 
 
+// user-log-inフォーム
+// 新規登録-btn
+
+// ゲストログイン-btn
+.gest-log {
+  background-color: #5635C6;
+  color: #fff;
+}
+.gest-log:hover {
+  background-color: #3A15B7;
+  color: #fff;
+}
+
+// ログイン-btn
+.log-in {
+  background-color: #FF5C2C;
+  color: #fff;
+}
+.log-in:hover {
+  background-color: #EA6037;
+  color: #fff;
+}
+
+.admin-log-here {
+  margin-bottom: 0!important;
+}
+
+
+.wrapper {
+	margin-bottom: 20px;
+}
+
+.form-signin {
+  max-width: 420px;
+  padding: 30px 38px 66px;
+  margin: 0 auto;
+}
+
+.form-signin-heading {
+  text-align:center;
+  margin-bottom: 30px;
+}
+
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+}
+
+.search-window {
+  padding: 5.4px 10.8px;
+}
+
+input[type="text"] {
+  margin-bottom: 20px;
+}
+
+input[type="email"] {
+  margin-bottom: 20px;
+}
+
+input[type="password"] {
+  margin-bottom: 20px;
+}
+
+.colorgraph {
+  height: 3px;
+}
+
+// user-log-inフォームここまで---

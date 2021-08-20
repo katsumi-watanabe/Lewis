@@ -4,14 +4,14 @@ class User::ChatsController < ApplicationController
   # chat_roomがなければ作成、存在すれば表示
   def show
     user_chat_room = current_user.chat_room
-    chat_room = nil
+    @chat_room = nil
     if user_chat_room.nil?
-      chat_room = ChatRoom.create(user_id: current_user.id)
+      @chat_room = ChatRoom.create(user_id: current_user.id)
     else
-      chat_room = user_chat_room
+      @chat_room = user_chat_room
     end
-    @chats = chat_room.chats.includes(:user)
-    @chat = Chat.new(chat_room_id: chat_room.id)
+    @chats = @chat_room.chats.includes(:user)
+    @chat = Chat.new(chat_room_id: @chat_room.id)
   end
 
   def create
@@ -32,12 +32,6 @@ class User::ChatsController < ApplicationController
   def edit
   end
 
-  def update
-    @chat = Chat.find(params[:id])
-    @chat.chat_room.update(solution_params)
-    redirect_to chat_path(@chat)
-  end
-
   def destroy
     @chat = Chat.find(params[:id])
     @chat.user_id = current_user.id
@@ -49,9 +43,5 @@ class User::ChatsController < ApplicationController
 
   def chat_params
     params.require(:chat).permit(:message, :chat_room_id, :is_admin_send)
-  end
-
-  def solution_params
-    params.require(:chat).permit(:solution_status)
   end
 end

@@ -25,17 +25,6 @@
       <%= chat.message %>
     </div>
 
-    <div class="mb-2 d-flex">
-      <div class="d-flex">
-      <% if chat.chat_room.solution_status == "未解決" %>
-        <%= form_with model: chat, local: true do |f| %>
-          <%= f.hidden_field :solution_status, value: "解決" %>
-          <span class="font-weight-bold mr-4">解決しましたか？</span>
-          <%= f.submit "解決", class: "btn btn-outline-secondary btn-6" %>
-        <% end %>
-      <% end %>
-      </div>
-    </div>
   </div>
   <% end %>
 <% end %>
