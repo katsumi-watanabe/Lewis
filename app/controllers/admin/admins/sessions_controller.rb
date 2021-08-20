@@ -4,7 +4,7 @@ class Admin::Admins::SessionsController < Devise::SessionsController
   def guest_sign_in
     admin = Admin.guest
     sign_in admin
-    redirect_to admin_chats_path, notice: 'ゲスト管理者としてログインしました。'
+    redirect_to admin_chats_path, notice: '管理者としてログインしました。'
   end
   # before_action :configure_sign_in_params, only: [:create]
 

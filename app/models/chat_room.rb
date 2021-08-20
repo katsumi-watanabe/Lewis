@@ -9,7 +9,9 @@ class ChatRoom < ApplicationRecord
   private
 
   def update_activities
-    Activity.create(subject: self, user: self.user, action_type: :solutioned_status, activity_status: :admin_activity)
+    if solution_status == "解決"
+      Activity.create(subject: self, user: self.user, action_type: :solutioned_status, activity_status: :admin_activity)
+    end
   end
 
 end
