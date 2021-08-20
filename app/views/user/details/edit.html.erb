@@ -1,11 +1,11 @@
 <div class="sneaker">
   <h2><%= @user.name %>さん編集画面</h2>
-  
+
   <%= form_with model: @user, url: user_detail_path, method: :patch, local: true do |f| %>
   <div>
     <div class="div-bottom">
       <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "comment-user-image-3" %>
-      <%= f.attachment_field :profile_image, class: "profile_image_field ml-3" %>
+      <%= f.attachment_field :profile_image, class: "profile_image_field" %>
     </div>
     <div class="div-bottom">
       <%= f.text_field :name, class: "text-field edit-name" %>

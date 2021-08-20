@@ -2,7 +2,7 @@
   <h2>お問い合わせ</h2>
 
   <div id="chat-text">
-    <%= render partial: 'chat_bubbles', locals: { chats: @chats, user: @user } %>
+    <%= render partial: 'chat_bubbles', locals: { chats: @chats, user: @user, chat_room: @chat.chat_room } %>
   </div>
 
   <%= form_with model: @chat, url: chats_path, local: true do |f| %>
