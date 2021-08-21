@@ -3,7 +3,7 @@
   <% if chat.admin_id != nil %>
     <div class="text-right mb-5 delete-btn-box">
       <div class="tdelete-btn-box">
-        <%= chat.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[chat.created_at.wday]})") %>
+        <span class="text-left"><%= chat.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[chat.created_at.wday]})") %></span>
         <span class="ml-3 font-weight-bold">Lewis事務局</span>
         <%= image_tag 'Lewis-image.png', class: "comment-user-image-1" %>
       </div>

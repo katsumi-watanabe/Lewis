@@ -8,25 +8,39 @@
     </div>
   </div>
 
-  <div id="top", class="my-5 top-box flex-sm-row">
-    <%= form_with url: search_path, method: :get, class: "top-nav-list", local: true do |f| %>
+  <div id="top", class="mt-5 top-box flex-sm-row row">
+    <%= form_with url: search_path, method: :get, class: "top-nav-list col-12 col-sm-4", local: true do |f| %>
     <%= f.hidden_field :keyword %>
     <%= f.hidden_field :type, value: 0 %>
-    <%= f.submit "Total", class: "active flex-sm-fill text-sm-center nav-link nav-list col-sm-12" %>
+    <% if params[:commit] == 'Total' %>
+      <%= f.submit "Total", class: "active flex-sm-fill text-sm-center nav-link nav-list nav-list-select" %>
+    <% else %>
+      <%= f.submit "Total", class: "active flex-sm-fill text-sm-center nav-link nav-list" %>
+    <% end %>
     <% end %>
 
-    <%= form_with url: search_path, method: :get, class: "top-nav-list", local: true do |f| %>
+    <%= form_with url: search_path, method: :get, class: "top-nav-list col-12 col-sm-4", local: true do |f| %>
     <%= f.hidden_field :keyword, value: 0 %>
     <%= f.hidden_field :type, value: 0 %>
-    <%= f.submit "Men's", class: "active flex-sm-fill text-sm-center nav-link nav-list" %>
+    <% if params[:commit] == "Men's" %>
+      <%= f.submit "Men's", class: "active flex-sm-fill text-sm-center nav-link nav-list nav-list-select" %>
+    <% else %>
+      <%= f.submit "Men's", class: "active flex-sm-fill text-sm-center nav-link nav-list" %>
+    <% end %>
     <% end %>
 
-    <%= form_with url: search_path, method: :get, class: "top-nav-list", local: true do |f| %>
+    <%= form_with url: search_path, method: :get, class: "top-nav-list col-12 col-sm-4", local: true do |f| %>
     <%= f.hidden_field :keyword, value: 1 %>
     <%= f.hidden_field :type, value: 0 %>
-    <%= f.submit "Women's", class: "active flex-sm-fill text-sm-center nav-link nav-list" %>
+    <% if params[:commit] == "Women's" %>
+      <%= f.submit "Women's", class: "active flex-sm-fill text-sm-center nav-link nav-list nav-list-select" %>
+    <% else %>
+      <%= f.submit "Women's", class: "active flex-sm-fill text-sm-center nav-link nav-list" %>
+    <% end %>
     <% end %>
   </div>
+
+  <hr class="dropdown-divider mt-0 mb-5 form-search">
 
   <div>
     <% @post_sneakers.each do |post_sneaker| %>

@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :chats, dependent: :destroy
   has_one :chat_room, dependent: :destroy
 
+  has_many :activities, dependent: :destroy
 
   # 自分がフォローされる（被フォロー）側の関係性
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
