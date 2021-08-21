@@ -137,12 +137,27 @@ table {
   background-color: #fff;
 }
 
-.nav-list:hover {
+.nav-list-select {
   background-color: #4B4B4B;
   color: #fff;
 }
 
+
 // topページここまで---
+
+// notification-countボタン
+.notification-count {
+  font-size: 90%;
+  color: #ff5c2c;
+  font-weight: bold;
+}
+
+
+// エラーメッセージ
+.error_messages_list li {
+  list-style: circle;
+  text-align: center;
+}
 
 // header設定
 header {
@@ -151,9 +166,13 @@ header {
   color: #fff;
 }
 
+.header-text {
+  font-weight: bold;
+}
+
 // h1「Lewis」size調整
 .header-title {
-  font-size: 120%;
+  font-size: 110%;
   font-weight: bold;
 }
 
@@ -336,8 +355,8 @@ a.btn-2 {
 }
 
 .comment-user-image-4 {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   object-fit: cover;
 }

@@ -1,1 +1,2 @@
-$("#comment-form").html("<%= escape_javascript( render partial: "user/post_sneakers/form", locals: { post_sneaker: @post_sneaker, comment: @comment }) %>");
+$("#comment-text-field").html("<%= escape_javascript( render partial: "user/comments/comment", locals: { post_sneaker: @post_sneaker, comment: @comment }) %>");
+$("#text-filed").val('')

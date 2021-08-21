@@ -17,7 +17,6 @@ class User::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.user_id = current_user.id
     @comment.update(comment_params)
-    redirect_to post_sneaker_path(@post_sneaker)
   end
 
   def destroy
