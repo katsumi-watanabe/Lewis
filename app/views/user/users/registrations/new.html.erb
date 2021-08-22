@@ -1,6 +1,8 @@
 <div class="wrapper">
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user form-signin', local: true do |f| %>
-  <%= render "admin/admins/shared/error_messages", resource: resource %>
+  <ul class="mb-3 pb-3" style="border-bottom: 1px solid #dee2e6;">
+    <li class="text-center"><%= render "user/users/shared/error_messages", resource: resource %></li>
+  </ul>
     <p class="form-signin-heading">アカウントをお持ちの方はこちら</p>
     <div class="div-bottom">
     <%= link_to new_user_session_path do %>

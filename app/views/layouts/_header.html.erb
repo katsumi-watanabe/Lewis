@@ -11,18 +11,21 @@
       <div id="grobalNav" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <%= link_to "投稿一覧", post_sneakers_path, class: "nav-link text-center" %>
+            <%= link_to "投稿一覧", post_sneakers_path, class: "nav-link text-center header-text" %>
           </li>
           <li class="nav-item active">
-            <%= link_to "投稿画面", new_post_sneaker_path, class: "nav-link text-center" %>
+            <%= link_to "投稿画面", new_post_sneaker_path, class: "nav-link text-center header-text" %>
           </li>
           <li class="nav-item dropdown text-center pr-image">
-            <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "comment-user-image-4" %>
+            <a class="dropdown-toggle header-text" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "mb-1 comment-user-image-4" %>
+              アカウント
             </a>
           <div class="dropdown-menu">
             <%= link_to "マイページ", user_detail_path(current_user), class: "dropdown-item" %>
-            <%= link_to "通知一覧", activities_path, class: "dropdown-item" %>
+            <%= link_to  activities_path do %>
+              <p class="dropdown-item">通知一覧<span class="notification-count ml-2"><%= Activity.unread_count(current_user) %></span></p>
+            <% end %>
             <%= link_to 'お問い合わせ', chat_path(current_user), class: "dropdown-item" %>
             <hr class="dropdown-divider">
             <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
@@ -30,7 +33,7 @@
           </li>
           <li>
           <form class="col-12 col-lg-auto mb-lg-0 me-lg-3 mt-2">
-            <input type="search" class="form-control search-window" placeholder="検索...">
+            <input type="search" class="form-control search-window" style="font-size: 14px;" placeholder="検索...">
           </form>
           </li>
         </ul>
@@ -38,16 +41,16 @@
       <% elsif admin_signed_in? %>
       <div id="grobalNav" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><%= link_to "管理者TOP", admin_chats_path, class: "nav-link text-center" %></li>
-          <li class="nav-item active"><%= link_to "ユーザー一覧", admin_users_path, class: "nav-link text-center" %></li>
-          <li class="nav-item active"><%= link_to "通知一覧", admin_activities_path, class: "nav-link text-center" %></li>
-          <li class="nav-item active"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-center" %></li>
+          <li class="nav-item active"><%= link_to "管理者TOP", admin_chats_path, class: "nav-link text-center header-text" %></li>
+          <li class="nav-item active"><%= link_to "ユーザー一覧", admin_users_path, class: "nav-link text-center header-text" %></li>
+          <li class="nav-item active"><%= link_to "通知一覧", admin_activities_path, class: "nav-link text-center header-text" %></li>
+          <li class="nav-item active"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-center header-text" %></li>
         </ul>
       </div>
       <% else %>
       <div id="grobalNav" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><%= link_to "新規登録/ログイン", new_user_session_path, class: "nav-link text-center" %></li>
+          <li class="nav-item active"><%= link_to "新規登録/ログイン", new_user_session_path, class: "nav-link text-center header-text" %></li>
         </ul>
       </div>
     <% end %>

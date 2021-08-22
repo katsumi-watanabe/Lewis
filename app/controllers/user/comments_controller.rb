@@ -5,6 +5,7 @@ class User::CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
     @comment.post_sneaker_id = @post_sneaker.id
     @comment.save
+    @new_comment = Comment.new
   end
 
   def edit
@@ -17,7 +18,7 @@ class User::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.user_id = current_user.id
     @comment.update(comment_params)
-    redirect_to post_sneaker_path(@post_sneaker)
+    @new_comment = Comment.new
   end
 
   def destroy

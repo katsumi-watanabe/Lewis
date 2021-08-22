@@ -1,14 +1,19 @@
 <div class="text-center">
   <h2>お問い合わせ</h2>
 
-  <div class="add-chat-bubble">
+  <div id="chat-bubble" class="add-chat-bubble">
     <%= render partial: 'chat_bubbles', locals: { chats: @chats, user: @user  } %>
   </div>
 
+  <!--エラー表示-->
+  <div id="chat-error">
+    <%= render 'admin/chats/errors', locals: { chats: @chats, user: @user, chat: @chat  } %>
+  </div>
+
   <!--チャットメッセージ投稿フォーム-->
-  <%= form_with model: [:admin, @chat], local: true do |f| %>
+  <%= form_with model: [:admin, @chat], remote: true do |f| %>
     <div class="form-group mx-auto text-center">
-      <%= f.text_area :message, placeholder: "メッセージを入力", class: 'chat-form col-12 col-sm-8 cpl-md-7 col-lg-6 text-center',style: "width: 90%;" %>
+      <%= f.text_area :message, placeholder: "メッセージを入力", id: "chat-bubble-filed", class: 'chat-form col-12 col-sm-8 cpl-md-7 col-lg-6 text-left', style: "width: 90%;" %>
       <%= f.hidden_field :chat_room_id %>
       <%= f.hidden_field :is_admin_send, value: true %>
     </div>

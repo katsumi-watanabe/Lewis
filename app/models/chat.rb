@@ -3,6 +3,9 @@ class Chat < ApplicationRecord
   belongs_to :admin, optional: true
   belongs_to :chat_room
 
+  # バリデーション設定
+  validates :message, length: { minimum: 1, maximum: 100 }
+
   # ポリモーフィック(通知機能)
   has_one :activity, as: :subject, dependent: :destroy
 

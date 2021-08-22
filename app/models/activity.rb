@@ -28,4 +28,8 @@ class Activity < ApplicationRecord
     end
   end
 
+  def self.unread_count(user)
+    user.activities.unread.count
+  end
+
 end

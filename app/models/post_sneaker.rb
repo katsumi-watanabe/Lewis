@@ -30,10 +30,11 @@ class PostSneaker < ApplicationRecord
     end
   end
 
+  # バリデーション設定
   validates :sneakers_name, presence: true, length: { maximum: 30 }
   validates :post_image, presence: true
   validates :gender_selection, presence: true
-  validates :caption, length: { minimum: 1, maximum: 150 }
+  validates :caption, length: { minimum: 1, maximum: 100 }
 
 
 end
