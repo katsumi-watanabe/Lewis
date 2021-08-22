@@ -1,6 +1,7 @@
 class Admin::ChatsController < ApplicationController
 
   def index
+
     @chats = Chat.all.includes(:user).group(:user_id).order(created_at: "DESC")
   end
 
@@ -38,5 +39,6 @@ class Admin::ChatsController < ApplicationController
 
   def chat_params
     params.require(:chat).permit(:message, :chat_room_id, :is_admin_send)
+
   end
 end
