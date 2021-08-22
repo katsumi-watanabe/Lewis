@@ -1,2 +1,8 @@
 $("#comment-text-field").html("<%= escape_javascript( render partial: "user/comments/comment", locals: { post_sneaker: @post_sneaker, comment: @comment }) %>");
 $("#text-filed").val('')
+
+<% if @comment.errors.any? %>
+  $("#comment-form").html("<%= escape_javascript( render partial: "user/post_sneakers/form", locals: { post_sneaker: @post_sneaker, comment: @comment }) %>");
+<% else %>
+  $("#comment-form").html("<%= escape_javascript( render partial: "user/post_sneakers/form", locals: { post_sneaker: @post_sneaker, comment: @new_comment }) %>");
+<% end %>

@@ -18,9 +18,13 @@ class User::PostSneakersController < ApplicationController
   def create
     @post_sneaker = PostSneaker.new(post_sneaker_params)
     @post_sneaker.user_id = current_user.id
-    @post_sneaker.save
-    flash[:notice] = "投稿が完了しました"
-    redirect_to post_sneakers_path
+    if @post_sneaker.save
+      flash[:notice] = "投稿が成功しました"
+      redirect_to post_sneakers_path
+    else
+      flash[:notice] = "投稿が失敗しました"
+      render :new
+    end
   end
 
   def edit
@@ -30,15 +34,25 @@ class User::PostSneakersController < ApplicationController
   def update
     @post_sneaker = PostSneaker.find(params[:id])
     @post_sneaker.user_id = current_user.id
-    @post_sneaker.update(post_sneaker_params)
-    redirect_to post_sneaker_path
+    if @post_sneaker.update(post_sneaker_params)
+      flash[:notice] = "編集が成功しました"
+      redirect_to post_sneaker_path
+    else
+      flash[:notice] = "編集が失敗しました"
+      render :edit
+    end
   end
 
   def destroy
     @post_sneaker = PostSneaker.find(params[:id])
     @post_sneaker.user_id = current_user.id
-    @post_sneaker.destroy
-    redirect_to post_sneakers_path
+    if @post_sneaker.destroy
+      flash[:notice] = "削除に成功しました"
+      redirect_to post_sneakers_path
+    else
+      flash[:notice] = "削除に失敗しました"
+      render :show
+    end
   end
 
   # Total, Men's, Women's絞り込み
