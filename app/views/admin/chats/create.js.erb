@@ -1,0 +1,8 @@
+$("#chat-bubble").html("<%= escape_javascript( render partial: 'admin/chats/chat_bubbles', locals: { chats: @chats, user: @user }) %>");
+$("#chat-bubble-filed").val('')
+
+<!--<%# if @chat.errors.any? %>-->
+<!--  $("#comment-form").html("<%#= escape_javascript( render partial: "user/post_sneakers/form", locals: { post_sneaker: @post_sneaker, comment: @comment }) %>");-->
+<!--<%# else %>-->
+<!--  $("#comment-form").html("<%#= escape_javascript( render partial: "user/post_sneakers/form", locals: { post_sneaker: @post_sneaker, comment: @new_comment }) %>");-->
+<!--<%# end %>-->

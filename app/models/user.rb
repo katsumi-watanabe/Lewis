@@ -26,7 +26,8 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
-  validates :name, presence: true, length: { maximum: 30 }
+  # バリデーション設定
+  validates :name, presence: true, length: { maximum: 10 }
   validates :introduction, length: { maximum: 50 }
 
   # follow/unfollow

@@ -15,7 +15,7 @@
             <%= link_to user_detail_path(@user) do %>
             <%= @user.name %>さん
             <% end %>
-            </span>
+          </span>
           /
           <%= @post_sneaker.gender_selection %>
         </div>
@@ -65,11 +65,12 @@
     コメント
   </h2>
   <div>
-
+  <!--コメントメッセージ内容-->
   <div id="comment-text-field">
     <%= render partial: "user/comments/comment", locals: { post_sneaker: @post_sneaker, comments: @comments } %>
   </div>
-
+  <!--エラーメッセージ-->
+  <!--コメントフォーム-->
   <div id="comment-form">
     <%= render partial: "form", locals: { post_sneaker: @post_sneaker, comment: @comment } %>
   </div>

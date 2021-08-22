@@ -2,6 +2,9 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :post_sneaker
 
+  # バリデーション設定
+  validates :comment, length: { minimum: 1, maximum: 100 }
+
   # ポリモーフィック(通知機能)
   has_one :activity, as: :subject, dependent: :destroy
 
@@ -14,5 +17,4 @@ class Comment < ApplicationRecord
       Activity.create(subject: self, user: self.post_sneaker.user, action_type: :commented_to_own_post, activity_status: :user_activity)
     end
   end
-
 end

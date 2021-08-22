@@ -1,3 +1,13 @@
+<% if comment.errors.any? %>
+ <div id="error_explanation pb-3">
+    <ul id="error-message-hiden" class="mb-5 pb-4" style="border-bottom: 1px solid #dee2e6;">
+     <% comment.errors.full_messages.each do |message| %>
+       <li class="text-center"><%= message %></li>
+     <% end %>
+   </ul>
+ </div>
+<% end %>
+
 <%= form_with(model:[post_sneaker, comment], remote: true) do |f| %>
   <div class="new-comment text-center">
     <p><%= f.text_area :comment, placeholder: "コメント", class: "comment-text-form text-left", id: "text-filed" %></p>

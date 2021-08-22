@@ -22,8 +22,6 @@ class Admin::ChatsController < ApplicationController
     @chat = current_admin.chats.create(chat_params)
     @chats = @chat.chat_room.chats
     @user = @chat.chat_room.user
-    redirect_back(fallback_location: root_path)
-
   end
 
   def edit
@@ -35,7 +33,6 @@ class Admin::ChatsController < ApplicationController
   def destroy
     @chat = Chat.find(params[:id])
     @chat.destroy
-    redirect_to admin_chat_path(@chat.chat_room_id)
   end
 
   private
