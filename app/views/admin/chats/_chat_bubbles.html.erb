@@ -15,10 +15,10 @@
       </div>
     </div>
   <!--顧客(user)のチャット内容-->
-  <% elsif chat.user_id == user.id %>
+  <% elsif chat.user_id == chat.user.id %>
     <div class="text-left mb-5" style="border-bottom: solid 1px gray;">
       <%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "comment-user-image-1", fallback: "pagu.jpeg" %>
-      <span class="mr-3 font-weight-bold"><%= link_to chat.user.name, admin_user_path(user) %></span>
+      <span class="mr-3 font-weight-bold"><%= link_to user.name, admin_user_path(user) %></span>
       <%= chat.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[chat.created_at.wday]})") %>
       <div class="my-5">
         <%= chat.message %>
