@@ -1,5 +1,5 @@
 class Admin::ActivitiesController < ApplicationController
-  #before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def index
    @activities = Activity.where(activity_status: "admin_activity")

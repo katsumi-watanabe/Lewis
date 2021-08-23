@@ -1,2 +1,9 @@
-$("#chat-text").html("<%= escape_javascript( render partial: "user/chats/chat_bubbles", locals: { chats: @chats, user: @user }) %>");
-$("#text-area").val('')
+$("#chat-bubble-user").html("<%= escape_javascript( render partial: 'user/chats/chat_bubbles', locals: { chats: @chats, user: @user }) %>");
+
+<% if @chat.errors.any? %>
+  $("#chat-form").html("<%= escape_javascript( render partial: 'user/chats/chat_form', locals: { chats: @chats, user: @user }) %>");
+<% else %>
+  $("#chat-form").html("<%= escape_javascript( render partial: 'user/chats/chat_form', locals: { chats: @chats, user: @user, chat: @chat_new }) %>");
+<% end %>
+
+$("#chat-bubble-filed").val('')

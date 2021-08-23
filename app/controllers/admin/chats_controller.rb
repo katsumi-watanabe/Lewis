@@ -1,4 +1,5 @@
 class Admin::ChatsController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     @chats = Chat.all.includes(:user).group(:user_id).order(created_at: "DESC")
@@ -21,6 +22,10 @@ class Admin::ChatsController < ApplicationController
     @chat = current_admin.chats.create(chat_params)
     @chats = @chat.chat_room.chats
     @user = @chat.chat_room.user
+    unless @chat.save
+      render 'error'
+    end
+    @chat_new = Chat.new
   end
 
   def edit

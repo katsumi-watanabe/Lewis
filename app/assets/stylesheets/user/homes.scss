@@ -56,3 +56,17 @@
   width: 12rem;
   margin: 3% auto;
 }
+
+// レスポンシブ対応
+@media screen and (max-width: 575px) {
+.top-text.box {
+  width: 80%;
+  height: 200px;
+  text-align: center;
+  border: 1px solid #fff;
+  position: absolute;
+  left: 10%;
+  top: 33%;
+  background: rgba(0, 0, 0, 0.5);
+}
+}

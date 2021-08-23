@@ -1,4 +1,6 @@
 class User::DetailsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @user = User.find(params[:id])
     @post_sneakers = PostSneaker.all
