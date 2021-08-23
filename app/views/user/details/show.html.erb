@@ -1,4 +1,4 @@
-<div class="sneaker-width-1">
+<div>
   <h2><%= @user.name %>さん詳細ページ</h2>
   <div class="d-flex">
     <div class="mr-4">
@@ -12,25 +12,29 @@
         <% end %>
       </div>
       <div class="d-flex">
-        <p>投稿件数<%= @user.post_sneakers.count %>件</p>
-        <%= link_to followings_path(@user) do %>
-        <p class="ml-5">フォロー<%= @user.followings.count %>人</p>
-        <% end %>
-        <%= link_to followers_path(@user) do %>
-        <p class="ml-5">フォロワー<%= @user.followers.count %>人</p>
-        <% end %>
+        <div class="mr-5">
+          <p>投稿件数<%= @user.post_sneakers.count %>件</p>
+          <%= link_to followings_path(@user) do %>
+          <p class="mr-5">フォロー<%= @user.followings.count %>人</p>
+          <% end %>
+          <%= link_to followers_path(@user) do %>
+          <p class="mr-5">フォロワー<%= @user.followers.count %>人</p>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 
   <p class="my-5 ml-3 border-bottom"><%= @user.introduction %></p>
 
-  <div class="text-center">
+  <div class="row text-center">
     <% if @post_sneakers.present? %>
       <% @user.post_sneakers.each do |post_sneaker| %>
+      <div class="my-4 col-md-6 col-lg-4">
         <%= link_to post_sneaker_path(post_sneaker.id) do %>
-          <%= attachment_image_tag post_sneaker, :post_image, :fill, 260, 260, format: 'jpeg', class: "col-md-3 col-sm-5 m-2 p-0 sneaker-image" %>
+          <%= attachment_image_tag post_sneaker, :post_image, :fill, 300, 300, format: 'jpeg' %>
         <% end %>
+      </div>
       <% end %>
     <% else %>
       <p>投稿はありません</p>

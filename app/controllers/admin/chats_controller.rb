@@ -36,6 +36,8 @@ class Admin::ChatsController < ApplicationController
 
   def destroy
     @chat = Chat.find(params[:id])
+    @user = @chat.chat_room.user
+    @chats = @chat.chat_room.chats
     @chat.destroy
   end
 
