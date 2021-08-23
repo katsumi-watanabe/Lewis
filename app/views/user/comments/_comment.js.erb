@@ -1,0 +1,32 @@
+<div>
+    <% @post_sneaker.comments.each do |comment| %>
+      <div class="d-flex comment-field">
+        <p class="mr-2">
+          <%= link_to user_detail_path(comment.user), class: "font-weight-bold" do %>
+          <%= attachment_image_tag comment.user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "comment-user-image-1" %>
+        </p>
+        <p class="mr-2 font-weight-bold">
+          <%= comment.user.name %>さん
+          <% end %>
+        </p>
+        <p class="mr-2">
+          (<%= comment.post_sneaker.gender_selection %>)
+        </p>
+
+        <% if comment.user == current_user %>
+          <p class="mr-2">
+            <%= link_to "編集", edit_post_sneaker_comment_path(comment.post_sneaker, comment), class: "btn btn-success comment-btn  btn-1", remote: true %>
+          </p>
+          <p>
+            <%= link_to "削除", post_sneaker_comment_path(comment.post_sneaker, comment), method: :delete, class: "btn btn-danger comment-btn  btn-1", data: { confirm: "本当に消しますか？" } %>
+          </p>
+        <% end %>
+        <p class="create-day">
+          <%= comment.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[comment.created_at.wday]})") %>
+        </p>
+      </div>
+      <div class="mt-3 mb-5 comment-text-size">
+        <%= comment.comment %>
+      </div>
+    <% end %>
+    </div>
