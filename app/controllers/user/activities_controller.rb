@@ -1,5 +1,5 @@
 class User::ActivitiesController < ApplicationController
-  #before_action :require_login, only: %i[read]
+  before_action :authenticate_user!
 
   def index
     @activities = Activity.where(user_id: current_user.id, activity_status: "user_activity")

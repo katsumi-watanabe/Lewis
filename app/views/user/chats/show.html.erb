@@ -1,26 +1,21 @@
-<div class="sneaker-width-1 text-center">
+<div class="text-center">
   <h2>お問い合わせ</h2>
 
-  <div id="chat-text">
+  <div id="chat-bubble-user" class="add-chat-bubble">
     <%= render partial: 'chat_bubbles', locals: { chats: @chats, user: @user, chat_room: @chat.chat_room } %>
   </div>
-
-  <%= form_with model: @chat, url: chats_path, local: true do |f| %>
-    <div class="form-group mx-auto text-center">
-      <div class="my-5 d-flex" style="justify-content: flex-end;">
-        <div class="d-flex">
-        <% if @chat.chat_room.solution_status == "未解決" %>
-          <span class="font-weight-bold mr-4">解決しましたか？</span>
-          <%= link_to "解決", chat_room_path(@chat_room.id), method: :patch, class: "btn btn-outline-danger" %>
-        <% end %>
-        </div>
+  
+  <!--解決ボタン-->
+  <div class="my-5 d-flex" style="justify-content: flex-end;">
+      <div class="d-flex">
+      <% if @chat.chat_room.solution_status == "未解決" %>
+        <span class="font-weight-bold mr-4">解決しましたか？</span>
+        <%= link_to "解決", chat_room_path(@chat_room.id), method: :patch, class: "btn btn-outline-danger" %>
+      <% end %>
       </div>
-      <%= f.text_area :message, placeholder: "メッセージを入力してください", id: "text-area", class: 'chat-form col-12 col-sm-8 cpl-md-7 col-lg-6 text-left', style: "width: 90%;" %>
-      <%= f.hidden_field :chat_room_id %>
-      <%= f.hidden_field :is_admin_send, value: false %>
     </div>
-    <div class="text-center">
-      <%= f.submit "送信", class: "btn btn-outline-secondary btn-5" %>
-    </div>
-  <% end %>
+  <!--エラー表示--><!--チャットメッセージ投稿フォーム-->
+  <div id="chat-form">
+    <%= render partial: 'user/chats/chat_form', locals: { chat: @chat, chats: @chats, user: @user, chat_room: @chat.chat_room } %>
+  </div>
 </div>

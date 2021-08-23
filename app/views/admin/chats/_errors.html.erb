@@ -1,9 +1,0 @@
-<% if @chat.errors.any? %>
- <div id="error_explanation pb-3">
-    <ul id="error-message-hiden" class="mb-5 pb-4" style="border-bottom: 1px solid #dee2e6;">
-     <% @chat.errors.full_messages.each do |message| %>
-       <li class="text-center"><%= message %></li>
-     <% end %>
-   </ul>
- </div>
-<% end %>

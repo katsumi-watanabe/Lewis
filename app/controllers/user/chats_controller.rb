@@ -19,7 +19,10 @@ class User::ChatsController < ApplicationController
     @chats = @chat.chat_room.chats
     # chatがcreateされるとsolution_statusを未解決に設定
     @chat.chat_room.update(solution_status: "未解決")
-    redirect_to chat_path(@chat)
+    unless @chat.save
+      render 'error'
+    end
+    @chat_new = Chat.new(chat_room_id: chat_params[:chat_room_id])
   end
 
    def solution
@@ -35,8 +38,8 @@ class User::ChatsController < ApplicationController
   def destroy
     @chat = Chat.find(params[:id])
     @chat.user_id = current_user.id
+    @chats = @chat.chat_room.chats
     @chat.destroy
-    redirect_to chat_path(@chat)
   end
 
   private

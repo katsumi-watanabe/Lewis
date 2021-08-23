@@ -1,11 +1,12 @@
 class User::PostSneakersController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @post_sneaker = PostSneaker.new
   end
 
   def index
-    @post_sneakers = PostSneaker.all
+    @post_sneakers = PostSneaker.page(params[:page]).reverse_order
   end
 
   def show
@@ -58,7 +59,7 @@ class User::PostSneakersController < ApplicationController
   # Total, Men's, Women's絞り込み
   def search
     if params[:type] == "0"
-      @post_sneakers = PostSneaker.search(params[:keyword])
+      @post_sneakers = PostSneaker.search(params[:keyword]).page(params[:page]).reverse_order
       @keyword = params[:keyword]
       render :index
     elsif params[:type] == "new"
@@ -69,7 +70,7 @@ class User::PostSneakersController < ApplicationController
       @post_sneakers = PostSneaker.includes(:likes).sort {|a,b|b.likes.size <=> a.likes.size}
       render :index
     elsif params[:type] == "1"
-     @post_sneakers = PostSneaker.where(user_id: [current_user.id, *current_user.following_ids])
+     @post_sneakers = PostSneaker.where(user_id: [current_user.id, *current_user.following_ids]).page(params[:page]).reverse_order
       render :index
     end
   end
