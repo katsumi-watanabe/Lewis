@@ -1,6 +1,6 @@
 <% if comment.errors.any? %>
  <div id="error_explanation pb-3">
-    <ul id="error-message-hiden" class="mb-5 pb-4">
+    <ul id="error-message-hiden" class="mb-5 pb-4" style="border-bottom: 1px solid #dee2e6;">
      <% comment.errors.full_messages.each do |message| %>
        <li class="text-center"><%= message %></li>
      <% end %>
@@ -15,9 +15,9 @@
   </div>
   <div class="col-12">
     <% if comment.created_at %>
-      <%= f.submit "編集を送信", class: "btn btn-outline-secondary comment-send-btn btn-1" %>
+      <%= f.submit "編集を送信", class: "btn btn-radius-solid" %>
     <% else %>
-      <%= f.submit "送信", class: "btn btn-outline-secondary comment-send-btn btn-1" %>
+      <%= f.submit "送信", class: "btn btn-radius-solid" %>
     <% end %>
   </div>
 </div>
