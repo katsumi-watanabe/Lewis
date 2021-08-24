@@ -1,5 +1,5 @@
 class Admin::ActivitiesController < ApplicationController
-  #before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def index
    @activities = Activity.where(activity_status: "admin_activity")
@@ -8,6 +8,6 @@ class Admin::ActivitiesController < ApplicationController
   def read
     activity = Activity.find(params[:id])
     activity.read! if activity.unread?
-    redirect_to activity.transition_path
+    redirect_to activity.redirect_path
   end
 end

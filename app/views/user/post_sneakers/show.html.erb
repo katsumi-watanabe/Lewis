@@ -5,11 +5,11 @@
 
   <div>
     <div class="d-flex row" style="justify-content: center;">
-      <div class="col-12 col-sm-6 col-md-5 col-md-5 col-lg-4">
-        <%= attachment_image_tag @post_sneaker, :post_image, :fill, 600, 600, format: 'jpeg', class: "sneaker_image" %>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-5">
+        <%= attachment_image_tag @post_sneaker, :post_image, :fill, 300, 300, format: 'jpeg', class: "sneaker_image" %>
       </div>
 
-      <div class="col-12 col-sm-6 col-md-5 col-md-5 col-lg-4">
+      <div class="col-12 col-sm-6 col-md-6 col-lg-5">
         <div>
           <span class="font-weight-bold">
             <%= link_to user_detail_path(@user) do %>
@@ -69,8 +69,7 @@
   <div id="comment-text-field">
     <%= render partial: "user/comments/comment", locals: { post_sneaker: @post_sneaker, comments: @comments } %>
   </div>
-  <!--エラーメッセージ-->
-  <!--コメントフォーム-->
+  <!--エラーメッセージ--><!--コメントフォーム-->
   <div id="comment-form">
     <%= render partial: "form", locals: { post_sneaker: @post_sneaker, comment: @comment } %>
   </div>

@@ -24,7 +24,13 @@
           <div class="dropdown-menu">
             <%= link_to "マイページ", user_detail_path(current_user), class: "dropdown-item" %>
             <%= link_to  activities_path do %>
-              <p class="dropdown-item">通知一覧<span class="notification-count ml-2"><%= Activity.unread_count(current_user) %></span></p>
+              <p class="dropdown-item">通知一覧
+                <span class="notification-count ml-2">
+                  <% if Activity.unread_count(current_user) != 0 %>
+                    <%= Activity.unread_count(current_user) %>
+                  <% end %>
+                </span>
+              </p>
             <% end %>
             <%= link_to 'お問い合わせ', chat_path(current_user), class: "dropdown-item" %>
             <hr class="dropdown-divider">

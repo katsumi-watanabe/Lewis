@@ -24,7 +24,7 @@ class Activity < ApplicationRecord
     when :chated_admin
       admin_chat_path(subject.chat_room)
     when :solutioned_status
-      chat_path(subject.chat_room)
+      admin_chat_path(subject.chat_room)
     end
   end
 

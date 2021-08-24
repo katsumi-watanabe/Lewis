@@ -1,0 +1,20 @@
+<% if chat.errors.any? %>
+ <div id="error_explanation pb-3">
+   <ul id="error-message-hiden" class="mb-5 pb-4" style="border-bottom: 1px solid #dee2e6;">
+    <% chat.errors.full_messages.each do |message| %>
+      <li class="text-center"><%= message %></li>
+    <% end %>
+   </ul>
+ </div>
+<% end %>
+
+<%= form_with model: [:admin, @chat], url: admin_chats_path, method: :post, remote: true do |f| %>
+  <div class="form-group mx-auto text-center">
+    <%= f.text_area :message, placeholder: "メッセージを入力", id: "chat-bubble-filed", class: 'chat-form col-12 col-sm-8 cpl-md-7 col-lg-6 text-left', style: "width: 90%;" %>
+    <%= f.hidden_field :chat_room_id %>
+    <%= f.hidden_field :is_admin_send, value: true %>
+  </div>
+  <div class="text-center">
+    <%= f.submit "送信", class: "btn btn-radius-solid" %>
+  </div>
+<% end %>

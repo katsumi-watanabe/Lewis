@@ -1,0 +1,2 @@
+$("#chat-bubble-user").html("<%= escape_javascript( render partial: 'user/chats/chat_bubbles', locals: { chats: @chats, user: @user }) %>");
+$("#chat-bubble-filed").val('')

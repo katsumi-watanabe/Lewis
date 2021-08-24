@@ -2,13 +2,13 @@
   <div class="top-image">
     <div class="top-image-box">
       <div class="top-text box">
-        <h1 class="top-text box-1">Lewis</h1>
+        <h1 class="top-text mt-4 box-1">Lewis</h1>
         <p><%= link_to"今すぐ投稿する", new_post_sneaker_path, class: "top-text box-2 btn btn-outline-light" %></p>
       </div>
     </div>
   </div>
 
-  <div id="top", class="mt-5 top-box flex-sm-row row">
+  <div id="top", class="mt-5 top-box flex-sm-row row letter-font">
     <%= form_with url: search_path, method: :get, class: "top-nav-list col-12 col-sm-4 p-0", local: true do |f| %>
     <%= f.hidden_field :keyword %>
     <%= f.hidden_field :type, value: 0 %>
@@ -44,11 +44,13 @@
 
   <hr class="dropdown-divider mt-0 mb-5 form-search">
 
-  <div>
+  <div class="row">
     <% @post_sneakers.each do |post_sneaker| %>
+    <div class="col-md-6 col-lg-4 my-3">
       <%= link_to post_sneaker_path(post_sneaker) do %>
-      <%= attachment_image_tag post_sneaker, :post_image, :fill, 800, 800, format: 'jpeg', class: "col-md-3 col-sm-5 m-2 p-0" %>
+      <%= attachment_image_tag post_sneaker, :post_image, :fill, 300, 300, format: 'jpeg' %>
       <% end %>
+    </div>
     <% end %>
   </div>
 </div>

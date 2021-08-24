@@ -9,12 +9,16 @@
 <% end %>
 
 <%= form_with(model:[post_sneaker, comment], remote: true) do |f| %>
-  <div class="new-comment text-center">
-    <p><%= f.text_area :comment, placeholder: "コメント", class: "comment-text-form text-left", id: "text-filed" %></p>
+<div class="new-comment text-center row" style="justify-content: center;">
+  <div class="col-12 col-sm-10 cpl-md-6 col-lg-6 mb-3">
+    <%= f.text_area :comment, placeholder: "コメント", class: "comment-text-form text-left", id: "text-filed" %>
+  </div>
+  <div class="col-12">
     <% if comment.created_at %>
-      <p><%= f.submit "編集を送信", class: "btn btn-outline-secondary comment-send-btn  btn-1" %></p>
+      <%= f.submit "編集を送信", class: "btn btn-radius-solid" %>
     <% else %>
-      <p><%= f.submit "送信", class: "btn btn-outline-secondary comment-send-btn  btn-1" %></p>
+      <%= f.submit "送信", class: "btn btn-radius-solid" %>
     <% end %>
   </div>
+</div>
 <% end %>
