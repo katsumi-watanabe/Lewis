@@ -2,25 +2,29 @@
   <h2><%= @user.name %>さん編集画面</h2>
 
   <%= form_with model: @user, url: user_detail_path, method: :patch, local: true do |f| %>
-  <div>
-    <div class="div-bottom">
+  <div class="row" style="justify-content: center;">
+    <div class="div-bottom col-12 col-sm-10 col-md-7 t">
       <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "comment-user-image-3" %>
-      <%= f.attachment_field :profile_image, class: "profile_image_field" %>
+      <label for="image">
+        <span class="button-1">プロフィール写真を変更する</span><%= f.attachment_field :profile_image, id: "image" %>
+      </label>
+      <!--写真の名前-->
+      <div id="file-name"></div>
     </div>
-    <div class="div-bottom">
-      <%= f.text_field :name, class: "text-field edit-name" %>
+    <div class="div-bottom col-12 col-sm-10 col-md-7 t">
+      <%= f.text_field :name, class: "ext-field edit-name" %>
     </div>
-    <div class="div-bottom">
+    <div class="div-bottom col-12 col-sm-10 col-md-7">
       <%= f.radio_button :gender_selection, :"Men's", checked: "checked" %>
       <%= f.label :gender_selection, "Men's" %>
       <%= f.radio_button :gender_selection, :"Women's" %>
       <%= f.label :gender_selection, "Women's" %>
     </div>
-    <div class="div-bottom">
+    <div class="div-bottom col-12 col-sm-10 col-md-7">
       <%= f.text_area :introduction, class: "text-area", placeholder: "自己紹介" %>
     </div>
-    <div class="text-center">
-      <%= f.submit '編集', class: "btn-3" %>
+    <div class="text-center col-12 col-sm-10 col-md-7">
+      <%= f.submit '編集', class: "btn btn-radius-solid" %>
     </div>
   </div>
   <% end %>

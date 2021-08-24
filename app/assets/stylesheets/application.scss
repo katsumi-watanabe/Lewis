@@ -291,29 +291,26 @@ a.btn-2 {
   line-height: 28px;
 }
 
-.btn-3 {
-  width: 130px;
-  height: 50px;
-  border-radius: 25px;
-  background-color: #fff;
-  color: #212121;
-  border: 1px solid #212121;
-  text-align: center;
+input.btn-radius-solid {
+  width: 110px;
+  height: 40px;
+  border: 1px solid #ccc;
+  background: #f1e767;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fdfbfb), to(#ebedee));
+  background: -webkit-linear-gradient(top, #fdfbfb 0%, #ebedee 100%);
+  background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+  -webkit-box-shadow: inset 1px 1px 1px #fff;
+  box-shadow: inset 1px 1px 1px #fff;
 }
 
-.btn-3:active {
-  transform: translateY(4px);
-  border-bottom: none;
+input.btn-radius-solid:hover {
+  background: -webkit-gradient(linear, left bottom, left top, from(#fdfbfb), to(#ebedee));
+  background: -webkit-linear-gradient(bottom, #fdfbfb 0%, #ebedee 100%);
+  background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
 }
 
 .btn-4 {
   border-radius: 50%;
-}
-
-.btn-5 {
-  width: 110px;
-  height: 40px;
-  border-radius: 5px;
 }
 
 .btn-6 {
@@ -482,3 +479,17 @@ input[type="password"] {
 }
 
 // user-log-inフォームここまで---
+
+// ファイルを選択してください(削除)
+#image {
+  display: none;
+}
+.button {
+  display: block;
+  width: 120px;
+  text-align: center;
+  background-color: #ebebeb;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
