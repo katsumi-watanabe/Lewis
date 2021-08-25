@@ -1,21 +1,13 @@
-<div class="text-center">
+<div class="text-center sneaker">
   <h2>お問い合わせ</h2>
 
   <div id="chat-bubble-user" class="add-chat-bubble">
     <%= render partial: 'chat_bubbles', locals: { chats: @chats, user: @user, chat_room: @chat.chat_room } %>
   </div>
-  
-  <!--解決ボタン-->
-  <div class="my-5 d-flex" style="justify-content: flex-end;">
-      <div class="d-flex">
-      <% if @chat.chat_room.solution_status == "未解決" %>
-        <span class="font-weight-bold mr-4">解決しましたか？</span>
-        <%= link_to "解決", chat_room_path(@chat_room.id), method: :patch, class: "btn btn-outline-danger" %>
-      <% end %>
-      </div>
-    </div>
-  <!--エラー表示--><!--チャットメッセージ投稿フォーム-->
+
+  <!--解決ボタン--><!--エラー表示-->
+  <!--チャットメッセージ投稿フォーム-->
   <div id="chat-form">
-    <%= render partial: 'user/chats/chat_form', locals: { chat: @chat, chats: @chats, user: @user, chat_room: @chat.chat_room } %>
+    <%= render partial: 'user/chats/chat_form', locals: { chat: @chat, chats: @chats, chat_room: @chat.chat_room } %>
   </div>
 </div>

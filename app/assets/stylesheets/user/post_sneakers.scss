@@ -27,11 +27,6 @@
 // indexここまで---
 
 // show.html.erb
-.post_sneaker_show {
-  width: 60%;
-  margin: 0 auto;
-}
-
 // sneaker-image
 .sneaker_image {
   width: 100%;
@@ -40,13 +35,19 @@
 // caption折り返し
 .caption {
   overflow-wrap: break-word;
-  font-size: 90%;
+  width: 90%;
 }
 
 // btn上下の隙間
 .submit {
   height: 40px;
   margin: 10px 0;
+}
+
+// 投稿「編集」「削除」ボタンposition
+.btn-position {
+  position: absolute;
+  bottom: 0;
 }
 
 .comment-box {
@@ -119,15 +120,46 @@
 
 
 // レスポンシブ対応
-@media screen and (max-width: 575px) {
-.top-text.box {
-  width: 80%;
-  height: 200px;
-  text-align: center;
-  border: 1px solid #fff;
-  position: absolute;
-  left: 10%;
-  top: 33%;
-  background: rgba(0, 0, 0, 0.5);
+@media screen and (min-width: 992px) {
+.post_user_name {
+  font-size: 130%;
+}
+.sneaker-detail {
+  margin: 30px 0;
+}
+.post-like {
+  margin-right: 20px;
+}
+.like-count {
+  font-size: 100%;
+  margin: 30px 0;
+}
+.caption {
+ font-size: 110%;
+}
+div.btn-position {
+  margin-bottom: 0!important;
+}
+.edit-btn {
+  margin-right: 20px;
+}
+
+}
+
+@media screen and (max-width: 767px) {
+// 投稿詳細ページ
+div.sneaker-detail {
+  text-align: center!important;
+  justify-content: center;
+}
+.btn-position {
+  position: static;
+}
+.sneaker-image-size {
+  width: 300px;
+  height: 300px;
+}
+.caption {
+  margin: auto;
 }
 }

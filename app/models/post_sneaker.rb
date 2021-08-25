@@ -34,7 +34,7 @@ class PostSneaker < ApplicationRecord
   validates :sneakers_name, presence: true, length: { maximum: 30 }
   validates :post_image, presence: true
   validates :gender_selection, presence: true
-  validates :caption, length: { minimum: 1, maximum: 100 }
+  validates :caption, length: { minimum: 1, maximum: 90 }
 
 
 end

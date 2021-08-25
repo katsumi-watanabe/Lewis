@@ -1,7 +1,7 @@
 <div class="sneaker">
 <h2>新規投稿画面</h2>
 <% if @post_sneaker.errors.any? %>
- <div id="error_explanation pb-3" style="border-bottom: 1px solid #dee2e6;">
+ <div id="error_explanation pb-3" >
     <ul class="mb-5 pb-4" style="border-bottom: 1px solid #dee2e6;">
      <% @post_sneaker.errors.full_messages.each do |message| %>
        <li class="text-center"><%= message %></li>

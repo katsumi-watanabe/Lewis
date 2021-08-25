@@ -1,13 +1,12 @@
-<div class="sneaker-width text-center">
+<div class="sneaker text-center">
   <h2 class="font-weight-bold mb-5">ユーザー一覧</h2>
   <table class="table">
     <thead class="thead">
       <tr>
-        <th>ユーザー名</th>
+        <th>フォロワーユーザー名</th>
       </tr>
     </thead>
     <tbody>
-    <% if @users.exists? %>
       <% @users.each do |user| %>
       <tr>
         <td>
@@ -17,7 +16,10 @@
         </td>
       </tr>
       <% end %>
-    <% end %>
     </tbody>
   </table>
+</div>
+
+<div class="text-center mt-5" style="justify-content: center;">
+  <%= paginate @users %>
 </div>

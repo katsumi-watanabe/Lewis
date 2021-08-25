@@ -29,13 +29,19 @@
     <% if @post_sneakers.present? %>
       <% @user.post_sneakers.each do |post_sneaker| %>
       <div class="my-4 col-md-6 col-lg-4">
+        <div class="fall-item fall-effect">
         <%= link_to post_sneaker_path(post_sneaker.id) do %>
-          <%= attachment_image_tag post_sneaker, :post_image, :fill, 300, 300, format: 'jpeg' %>
+          <%= attachment_image_tag post_sneaker, :post_image, :fill, 800, 800, format: 'jpeg' %>
         <% end %>
+        </div>
       </div>
       <% end %>
     <% else %>
       <p>投稿はありません</p>
     <% end %>
   </div>
+</div>
+
+<div class="text-center mt-5" style="justify-content: center;">
+  <%= paginate @post_sneakers %>
 </div>
