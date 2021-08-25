@@ -3,7 +3,7 @@ class User::DetailsController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @post_sneakers = PostSneaker.all
+    @post_sneakers = PostSneaker.page(params[:page]).reverse_order
   end
 
   def edit

@@ -59,7 +59,16 @@
       <%= attachment_image_tag post_sneaker, :post_image, :fill, 800, 800, format: 'jpeg' %>
       <% end %>
       <div class="mask">
-        <a href="#" class="info">Read More</a>
+        <%= link_to "Read More", post_sneaker_path(post_sneaker), class: "info" %>
+
+        <div id="likes_buttons" class="post-like">
+          <%= render partial: 'user/likes/like', locals: { post_sneaker: post_sneaker } %>
+        </div>
+        <div id="follow_buttons_<%= post_sneaker.user.id %>", class="ml-2 post-follow">
+          <%= render partial: 'user/relationships/follow', locals: { user: post_sneaker.user } %>
+        </div>
+
+
          <div class="sneaker-image-bottom d-flex" style="justify-content: space-between;" >
            <div class="d-flex">
            <%= link_to user_detail_path(current_user), class: "d-flex" do %>

@@ -2,7 +2,7 @@ class Admin::ActivitiesController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-   @activities = Activity.where(activity_status: "admin_activity")
+   @activities = Activity.page(params[:page]).reverse_order.where(activity_status: "admin_activity").order(created_at: :DESC)
   end
 
   def read

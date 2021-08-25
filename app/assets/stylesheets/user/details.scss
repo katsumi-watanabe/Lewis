@@ -10,3 +10,13 @@
 .edit-name {
   width: 100%!important;
 }
+
+// レスポンシブ対応
+@media screen and (min-width: 767px) {
+.btn-1 {
+  text-align: center;
+}
+}
+
+@media screen and (min-width: 576px) {
+}

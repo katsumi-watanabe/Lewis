@@ -3,7 +3,7 @@
   <table class="table">
     <thead class="thead">
       <tr>
-        <th>ユーザー名</th>
+        <th>フォローユーザー名</th>
       </tr>
     </thead>
     <tbody>
@@ -18,4 +18,8 @@
       <% end %>
     </tbody>
   </table>
+</div>
+
+<div class="text-center mt-5" style="justify-content: center;">
+  <%= paginate @users %>
 </div>
