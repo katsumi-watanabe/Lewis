@@ -1,6 +1,7 @@
+<!--エラーメッセージ-->
 <% if chat.errors.any? %>
  <div id="error_explanation pb-3">
-   <ul id="error-message-hiden" class="mb-5 pb-4" style="border-bottom: 1px solid #dee2e6;">
+   <ul id="error-message-hiden" class="my-4 pb-4" style="border-bottom: 1px solid #dee2e6;">
     <% chat.errors.full_messages.each do |message| %>
       <li class="text-center"><%= message %></li>
     <% end %>
@@ -8,13 +9,26 @@
  </div>
 <% end %>
 
-<%= form_with model: chat,url: chats_path, method: :post, remote: true do |f| %>
-  <div class="form-group mx-auto text-center">
-    <%= f.text_area :message, placeholder: "メッセージを入力してください", id: "chat-bubble-filed", class: 'chat-form col-12 col-sm-8 cpl-md-7 col-lg-6 text-left', style: "width: 90%;" %>
+<!--解決/未解決ステータス-->
+<div class="my-5 d-flex" style="justify-content: flex-end;">
+  <div class="d-flex">
+  <% if chat.chat_room.solution_status == "未解決" %>
+    <span class="font-weight-bold mr-4">解決しましたか？</span>
+    <%= link_to "解決", chat_room_path(chat.chat_room.id), method: :patch, class: "btn btn-outline-danger", remote: true %>
+  <% end %>
+  </div>
+</div>
+
+<!--chatフォーム-->
+<%= form_with model: chat, url: chats_path, method: :post, remote: true do |f| %>
+<div class="row">
+  <div class="form-group text-center col-12 col-sm-12 col-md-10 col-lg-10 p-0">
+    <%= f.text_area :message, placeholder: "メッセージを入力してください", id: "chat-bubble-filed", class: 'chat-form text-left', style: "width: 90%;" %>
     <%= f.hidden_field :chat_room_id %>
     <%= f.hidden_field :is_admin_send, value: false %>
   </div>
-  <div class="text-center">
-    <%= f.submit "送信", class: "btn btn-radius-solid" %>
+  <div class="text-right col-12 col-sm-12 col-md-2 col-lg-2 p-0 send-btn">
+    <%= f.submit "送信", class: " btn btn-radius-solid send-submit" %>
   </div>
+</div>
 <% end %>

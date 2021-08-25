@@ -64,16 +64,18 @@ class User::PostSneakersController < ApplicationController
       render :index
     elsif params[:type] == "new"
       selection = params[:type]
-      @post_sneakers = PostSneaker.sort(selection)
+      @post_sneakers = PostSneaker.sort(selection).page(params[:page]).reverse_order
       render :index
     elsif params[:type] == "likes"
-      @post_sneakers = PostSneaker.includes(:likes).sort {|a,b|b.likes.size <=> a.likes.size}
+      post_sneakers = PostSneaker.includes(:likes).sort{ |a,b|b.likes.size <=> a.likes.size }
+      @post_sneakers = Kaminari.paginate_array(post_sneakers).page(params[:page])
       render :index
     elsif params[:type] == "1"
      @post_sneakers = PostSneaker.where(user_id: [current_user.id, *current_user.following_ids]).page(params[:page]).reverse_order
       render :index
     end
   end
+
 
    private
 

@@ -18,19 +18,12 @@ class User::ChatsController < ApplicationController
     @chat = current_user.chats.create(chat_params)
     @chats = @chat.chat_room.chats
     # chatがcreateされるとsolution_statusを未解決に設定
-    @chat.chat_room.update(solution_status: "未解決")
     unless @chat.save
       render 'error'
     end
     @chat_new = Chat.new(chat_room_id: chat_params[:chat_room_id])
+    @chat.chat_room.update(solution_status: "未解決")
   end
-
-   def solution
-    @user = User.find(params[:id])
-    @chat = current_user.chats.create(solution_params)
-    @chats = @chat.chat_room.chats
-    redirect_to chat_path(@chat)
-   end
 
   def edit
   end

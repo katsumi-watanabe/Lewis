@@ -20,7 +20,8 @@
 //= require_tree .
 
 // ファイルを選択してくださいの削除
-$(function () {
+$(document).on('turbolinks:load', function () {
+  $(function () {
   $('#image').on("change", function () {
     var file = this.files[0];
     const fileName = document.getElementById("file-name");
@@ -28,4 +29,5 @@ $(function () {
       fileName.insertAdjacentHTML('afterbegin', file.name);
     }
   });
+});
 });

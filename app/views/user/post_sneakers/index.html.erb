@@ -44,7 +44,7 @@
 
   <hr class="dropdown-divider mt-0">
 
-  <div class="text-right mr-5">
+  <div class="text-right">
     <%= form_with url: post_sneakers_search_path, method: :get, local: true do |f| %>
      <div><%= f.select :type, [["新着順", "new"], ["いいね順", "likes"]] %></div>
      <%= f.submit '並び替え' %>
@@ -53,14 +53,33 @@
 
   <div class="row">
   <% @post_sneakers.each do |post_sneaker| %>
-  <div class="col-lg-4 col-md-6 my-4">
-    <%= link_to post_sneaker_path(post_sneaker) do %>
-    <%= attachment_image_tag post_sneaker, :post_image, :fill, 300, 300, format: 'jpeg' %>
-    <% end %>
+  <div class="col-sm-12 col-md-6 col-lg-4 my-4">
+    <div class="fall-item fall-effect">
+      <%= link_to post_sneaker_path(post_sneaker) do %>
+      <%= attachment_image_tag post_sneaker, :post_image, :fill, 800, 800, format: 'jpeg' %>
+      <% end %>
+      <div class="mask">
+        <a href="#" class="info">Read More</a>
+         <div class="sneaker-image-bottom d-flex" style="justify-content: space-between;" >
+           <div class="d-flex">
+           <%= link_to user_detail_path(current_user), class: "d-flex" do %>
+             <%= attachment_image_tag post_sneaker.user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "pagu.jpeg", class: "mt-2 mx-3 comment-user-image-1" %>
+             <%= post_sneaker.user.name %>
+           <% end %>
+           </div>
+           <div>
+             <i class="far fa-heart mr-3"><%= post_sneaker.likes.count %></i>
+             <i class="far fa-comment mr-3"><%= post_sneaker.comments.count %></i>
+           </div>
+         </div>
+      </div>
+    </div>
   </div>
   <% end %>
   </div>
+
+
   <div class="text-center mt-5" style="justify-content: center;">
-  <%= paginate @post_sneakers %>
+    <%= paginate @post_sneakers %>
   </div>
 </div>

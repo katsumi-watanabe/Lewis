@@ -5,5 +5,3 @@ $("#chat-bubble-user").html("<%= escape_javascript( render partial: 'user/chats/
 <% else %>
   $("#chat-form").html("<%= escape_javascript( render partial: 'user/chats/chat_form', locals: { chats: @chats, user: @user, chat: @chat_new }) %>");
 <% end %>
-
-$("#chat-bubble-filed").val('')
