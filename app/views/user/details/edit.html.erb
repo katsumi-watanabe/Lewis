@@ -1,17 +1,27 @@
 <div class="sneaker">
   <h2><%= @user.name %>さん編集画面</h2>
 
+  <% if @user.errors.any? %>
+   <div id="error_explanation pb-3" >
+      <ul class="mb-5 pb-4" style="border-bottom: 1px solid #dee2e6;">
+       <% @user.errors.full_messages.each do |message| %>
+         <li class="text-center"><%= message %></li>
+       <% end %>
+     </ul>
+   </div>
+  <% end %>
+
   <%= form_with model: @user, url: user_detail_path, method: :patch, local: true do |f| %>
   <div class="row" style="justify-content: center;">
-    <div class="div-bottom col-12 col-sm-10 col-md-7 t">
+    <div class="div-bottom col-12 col-sm-10 col-md-7">
       <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "comment-user-image-3" %>
       <label for="image">
-        <span class="button-1">プロフィール写真を変更する</span><%= f.attachment_field :profile_image, id: "image" %>
+        <span class="button-1 ml-3">プロフィール写真を変更する</span><%= f.attachment_field :profile_image, id: "image" %>
       </label>
       <!--写真の名前-->
       <div id="file-name"></div>
     </div>
-    <div class="div-bottom col-12 col-sm-10 col-md-7 t">
+    <div class="div-bottom col-12 col-sm-10 col-md-7">
       <%= f.text_field :name, class: "ext-field edit-name" %>
     </div>
     <div class="div-bottom col-12 col-sm-10 col-md-7">

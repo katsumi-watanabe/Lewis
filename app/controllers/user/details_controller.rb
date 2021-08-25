@@ -12,8 +12,13 @@ class User::DetailsController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    @user.update(admin_user_params)
-    redirect_to user_detail_path(@user)
+    if @user.update(admin_user_params)
+      redirect_to user_detail_path(@user)
+      flash[:notice] = "編集が成功しました"
+    else
+      render :edit
+      flash[:notice] = "編集が失敗しました"
+    end
   end
 
   def followings

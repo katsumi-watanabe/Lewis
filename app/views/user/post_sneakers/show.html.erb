@@ -4,13 +4,15 @@
   </h2>
 
   <div>
-    <div class="d-flex row" style="justify-content: center;">
-      <div class="col-12 col-sm-6 col-md-6 col-lg-5">
-        <%= attachment_image_tag @post_sneaker, :post_image, :fill, 300, 300, format: 'jpeg', class: "sneaker_image" %>
+    <div class="row" style="justify-content: center;">
+      <div class="mb-3 col-12 col-md-6 col-lg-6 text-right sneaker-detail">
+        <div class="fall-item fall-effect">
+        <%= attachment_image_tag @post_sneaker, :post_image, :fill, 400, 400, format: 'jpeg', class: "sneaker-image-size" %>
+        </div>
       </div>
 
-      <div class="col-12 col-sm-6 col-md-6 col-lg-5">
-        <div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-6 sneaker-detail">
+        <div class="mb-3 post_user_name">
           <span class="font-weight-bold">
             <%= link_to user_detail_path(@user) do %>
             <%= @user.name %>さん
@@ -21,19 +23,19 @@
         </div>
 
         <!----いいねrender/フォローrender---->
-        <div class="submit d-flex">
+        <div class="submit d-flex sneaker-detail">
           <!--<div id="likes_buttons_<%#= @post_sneaker.id %>" %>-->
-          <div id="likes_buttons">
+          <div id="likes_buttons" class="post-like">
             <%= render partial: 'user/likes/like', locals: { post_sneaker: @post_sneaker } %>
           </div>
           <!----フォローrender---->
-          <div id="follow_buttons_<%= @user.id %>", class="ml-2">
+          <div id="follow_buttons_<%= @user.id %>", class="ml-2 post-follow">
             <%= render partial: 'user/relationships/follow', locals: { user: @user } %>
           </div>
         </div>
 
         <!----いいねカウント---->
-        <p class="like-count mb-2"><span id="like-count" class="man-count"><%= @post_sneaker.likes.count %></span>人がいいねといっています</p>
+        <p class="like-count my-2"><span id="like-count" class="man-count"><%= @post_sneaker.likes.count %></span>人がいいねといっています</p>
 
         <script>
           $(function(){
@@ -47,12 +49,12 @@
           })
         </script>
 
-        <div class="caption">
+        <div class="caption my-3">
           <%= @post_sneaker.caption %>
         </div>
-        <div class="btn-bottom">
+        <div class="btn-position mb-3">
           <% if @post_sneaker.user == current_user %>
-          <%= link_to "編集", edit_post_sneaker_path(id: @post_sneaker.id), class: "btn btn-success btn-1" %>
+          <%= link_to "編集", edit_post_sneaker_path(id: @post_sneaker.id), class: "btn btn-success btn-1 edit-btn" %>
           <%= link_to "削除", post_sneaker_path(@post_sneaker), method: :delete, class: "btn btn-danger btn-1", data: { confirm: "本当に消しますか？" } %>
           <% end %>
         </div>

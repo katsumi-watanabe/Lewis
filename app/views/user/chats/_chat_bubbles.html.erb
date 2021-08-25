@@ -1,30 +1,33 @@
 <% chats.each do |chat| %>
 <!--顧客(user)のチャット内容-->
   <% if chat.user_id == current_user.id %>
-    <div class="text-right my-5 delete-btn-box">
-      <div class="tdelete-btn-box">
-        <%= link_to chat_path(chat), method: :delete, class: "btn btn-danger btn-4 text-right delete-btn", data: { confirm: "本当に消しますか？" }, remote: true do %>
-        <p>×</p>
-        <% end %>
-          <%= chat.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[chat.created_at.wday]})") %>
-          <span class="ml-3 font-weight-bold"><%= chat.user.name %></span>
-          <%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "comment-user-image-1", fallback: "pagu.jpeg" %>
-        <div class="text-right my-5">
-          <%= chat.message %>
-        </div>
+  <div class="text-right delete-btn-box media media-chat media-chat-reverse" style="border-bottom: 1px solid #dee2e6;">
+
+      <!--chatメッセージ削除ボタン(非同期実装済)-->
+      <%#= link_to chat_path(chat), method: :delete, class: "btn btn-danger btn-4 text-right delete-btn", data: { confirm: "本当に消しますか？" }, remote: true do %>
+      <!--<span>×</span>-->
+      <%# end %>
+
+    <div class="tdelete-btn-box media-body">
+
+      <span class="ml-3 font-weight-bold"><%= chat.user.name %></span>
+      <div class="text-right">
+        <p><%= chat.message %></p>
+        <p class="meta" style="color: #9b9b9b;"><%= chat.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[chat.created_at.wday]})") %></p>
       </div>
     </div>
+  </div>
+
   <!--管理者(admin)のチャット内容-->
   <% elsif chat.admin_id != nil %>
-  <div class="text-left mb-5" style="border-bottom: solid 1px gray;">
-      <%= image_tag 'Lewis-image.png', class: "comment-user-image-1" %>
-      <span class="font-weight-bold">Lewis事務局</span>
-      <%= chat.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[chat.created_at.wday]})") %>
-
-    <div class="my-5">
-      <%= chat.message %>
+  <div class="text-left media media-chat" style="border-bottom: 1px solid #dee2e6;">
+    <div class="media-body">
+    <span class="font-weight-bold">Lewis事務局</span>
+      <p><%= chat.message %></p>
+      <p class="meta"><%= chat.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[chat.created_at.wday]})") %></p>
     </div>
-
   </div>
   <% end %>
 <% end %>
+
+
