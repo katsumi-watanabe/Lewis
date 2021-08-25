@@ -2,7 +2,7 @@ class User::ActivitiesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @activities = Activity.where(user_id: current_user.id, activity_status: "user_activity")
+    @activities = Activity.page(params[:page]).reverse_order.where(user_id: current_user.id, activity_status: "user_activity").order(created_at: :DESC)
   end
 
   def read

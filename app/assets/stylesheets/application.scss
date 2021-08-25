@@ -37,6 +37,9 @@ body {
   text-align: left;
   line-height: 2;
   -webkit-text-size-adjust: 100%;
+  position: relative;
+  padding-bottom: 400px;
+  min-height: 100vh;
 }
 
 p {
@@ -228,6 +231,7 @@ footer {
   font-weight: bold;
   bottom: 0;
   font-size: 1.4rem;
+  position: absolute;
 }
 
 // ul設定横並び
@@ -290,6 +294,7 @@ a.btn-2 {
   font-size: 70%;
   line-height: 28px;
 }
+
 
 input.btn-radius-solid {
   width: 110px;
@@ -570,4 +575,10 @@ input[type="password"] {
   height: 60px;
   line-height: 60px;
   background-color: #F6F6F6;
+}
+
+@media screen and (max-width: 767px) {
+body {
+  padding-bottom: 500px!important;
+}
 }
