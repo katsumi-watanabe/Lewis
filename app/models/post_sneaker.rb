@@ -4,6 +4,7 @@ class PostSneaker < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :histories, dependent: :destroy
 
   # いいね順
   has_many :liked_users, through: :likes, source: :user
@@ -30,10 +31,22 @@ class PostSneaker < ApplicationRecord
     end
   end
 
+  # 閲覧履歴
+  def browsing_history(user)
+    new_history = histories.new
+    new_history.user_id = user.id
+    # 同じ投稿をcurrent_userが閲覧している場合、古い履歴を削除
+    if user.histories.exists?(post_sneaker_id: id)
+      sneaker_history = user.histories.find_by(post_sneaker_id: id)
+      sneaker_history.destroy
+    end
+    new_history.save
+  end
+
   # バリデーション設定
   validates :sneakers_name, presence: true, length: { maximum: 30 }
-  validates :post_image, presence: true
-  validates :gender_selection, presence: true
+  validates :post_image, presence: { message: 'を選択してください' }
+  validates :gender_selection, presence: { message: 'を選択してください' }
   validates :caption, length: { minimum: 1, maximum: 90 }
 
 

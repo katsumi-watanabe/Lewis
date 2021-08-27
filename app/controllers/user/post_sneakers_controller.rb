@@ -11,6 +11,11 @@ class User::PostSneakersController < ApplicationController
 
   def show
     @post_sneaker = PostSneaker.find(params[:id])
+    # 閲覧履歴(ユーザーがログインしている場合は閲覧履歴を保存する)
+    if user_signed_in?
+      @post_sneaker.browsing_history(current_user)
+    end
+    # ここまで
     @user = @post_sneaker.user
     @comments = Comment.all
     @comment = Comment.new

@@ -37,6 +37,8 @@ Rails.application.routes.draw do
     resources :post_sneakers do
     resources :comments, only: [:create, :edit, :update, :destroy]
     resource :like, only: [:create, :destroy]
+    post 'like2' => 'likes#create2'
+    delete 'like2' => 'likes#destroy2'
     end
     resources :activities, only: [:index] do
       patch :read, on: :member

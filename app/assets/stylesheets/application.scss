@@ -295,6 +295,16 @@ a.btn-2 {
   line-height: 28px;
 }
 
+.red-outline {
+  color: #FF734A;
+}
+.blue-outline {
+  color: #7C7C7C;
+}
+
+span.count-decoratio:hover {
+  color: #666;
+}
 
 input.btn-radius-solid {
   width: 110px;
@@ -512,7 +522,7 @@ input[type="password"] {
 .fall-item .mask,.fall-item .content {
   width: 100%;
   height: 100%;
-  position: absolute;
+  // position: absolute;
   overflow: hidden;
   top: 0;
   left: 0;
@@ -527,7 +537,7 @@ input[type="password"] {
 .fall-effect .mask {
   width: 100%;
   height: 100%;
-  position: absolute;
+  // position: absolute;
   overflow: hidden;
   top: 0;
   left: 0;
@@ -564,7 +574,6 @@ input[type="password"] {
   -o-transition-delay: 0s;
   -ms-transition-delay: 0s;
   transition-delay: 0s;
-
 }
 
 .sneaker-image-bottom {
