@@ -14,7 +14,7 @@
   <%= form_with model: @user, url: user_detail_path, method: :patch, local: true do |f| %>
   <div class="row" style="justify-content: center;">
     <div class="div-bottom col-12 col-sm-10 col-md-7">
-      <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "comment-user-image-3" %>
+      <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "no_image.png", class: "comment-user-image-3" %>
       <label for="image">
         <span class="button-1 ml-3">プロフィール写真を変更する</span><%= f.attachment_field :profile_image, id: "image" %>
       </label>

@@ -2,7 +2,7 @@
 <div class="d-flex comment-field">
   <p class="mr-2">
     <%= link_to user_detail_path(comment.user), class: "font-weight-bold" do %>
-    <%= attachment_image_tag comment.user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "comment-user-image-1" %>
+    <%= attachment_image_tag comment.user, :profile_image, format: 'jpeg', fallback: "no_image.png", class: "comment-user-image-1" %>
   </p>
   <p class="mr-2 font-weight-bold">
     <%= comment.user.name %>さん

@@ -3,7 +3,12 @@ class User::DetailsController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @post_sneakers = PostSneaker.page(params[:page]).reverse_order
+    # いいね一覧
+    @likes = Like.where(user_id: @user.id).page(params[:page]).reverse_order
+    # 投稿一覧
+    @post_sneakers = @user.post_sneakers.page(params[:page]).reverse_order
+    # 閲覧履歴
+    @browsed_posts = PostSneaker.joins(:histories).where('histories.user_id': @user.id).order('histories.created_at': "DESC")
   end
 
   def edit
