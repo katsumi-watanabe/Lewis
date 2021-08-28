@@ -2,14 +2,10 @@
   <%= form_with model: @user, url: user_session_path, class: "form-signin", local: true do |f| %>
     <p class="form-signin-heading">アカウントをお持ちでない方はこちら</p>
     <div class="div-bottom">
-    <%= link_to new_user_registration_path do %>
-      <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">新規登録</button>
-    <% end %>
+      <%= link_to"新規登録", new_user_registration_path,class: "btn btn-lg btn-primary btn-block"  %>
     </div>
     <div class="div-bottom">
-    <%= link_to users_guest_sign_in_path, method: :post do %>
-      <button class="btn btn-lg btn-block gest-log"  name="Submit" value="Login" type="Submit">ゲストログイン</button>
-    <% end %>
+      <%= link_to"ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn btn-lg btn-block gest-log"  %>
     </div>
     <hr class="colorgraph"><br>
     <div>

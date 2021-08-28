@@ -16,7 +16,7 @@
     <div class="div-bottom col-12 col-sm-10 col-md-7">
       <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "no_image.png", class: "comment-user-image-3" %>
       <label for="image">
-        <span class="button-1 ml-3">プロフィール写真を変更する</span><%= f.attachment_field :profile_image, id: "image" %>
+        <span class="button-1 ml-2">プロフィール写真を変更する</span><%= f.attachment_field :profile_image, id: "image" %>
       </label>
       <!--写真の名前-->
       <div id="file-name"></div>

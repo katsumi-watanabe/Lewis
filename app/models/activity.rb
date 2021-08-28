@@ -29,7 +29,7 @@ class Activity < ApplicationRecord
   end
 
   def self.unread_count(user)
-    user.activities.unread.count
+    self.where(user_id: user.id, activity_status: "user_activity").count
   end
 
 end
