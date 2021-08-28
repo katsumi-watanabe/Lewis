@@ -1,9 +1,7 @@
 <div class="wrapper">
   <%= form_for(resource, as: resource_name, html: { class: "form-signin" }, url: session_path(resource_name)) do |f| %>
     <div class="div-bottom">
-    <%= link_to admins_guest_sign_in_path, method: :post do %>
-      <button class="btn btn-lg btn-block gest-log"  name="Submit" value="Login" type="Submit">管理者ゲストログイン</button>
-    <% end %>
+      <%= link_to"管理者ゲストログイン", admins_guest_sign_in_path, class: "btn btn-lg btn-block gest-log", method: :post %>
     </div>
     <hr class="colorgraph"><br>
     <div>

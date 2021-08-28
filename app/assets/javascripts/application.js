@@ -21,8 +21,49 @@
 //= require_tree .
 /*global $*/
 
+// image-action
+
+// 投稿一覧ページimage
+$(function(){
+  $(window).load(function (){
+    $('.fadein').each(function(){
+      var position = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll > position - windowHeight + 200){
+        $(function(){
+          $('.fadein').each(function(i){
+            $(this).delay(i * 200).queue(function(){
+              $(this).addClass('active');
+            });
+          });
+        });
+      }
+    });
+  });
+});
+
+// topページimage
+$(function(){
+  $(window).scroll(function (){
+    $('.fadein-1').each(function(){
+      var position = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll > position - windowHeight + 200){
+        $(function(){
+          $('.fadein-1').each(function(i){
+            $(this).delay(i * 200).queue(function(){
+              $(this).addClass('active');
+            });
+          });
+        });
+      }
+    });
+  });
+});
+
 // ファイルを選択してくださいの削除
-$(document).on('turbolinks:load', function () {
   $(function () {
   $('#image').on("change", function () {
     var file = this.files[0];
@@ -33,8 +74,7 @@ $(document).on('turbolinks:load', function () {
   });
 });
 
-});
-
+// aboutページのスライドショー
 $(function () {
   $(".slider").slick({
     autoplay: true, //自動でスクロール
@@ -46,7 +86,6 @@ $(function () {
     arrows: false, //矢印非表示
     pauseOnFocus: false, //スライダーをフォーカスした時にスライドを停止させるか
     pauseOnHover: false, //スライダーにマウスホバーした時にスライドを停止させるか
-    rtl: true, //スライダーを左から右に流す（逆向き）
     responsive: [
       {
         breakpoint: 750,
