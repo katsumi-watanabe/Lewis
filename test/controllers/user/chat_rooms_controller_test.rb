@@ -5,5 +5,4 @@ class User::ChatRoomsControllerTest < ActionDispatch::IntegrationTest
     get user_chat_rooms_update_url
     assert_response :success
   end
-
 end

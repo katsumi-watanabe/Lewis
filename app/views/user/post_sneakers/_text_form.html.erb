@@ -3,7 +3,9 @@
     <div class="div-bottom col-12 col-sm-10 col-md-7">
       <%= f.text_field :sneakers_name, class: "text-field", placeholder: "スニーカー名前" %>
     </div>
-
+    
+    <!--画像が選択されている場合は非表示-->
+    <% if @post_sneaker.post_image.nil? %>
     <div class="div-bottom col-12 col-sm-10 col-md-7">
       <label for="image">
         <span class="button">画像を選択</span><%= f.attachment_field :post_image, id: "image" %>
@@ -11,6 +13,7 @@
       <!--写真の名前-->
       <div id="file-name"></div>
     </div>
+    <% end %>
 
     <div class="div-bottom col-12 col-sm-10 col-md-7">
       <%= f.radio_button :gender_selection, :"Men's", checked: "checked" %>

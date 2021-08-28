@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class User::Users::SessionsController < Devise::SessionsController
-
   def guest_sign_in
     user = User.guest
     sign_in user
@@ -13,7 +12,7 @@ class User::Users::SessionsController < Devise::SessionsController
   def reject_user
     @user = User.find_by(email: params[:user][:email].downcase)
     if @user
-      if (@user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false))
+      if @user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false)
         flash[:error] = "退会済みです。"
         redirect_to new_user_session_path
       end

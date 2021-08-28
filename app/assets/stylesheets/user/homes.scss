@@ -28,8 +28,15 @@
   left: 0;
 }
 
-// about背景文字
 
+/*下からフェードイン*/
+.luxy-el {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.0s 0s ease-out;
+ }
+
+// about背景文字
 .luxy-el.about-text {
   top: 700px;
 }

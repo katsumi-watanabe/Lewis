@@ -21,6 +21,22 @@
 //= require_tree .
 /*global $*/
 
+
+$(function(){
+   $(window).on('load scroll', function() {
+      var winScroll = $(window).scrollTop();
+      var winHeight = $(window).height();
+      var scrollPos = winScroll + (winHeight * 0.8);
+
+      $(".luxy-el").each(function() {
+         if($(this).offset().top < scrollPos) {
+            $(this).css({opacity: 0.3, transform: 'translate(0, 0)'});
+         }
+      });
+   });
+});
+
+
 // image-action
 
 // 投稿一覧ページimage
