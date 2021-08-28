@@ -58,7 +58,6 @@ class User < ApplicationRecord
 
   # 退会フラグ
   def active_for_authentication?
-    super && (self.is_deleted == false)
+    super && (is_deleted == false)
   end
-
 end

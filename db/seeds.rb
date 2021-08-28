@@ -55,7 +55,7 @@ User.create!(email: "user@user.com",
 
  PostSneaker.create!(id: 6,
   user_id: 1,
-  sneakers_name: "ナイキダンクロール",
+  sneakers_name: "ナイキダンクロー",
   post_image: File.open("./app/assets/images/seed-image/ナイキダンクlow.jpg"),
   caption: "ナイキダンクロー my collection",
   gender_selection: 0)

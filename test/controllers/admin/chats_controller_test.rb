@@ -30,5 +30,4 @@ class Admin::ChatsControllerTest < ActionDispatch::IntegrationTest
     get admin_chats_destroy_url
     assert_response :success
   end
-
 end

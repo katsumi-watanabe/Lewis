@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
-
-# deviseルーティング
+  # deviseルーティング
   devise_for :users, controllers: {
     sessions: 'user/users/sessions',
     passwords: 'user/users/passwords',
-    registrations: 'user/users/registrations'
+    registrations: 'user/users/registrations',
   }
 
   devise_for :admins, controllers: {
-   sessions: 'admin/admins/sessions',
-   passwords: 'admin/admins/passwords',
-   registrations: 'admin/admins/registrations'
+    sessions: 'admin/admins/sessions',
+    passwords: 'admin/admins/passwords',
+    registrations: 'admin/admins/registrations',
   }
 
   # guest-user
@@ -36,10 +35,10 @@ Rails.application.routes.draw do
     post 'solution/:user_id' => 'chat#:user_id', as: "solution"
     resources :chat_rooms, only: [:update]
     resources :post_sneakers do
-    resources :comments, only: [:create, :edit, :update, :destroy]
-    resource :like, only: [:create, :destroy]
-    post 'like2' => 'likes#create2'
-    delete 'like2' => 'likes#destroy2'
+      resources :comments, only: [:create, :edit, :update, :destroy]
+      resource :like, only: [:create, :destroy]
+      post 'like2' => 'likes#create2'
+      delete 'like2' => 'likes#destroy2'
     end
     resources :activities, only: [:index] do
       patch :read, on: :member
@@ -50,7 +49,7 @@ Rails.application.routes.draw do
     resources :details, only: [:show, :edit, :update]
   end
 
- # adminルーティング
+  # adminルーティング
 
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
@@ -62,5 +61,4 @@ Rails.application.routes.draw do
 
   root to: 'user/homes#top'
   get '/admins/top' => 'admin/homes#top'
-
 end

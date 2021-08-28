@@ -25,5 +25,4 @@ class User::ChatsControllerTest < ActionDispatch::IntegrationTest
     get user_chats_destroy_url
     assert_response :success
   end
-
 end

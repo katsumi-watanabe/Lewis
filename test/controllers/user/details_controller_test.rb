@@ -15,5 +15,4 @@ class User::DetailsControllerTest < ActionDispatch::IntegrationTest
     get user_details_update_url
     assert_response :success
   end
-
 end

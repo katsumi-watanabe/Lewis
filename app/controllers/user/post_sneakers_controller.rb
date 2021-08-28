@@ -72,20 +72,18 @@ class User::PostSneakersController < ApplicationController
       @post_sneakers = PostSneaker.sort(selection).page(params[:page]).reverse_order
       render :index
     elsif params[:type] == "likes"
-      post_sneakers = PostSneaker.includes(:likes).sort{ |a,b|b.likes.size <=> a.likes.size }
+      post_sneakers = PostSneaker.includes(:likes).sort { |a, b| b.likes.size <=> a.likes.size }
       @post_sneakers = Kaminari.paginate_array(post_sneakers).page(params[:page])
       render :index
     elsif params[:type] == "1"
-     @post_sneakers = PostSneaker.where(user_id: [current_user.id, *current_user.following_ids]).page(params[:page]).reverse_order
+      @post_sneakers = PostSneaker.where(user_id: [current_user.id, *current_user.following_ids]).page(params[:page]).reverse_order
       render :index
     end
   end
 
-
-   private
+  private
 
   def post_sneaker_params
     params.require(:post_sneaker).permit(:sneakers_name, :gender_selection, :post_image, :caption)
   end
-
 end

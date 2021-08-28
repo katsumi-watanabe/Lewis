@@ -9,7 +9,7 @@ class PostSneaker < ApplicationRecord
   # いいね順
   has_many :liked_users, through: :likes, source: :user
   # 性別選択
-  enum gender_selection: { "Men's": 0, "Women's": 1, }
+  enum gender_selection: { "Men's": 0, "Women's": 1 }
 
   # 性別検索機能
   def self.search(keyword)
@@ -25,9 +25,9 @@ class PostSneaker < ApplicationRecord
   def self.sort(selection)
     case selection
     when 'new'
-      return all.order(created_at: :DESC)
+      all.order(created_at: :DESC)
     when 'likes'
-      return find(Like.group(:post_sneaker_id).order(Arel.sql('count(post_sneaker_id) desc')).pluck(:post_sneaker_id))
+      find(Like.group(:post_sneaker_id).order(Arel.sql('count(post_sneaker_id) desc')).pluck(:post_sneaker_id))
     end
   end
 
@@ -48,6 +48,4 @@ class PostSneaker < ApplicationRecord
   validates :post_image, presence: { message: 'を選択してください' }
   validates :gender_selection, presence: { message: 'を選択してください' }
   validates :caption, length: { minimum: 1, maximum: 90 }
-
-
 end

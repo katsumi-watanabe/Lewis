@@ -56,7 +56,7 @@
   <!--  </div>-->
   <!--</div>-->
 
-  <div class="text-right my-5">
+  <div class="text-right mt-5 mb-3">
     <%= form_with url: post_sneakers_search_path, method: :get, local: true do |f| %>
      <div><%= f.select :type, [["新着順", "new"], ["いいね順", "likes"]] %></div>
      <%= f.submit '並び替え' %>
@@ -90,7 +90,6 @@
   </div>
   <% end %>
   </div>
-
 
   <div class="text-center mt-5" style="justify-content: center;">
     <%= paginate @post_sneakers %>
