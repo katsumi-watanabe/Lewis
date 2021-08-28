@@ -20,13 +20,20 @@ User.create!(email: "user@user.com",
  PostSneaker.create!(post_sneaker_id: 1,
   user_id: 1,
   sneakers_name: "エアフォース1",
-  post_image: File.open("./app/assets/images/エアフォースワン.jpeg"),
+  post_image: File.open("./app/assets/images/seed-image/エアフォース1.jpeg"),
   caption: "ナイキエアフォース1 ロー07 'ホワイト'(2020)",
   gender_selection: 0)
 
  PostSneaker.create!(post_sneaker_id: 2,
   user_id: 1,
   sneakers_name: "コンバース オールスター",
-  post_image: File.open("./app/assets/images/コンバース.jpeg"),
+  post_image: File.open("./app/assets/images/seed-image/コンバース.jpeg"),
   caption: "オールスター 100 デジタルビット ＨＩ",
   gender_selection: 1)
+
+ PostSneaker.create!(post_sneaker_id: 3,
+  user_id: 1,
+  sneakers_name: "エアジョーダン1",
+  post_image: File.open("./app/assets/images/seed-image/エアジョーダン1.jpeg"),
+  caption: "エアジョーダン1 ハイ sail/obsidian-university blu OG GS",
+  gender_selection: 0)

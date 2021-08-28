@@ -14,10 +14,10 @@
       <div class="row text-center">
         <p class="col-12 col-sm-4">投稿件数<%= @user.post_sneakers.count %>件</p>
         <%= link_to followings_path(@user), class: "col-12 col-sm-4" do %>
-        <p>フォロー<%= @user.followings.count %>人</p>
+          <p>フォロー<%= @user.followings.count %>人</p>
         <% end %>
         <%= link_to followers_path(@user), class: "col-12 col-sm-4" do %>
-        <p>フォロワー<%= @user.followers.count %>人</p>
+          <p>フォロワー<%= @user.followers.count %>人</p>
         <% end %>
       </div>
     </div>
@@ -25,7 +25,7 @@
 
   <p class="my-5"><%= @user.introduction %></p>
 
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <ul class="nav nav-tabs" id="myTab" role="tablist" style="font-size: 88%;">
     <li class="nav-item">
       <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">投稿一覧</a>
     </li>
@@ -54,6 +54,9 @@
         <p>投稿はありません</p>
       <% end %>
       </div>
+      <!--<div class="text-center mt-5" style="justify-content: center;">-->
+      <!--  <%#= paginate @post_sneakers %>-->
+      <!--</div>-->
     </div>
     <!--いいね一覧-->
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -69,6 +72,9 @@
       </div>
       <% end %>
       </div>
+      <!--<div class="text-center mt-5" style="justify-content: center;">-->
+      <!--  <#%= paginate @likes %>-->
+      <!--</div>-->
     </div>
     <!--閲覧履歴-->
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
@@ -83,12 +89,9 @@
         </div>
       <% end %>
       </div>
+      <!--<div class="text-center mt-5" style="justify-content: center;">-->
+      <!--  <%#= paginate @browsed_posts %>-->
+      <!--</div>-->
     </div>
   </div>
 
-
-</div>
-
-<div class="text-center mt-5" style="justify-content: center;">
-  <%= paginate @post_sneakers %>
-</div>

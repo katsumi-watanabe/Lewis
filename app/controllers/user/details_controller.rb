@@ -8,7 +8,7 @@ class User::DetailsController < ApplicationController
     # 投稿一覧
     @post_sneakers = @user.post_sneakers.page(params[:page]).reverse_order
     # 閲覧履歴
-    @browsed_posts = PostSneaker.joins(:histories).where('histories.user_id': @user.id).order('histories.created_at': "DESC")
+    @browsed_posts = PostSneaker.joins(:histories).where('histories.user_id': @user.id).order('histories.created_at': "DESC").page(params[:page]).reverse_order
   end
 
   def edit

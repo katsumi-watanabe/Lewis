@@ -16,7 +16,8 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-
+@import "slick-theme";
+@import "slick";
 
 // リセットCSS
 
@@ -134,6 +135,11 @@ table {
 // 新規投稿・編集ページ幅サイズ
 .sneaker {
   width: 80%;
+  margin: 0 auto;
+}
+
+.sneaker-2 {
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -542,7 +548,7 @@ input[type="password"] {
   top: 0;
   left: 0;
   opacity: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.3);
   -webkit-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
 }

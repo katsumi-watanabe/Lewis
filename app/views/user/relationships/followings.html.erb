@@ -1,5 +1,7 @@
 <div class="sneaker text-center">
+
   <h2 class="font-weight-bold mb-5">ユーザー一覧</h2>
+  <% if @users.present? %>
   <table class="table">
     <thead class="thead">
       <tr>
@@ -10,14 +12,18 @@
       <% @users.each do |user| %>
       <tr>
         <td>
+          <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.png", class: "comment-user-image-4" %>
           <%= link_to user_detail_path(user.id) do %>
-          <%= user.name %>
+            <%= user.name %>
           <% end %>
         </td>
       </tr>
       <% end %>
     </tbody>
   </table>
+  <% else %>
+    <p>フォローしているユーザーはいません</p>
+  <% end %>
 </div>
 
 <div class="text-center mt-5" style="justify-content: center;">
