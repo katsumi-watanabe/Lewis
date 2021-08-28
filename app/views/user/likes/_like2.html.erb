@@ -1,0 +1,13 @@
+<% if post_sneaker.liked_by?(current_user) %>
+  <%= link_to post_sneaker_like2_path(post_sneaker), style: "color: #666;", method: :delete, remote: true do  %>
+    <i class="far fa-heart red-outline like-btn mt-2"></i>
+    <span class="count-decoration"><%= post_sneaker.likes.count %></span>
+  <% end %>
+    <i class="far fa-comment ml-3 mr-2"></i><span class="mr-3"><%= post_sneaker.comments.count %></span>
+<% else %>
+  <%= link_to post_sneaker_like2_path(post_sneaker), style: "color: #666;", method: :post, remote: true do  %>
+    <i class="far fa-heart blue-outline like-btn mt-2"></i>
+    <%= post_sneaker.likes.count %>
+  <% end %>
+    <i class="far fa-comment ml-3 mr-2"></i><span class="mr-3"><%= post_sneaker.comments.count %></span>
+<% end %>

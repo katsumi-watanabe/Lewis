@@ -44,7 +44,19 @@
 
   <hr class="dropdown-divider mt-0">
 
-  <div class="text-right">
+  <!--<div class="dropdown text-right">-->
+  <!--  <button class="btn dropdown-toggle product-dropdown font-weight-bold"-->
+  <!--  type="button" id="dropdownMenu1" data-toggle="dropdown"-->
+  <!--  aria-haspopup="true" aria-expanded="false">-->
+  <!--  <span class='product-dropdown'>並び替え</span>-->
+  <!--  </button>-->
+  <!--  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">-->
+  <!--    <%#= link_to "新着順", post_sneakers_search_path, method: :get, local: true, class: "dropdown-item" %>-->
+  <!--    <%#= link_to "いいね順", post_sneakers_search_path, method: :get, local: true, class: "dropdown-item" %>-->
+  <!--  </div>-->
+  <!--</div>-->
+
+  <div class="text-right mt-5 mb-3">
     <%= form_with url: post_sneakers_search_path, method: :get, local: true do |f| %>
      <div><%= f.select :type, [["新着順", "new"], ["いいね順", "likes"]] %></div>
      <%= f.submit '並び替え' %>
@@ -56,29 +68,21 @@
   <div class="col-sm-12 col-md-6 col-lg-4 my-4">
     <div class="fall-item fall-effect">
       <%= link_to post_sneaker_path(post_sneaker) do %>
-      <%= attachment_image_tag post_sneaker, :post_image, :fill, 800, 800, format: 'jpeg' %>
+      <div>
+        <%= attachment_image_tag post_sneaker, :post_image, :fill, 800, 800, format: 'jpeg', class: "image-back fadein post-mouse-over" %>
+      </div>
       <% end %>
       <div class="mask">
-        <%= link_to "Read More", post_sneaker_path(post_sneaker), class: "info" %>
-
-        <div id="likes_buttons" class="post-like">
-          <%= render partial: 'user/likes/like', locals: { post_sneaker: post_sneaker } %>
-        </div>
-        <div id="follow_buttons_<%= post_sneaker.user.id %>", class="ml-2 post-follow">
-          <%= render partial: 'user/relationships/follow', locals: { user: post_sneaker.user } %>
-        </div>
-
-
          <div class="sneaker-image-bottom d-flex" style="justify-content: space-between;" >
-           <div class="d-flex">
-           <%= link_to user_detail_path(current_user), class: "d-flex" do %>
-             <%= attachment_image_tag post_sneaker.user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "pagu.jpeg", class: "mt-2 mx-3 comment-user-image-1" %>
+           <div>
+           <%= link_to user_detail_path(post_sneaker.user), class: "d-flex" do %>
+             <%= attachment_image_tag post_sneaker.user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.png", class: "mt-2 mx-3 comment-user-image-1" %>
              <%= post_sneaker.user.name %>
            <% end %>
            </div>
-           <div>
-             <i class="far fa-heart mr-3"><%= post_sneaker.likes.count %></i>
-             <i class="far fa-comment mr-3"><%= post_sneaker.comments.count %></i>
+           <!--いいね-->
+           <div id="likes_buttons<%= post_sneaker.id %>" class="post-like">
+             <%= render partial: 'user/likes/like2', locals: { post_sneaker: post_sneaker } %>
            </div>
          </div>
       </div>
@@ -86,7 +90,6 @@
   </div>
   <% end %>
   </div>
-
 
   <div class="text-center mt-5" style="justify-content: center;">
     <%= paginate @post_sneakers %>

@@ -30,5 +30,4 @@ class User::PostSneakersControllerTest < ActionDispatch::IntegrationTest
     get user_post_sneakers_delete_url
     assert_response :success
   end
-
 end

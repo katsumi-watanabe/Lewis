@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :post_sneakers, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  # 閲覧履歴
+  has_many :post_sneakers, dependent: :destroy
+  has_many :histories, dependent: :destroy
   # いいね順
   has_many :liked_posts, through: :likes, source: :post
   # chat
@@ -55,7 +58,6 @@ class User < ApplicationRecord
 
   # 退会フラグ
   def active_for_authentication?
-    super && (self.is_deleted == false)
+    super && (is_deleted == false)
   end
-
 end

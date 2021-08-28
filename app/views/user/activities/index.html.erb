@@ -4,7 +4,6 @@
   <% if @activities.present? %>
     <% @activities.each do |activity| %>
       <div class="text-center">
-        <% pp activity%>
         <%= render "#{activity.action_type}", activity: activity %>
       </div>
     <% end %>

@@ -18,7 +18,7 @@
           </li>
           <li class="nav-item dropdown text-center pr-image">
             <a class="dropdown-toggle header-text" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "pagu.jpeg", class: "mb-1 comment-user-image-4" %>
+              <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "no_image.png", class: "mb-1 comment-user-image-4" %>
               アカウント
             </a>
           <div class="dropdown-menu">
@@ -37,11 +37,11 @@
             <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
           </li>
-          <li>
-          <form class="pr-0 col-12 col-lg-auto mb-lg-0 me-lg-3 mt-2">
-            <input type="search" class="form-control search-window" style="font-size: 14px;" placeholder="検索...">
-          </form>
-          </li>
+          <!--<li>-->
+          <!--<form class="pr-0 col-12 col-lg-auto mb-lg-0 me-lg-3 mt-2">-->
+          <!--  <input type="search" class="form-control search-window" style="font-size: 14px;" placeholder="検索...">-->
+          <!--</form>-->
+          <!--</li>-->
         </ul>
       </div>
       <% elsif admin_signed_in? %>

@@ -1,5 +1,4 @@
 class Activity < ApplicationRecord
-
   # ポリモーフィック(通知機能)
   belongs_to :subject, polymorphic: true
   belongs_to :user
@@ -22,14 +21,13 @@ class Activity < ApplicationRecord
     when :chated
       chat_path(subject.chat_room)
     when :chated_admin
-      admin_chat_path(subject.chat_room)
+      admin_chat_path(subject.chat_room.user.id)
     when :solutioned_status
-      admin_chat_path(subject.id)
+      admin_chat_path(subject.user.id)
     end
   end
 
   def self.unread_count(user)
-    user.activities.unread.count
+    where(user_id: user.id, activity_status: "user_activity").count
   end
-
 end

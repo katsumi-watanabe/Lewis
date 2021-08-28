@@ -1,12 +1,18 @@
 ja:
   activerecord:
-    models:
-      user: ユーザー
     attributes:
       user:
         name: 名前
-ja:
-  activerecord:
+        introduction: 自己紹介文
+      post_sneaker:
+        sneakers_name: スニーカー名
+        post_image: スニーカー写真
+        gender_selection: 性別
+        caption: キャプション
+      chat:
+        message: メッセージ
+      comment:
+        comment: コメント
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
