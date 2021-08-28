@@ -2,6 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// top背景文字
+
+// .div-hoge {
+//   overflow: hidden;
+// }
+// .luxy-el {
+//   color: #DBDBDB;
+//   position: absolute;
+//   font-family: Beirut;
+//   font-weight: bold;
+//   font-size: 25rem;
+//   letter-spacing: 0.025em;
+//   line-height: 1;
+//   text-align: left;
+//   pointer-events: none;
+//   z-index: -1;
+//   white-space: nowrap;
+//   opacity: 0.2;
+// }
 
 // top-image
 .top-image {
@@ -15,17 +34,52 @@
   margin: 0 auto;
 }
 
+.about-image {
+  background-image: image-url("about-image.jpeg");
+  width: 100%;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+.image1 {
+  background-image: image-url("image-1.jpeg");
+}
+.image2 {
+  background-image: image-url("image-2.jpeg");
+}
+.image3 {
+  background-image: image-url("image-3.jpeg");
+}
+.about-page {
+  width: 100%;
+  height: 350px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin: 0 auto;
+}
+
 // top-image暗く
 .top-image-box {
   position: absolute;
   width: 100%;
   height: 500px;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .top-text {
   color: #fff;
   z-index: 10;
+}
+
+.about-page-image {
+  width: 100%;
+  height: 300px;
 }
 
 // top-text暗く
@@ -57,7 +111,68 @@
   margin: 3% auto;
 }
 
+// slick自動
+html, body {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+.sliderArea {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+.sliderArea.w300 {
+  max-width: 300px;
+}
+.slick-slide {
+  margin: 0 5px;
+}
+.slick-slide img {
+  width: 100%;
+  height: auto;
+}
+.slick-prev, .slick-next {
+  z-index: 1;
+}
+.slick-prev:before, .slick-next:before {
+  color: #000;
+}
+.slick-active {
+  opacity: 1;
+}
+.slick-current {
+  opacity: 1;
+}
+.thumb {
+  margin: 20px 0 0;
+}
+.thumb .slick-slide {
+  cursor: pointer;
+}
+.thumb .slick-slide:hover {
+  opacity: .7;
+}
+
 // レスポンシブ対応
+@media screen and (min-width: 993px) {
+.text-font-size {
+  font-size: 110%;
+}
+}
+@media screen and (max-width: 992px) {
+.text-font-size {
+  font-size: 90%;
+}
+}
+@media screen and (max-width: 767px) {
+.text-font-size {
+  font-size: 80%;
+}
+}
+
 @media screen and (max-width: 575px) {
 .top-text.box {
   width: 80%;
@@ -69,4 +184,32 @@
   top: 33%;
   background: rgba(0, 0, 0, 0.5);
 }
+// imageを表示
+div.none-image {
+  display: block!important;
 }
+// imageを非表示
+div.block-image {
+  display: none;
+}
+.about-text {
+  font-size: 70%;
+}
+.sneaker-text {
+  font-size: 100%!important;
+}
+.about-page {
+  width: 80%;
+  margin: 0 auto;
+}
+.sneaker-text {
+  width: 80%;
+  margin: 0 auto;
+}
+.sneaker-text-1 {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 140%;
+}
+}
+

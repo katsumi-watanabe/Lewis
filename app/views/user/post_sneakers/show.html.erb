@@ -54,8 +54,8 @@
         </div>
         <div class="btn-position mb-3">
           <% if @post_sneaker.user == current_user %>
-          <%= link_to "編集", edit_post_sneaker_path(id: @post_sneaker.id), class: "btn btn-success btn-1 edit-btn" %>
-          <%= link_to "削除", post_sneaker_path(@post_sneaker), method: :delete, class: "btn btn-danger btn-1", data: { confirm: "本当に消しますか？" } %>
+            <%= link_to "編集", edit_post_sneaker_path(id: @post_sneaker.id), class: "btn btn-success btn-1 edit-btn" %>
+            <%= link_to "削除", post_sneaker_path(@post_sneaker), method: :delete, class: "btn btn-danger btn-1", data: { confirm: "本当に消しますか？" } %>
           <% end %>
         </div>
       </div>

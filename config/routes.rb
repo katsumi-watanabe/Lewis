@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   scope module: :user do
     get 'search' => 'homes#search'
+    get 'about' => 'homes#about'
     get 'post_sneakers/search' => 'post_sneakers#search'
     post "relationshops/:user_id" => 'relationships#create', as: "relationships"
     delete "relationshops/:user_id" => 'relationships#destroy', as: "relationship"
@@ -52,7 +53,6 @@ Rails.application.routes.draw do
  # adminルーティング
 
   namespace :admin do
-
     resources :users, only: [:index, :show, :edit, :update]
     resources :chats, only: [:index, :create, :show, :edit, :update, :destroy]
     resources :activities, only: [:index] do

@@ -28,3 +28,25 @@ div.edit-box-1 div.d-flex p, input.text-field {
  margin-bottom: 20px;
  font-size: 95%;
 }
+
+@media screen and (max-width: 767px) {
+  .edit-forminput.admin_user_submit {
+    text-align: center!important;
+  }
+  .edit-form {
+    width: 70%;
+    margin: 0 auto;
+  }
+  .edit-form p {
+    padding: 0;
+  }
+  .user-id {
+    text-align: center;
+  }
+  .edit-box-1 {
+    text-align: center;
+  }
+  .row {
+    justify-content: center;
+  }
+}

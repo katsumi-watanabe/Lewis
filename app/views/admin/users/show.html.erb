@@ -1,27 +1,27 @@
 <div class="sneaker-width">
-  <div class="edit d-flex">
-    <div class="edit-box">
+  <div class="row" style="justify-content: center;">
+    <div class="col-12 col-md-3 text-center mb-3">
       <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.png", class: "comment-user-image-2" %>
     </div>
-    <div class="edit-box-1">
-      <div class="d-flex">
-        <p>ユーザーID</p>
-        <p><%= @user.id %></p>
+    <div class="edit-box-1 col-12 col-md-7">
+      <div class="row mb-4 user-id">
+        <p class="col-12 col-sm-12 col-md-6"ユーザーID</p>
+        <p class="col-12 col-sm-12 col-md-6"<%= @user.id %></p>
       </div>
-      <div class="d-flex">
-        <p>ユーザー名</p>
-        <p><%= @user.name %></p>
+      <div class="row mb-4">
+        <p class="col-12 col-sm-12 col-md-6">ユーザー名</p>
+        <p class="text-field col-11 col-sm-11 col-md-6 col-lg-5"><%= @user.name %></p>
       </div>
-      <div class="d-flex">
-        <p>ユーザーメールアドレス</p>
-        <p><%= @user.email %></p>
+      <div class="row mb-4">
+        <p class="col-12 col-sm-12 col-md-6" style="font-size: 90%;">ユーザーメールアドレス</p>
+        <p class="text-field col-11 col-sm-11 col-md-6 col-lg-5"><%= @user.email %></p>
       </div>
-      <div class="d-flex">
-        <p>ユーザーステータス</p>
+      <div class="row mb-4">
+        <p class="col-12 col-sm-12 col-md-6">ユーザーステータス</p>
         <% if @user.is_deleted == false %>
-          <p class="text-success font-weight-bold">有効</p>
+          <p class="text-success font-weight-bold col-12 col-sm-12 col-md-6">有効</p>
         <% else %>
-          <p class="font-weight-bold">退会</p>
+          <p class="font-weight-bold col-12 col-sm-12 col-md-6">退会</p>
         <% end %>
       </div>
       <%= link_to "編集", edit_admin_user_path, class: "btn btn-success btn-1" %>
