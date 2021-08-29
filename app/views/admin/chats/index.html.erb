@@ -16,7 +16,7 @@
           <%= chat.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[chat.created_at.wday]})") %>
         </td>
         <td>
-          <%= link_to chat.user.name, admin_user_path(chat.user.id) %>
+          <%= link_to chat.user.name, admin_user_path(chat.user.id), class: "font-weight-bold", style: "color: #666;" %>
         </td>
         <td>
           <%= link_to "チャットへ", admin_chat_path(chat.user.id), class: 'btn-7' %>
