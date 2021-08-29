@@ -21,7 +21,7 @@
 //= require_tree .
 /*global $*/
 
-
+// 背景文字スライドインしたから上へ
 $(function(){
    $(window).on('load scroll', function() {
       var winScroll = $(window).scrollTop();
