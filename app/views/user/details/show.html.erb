@@ -61,7 +61,7 @@
     <!--いいね一覧-->
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <div class="row text-center">
-      <% if @user.post_sneakers.present? %>
+      <% if @likes.present? %>
         <% @likes.each do |like| %>
         <% post_sneaker = PostSneaker.find_by(id: like.post_sneaker_id) %>
         <div class="my-4 col-md-6 col-lg-4">
@@ -83,7 +83,7 @@
     <!--閲覧履歴-->
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       <div class="row text-center">
-      <% if @user.post_sneakers.present? %>
+      <% if @browsed_posts.present? %>
         <% @browsed_posts.each do |browsed_post| %>
           <div class="my-4 col-md-6 col-lg-4">
             <div class="fall-item">
