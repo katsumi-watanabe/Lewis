@@ -612,4 +612,10 @@ input[type="password"] {
 body {
   padding-bottom: 500px!important;
 }
+
+.dropdown > a {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
 }
