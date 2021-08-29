@@ -5,9 +5,7 @@
   </ul>
     <p class="form-signin-heading">アカウントをお持ちの方はこちら</p>
     <div class="div-bottom">
-    <%= link_to new_user_session_path do %>
-      <button class="log log-in btn btn-lg btn-block"  name="Submit" value="Login" type="Submit">ログイン</button>
-    <% end %>
+      <%= link_to"ログイン", new_user_session_path, class: "log log-in btn btn-lg btn-block"  %>
     </div>
     <hr class="colorgraph"><br>
     <div><%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "名前"  %></div>
