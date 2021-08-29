@@ -45,7 +45,6 @@ User.create!(email: "user@user.com",
   caption: "アシックス Gel-Lyte 5",
   gender_selection: 1)
 
-
  PostSneaker.create!(id: 5,
   user_id: 1,
   sneakers_name: "アディダス Iniki",
