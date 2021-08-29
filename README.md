@@ -1,4 +1,17 @@
 # Lewis
+![スクリーンショット 2021-08-29 20 32 14](https://user-images.githubusercontent.com/83859027/131248965-53c6182c-6c42-4d48-964f-a2f5ef0fdfa2.png)
+
+- URL: https://app-lewis.com
+
+- 【会員ユーザーアカウント】
+  - メールアドレス： user@user.com
+  - パスワード： userss
+
+- 【管理者アカウント】
+  - メールアドレス： admin@admin.com
+  - パスワード： admins
+
+ ※別途「ゲストログイン機能」（ワンクリックでログインが可能な機能）も実装していますので、ぜひそちらもご利用ください。
 
 ## サイト概要
 
