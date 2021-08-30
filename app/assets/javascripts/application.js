@@ -41,7 +41,7 @@ $(function(){
 
 // 投稿一覧ページimage
 $(function(){
-  if (navigator.userAgent.match(/(iPhone|Android)/i)){
+  if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
 	$(window).scroll(function (){
     $('.fadein').each(function(){
       var position = $(this).offset().top;
