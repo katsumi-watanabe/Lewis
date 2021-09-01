@@ -58,7 +58,7 @@ Life with sneakers
 
 ### ER図
 
-![ER図](https://user-images.githubusercontent.com/83859027/131615080-e1021bb4-4ead-4823-8162-5aea983d1b84.png)
+![ER図](https://user-images.githubusercontent.com/83859027/131615210-aced1a55-11a2-48fb-9022-4910b3cfb10a.png)
 
 ### テーブル設計書
 
