@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_chats_path
     when User
-      root_path
+      post_sneakers_path
     end
   end
 
