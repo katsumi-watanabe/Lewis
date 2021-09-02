@@ -3,6 +3,7 @@ ja:
     attributes:
       user:
         name: 名前
+        email: メールアドレス
         introduction: 自己紹介文
       post_sneaker:
         sneakers_name: スニーカー名
