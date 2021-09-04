@@ -124,9 +124,15 @@ $(function () {
     pauseOnHover: false, //スライダーにマウスホバーした時にスライドを停止させるか
     responsive: [
       {
-        breakpoint: 750,
+        breakpoint: 767,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 575, // 〜479px以下のサイズに適用
+        settings: {
+          slidesToShow: 1,
         },
       },
     ],
