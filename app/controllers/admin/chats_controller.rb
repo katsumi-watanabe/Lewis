@@ -2,7 +2,7 @@ class Admin::ChatsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @chats = Chat.page(params[:page]).joins(:chat_room).includes(:user).group(:user_id).order(:solution_status)
+    @chats = Chat.page(params[:page]).joins(:chat_room).includes(:user).group(:user_id).order(:solution_status, created_at: :desc)
   end
 
   def show

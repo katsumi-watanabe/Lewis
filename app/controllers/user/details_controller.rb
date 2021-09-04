@@ -4,7 +4,7 @@ class User::DetailsController < ApplicationController
   def show
     @user = User.find(params[:id])
     # いいね一覧
-    @likes = Like.where(user_id: @user.id).page(params[:likest_page])
+    # @likes = Like.where(user_id: @user.id).page(params[:likest_page])
     # 投稿一覧
     @post_sneakers = @user.post_sneakers.page(params[:post_page])
     @browsed_posts = PostSneaker.joins(:histories).where('histories.user_id': @user.id).order('histories.created_at': "DESC").page(params[:browsed_page])
