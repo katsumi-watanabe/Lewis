@@ -54,9 +54,9 @@
         <p class="mt-3 ml-3">投稿はありません</p>
       <% end %>
       </div>
-      <!--<div class="text-center mt-5" style="justify-content: center;">-->
-      <!--  <%#= paginate @post_sneakers %>-->
-      <!--</div>-->
+      <div class="text-center mt-5" style="justify-content: center;">
+        <%= paginate @post_sneakers, :param_name => 'post_page' %>
+      </div>
     </div>
     <!--いいね一覧-->
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -76,9 +76,9 @@
         <p class="mt-3 ml-3">いいねした投稿はありません</p>
       <% end %>
       </div>
-      <!--<div class="text-center mt-5" style="justify-content: center;">-->
-      <!--  <#%= paginate @likes %>-->
-      <!--</div>-->
+      <div class="text-center mt-5" style="justify-content: center;">
+        <%= paginate @likes, :param_name => 'likest_page' %>
+      </div>
     </div>
     <!--閲覧履歴-->
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
@@ -97,9 +97,9 @@
         <p class="mt-3 ml-3">閲覧履歴はありません</p>
       <% end %>
       </div>
-      <!--<div class="text-center mt-5" style="justify-content: center;">-->
-      <!--  <%#= paginate @browsed_posts %>-->
-      <!--</div>-->
+      <div class="text-center mt-5" style="justify-content: center;">
+        <%= paginate @browsed_posts, :param_name => 'browsed_page' %>
+      </div>
     </div>
   </div>
 
