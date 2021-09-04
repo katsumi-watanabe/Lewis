@@ -1,10 +1,10 @@
 <div class="sneaker text-center">
-  <h2 class="font-weight-bold mb-5">ユーザー一覧</h2>
+  <h2 class="font-weight-bold mb-5"><%= @user.name %>さんフォロワー一覧</h2>
   <% if @users.present? %>
   <table class="table">
     <thead class="thead">
       <tr>
-        <th>フォロワーユーザー名</th>
+        <th>ユーザー名</th>
       </tr>
     </thead>
     <tbody>
