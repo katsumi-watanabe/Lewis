@@ -3,7 +3,7 @@
     <div class="div-bottom col-12 col-sm-10 col-md-7">
       <%= f.text_field :sneakers_name, class: "text-field", placeholder: "スニーカー名前" %>
     </div>
-    
+
     <!--画像が選択されている場合は非表示-->
     <% if @post_sneaker.post_image.nil? %>
     <div class="div-bottom col-12 col-sm-10 col-md-7">
@@ -17,9 +17,9 @@
 
     <div class="div-bottom col-12 col-sm-10 col-md-7">
       <%= f.radio_button :gender_selection, :"Men's", checked: "checked" %>
-      <%= f.label :gender_selection, "Men's" %>
+      <%= f.label :gender_selection_mens, "Men's" %>
       <%= f.radio_button :gender_selection, :"Women's" %>
-      <%= f.label :gender_selection, "Women's" %>
+      <%= f.label :gender_selection_womens, "Women's" %>
     </div>
 
     <div class="div-bottom col-12 col-sm-10 col-md-7">
