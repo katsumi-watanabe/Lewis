@@ -1,11 +1,10 @@
-# FactoryBot.define do
-#   factory :user do
-#     name { Faker::Lorem.characters(number: 10) }
-#     email { Faker::Internet.email }
-#     introduction { Faker::Lorem.characters(number: 50) }
-#     join_year { 'user' }
-#     department_id { 1 }
-#     password { 'userss' }
-#     password_confirmation { 'userss' }
-#   end
-# end
+FactoryBot.define do
+  factory :user do
+    name {Faker::Name.name}
+    email {Faker::Internet.free_email}
+    introduction { Faker::Lorem.characters(number: 50) }
+    password = Faker::Internet.password(min_length: 6)
+    password {password}
+    password_confirmation {password}
+  end
+end

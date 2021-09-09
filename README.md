@@ -1,4 +1,17 @@
 # Lewis
+![スクリーンショット 2021-08-29 20 32 14](https://user-images.githubusercontent.com/83859027/131248965-53c6182c-6c42-4d48-964f-a2f5ef0fdfa2.png)
+
+- URL: https://app-lewis.com
+
+- 【会員ユーザーアカウント】
+  - メールアドレス： user@user.com
+  - パスワード： userss
+
+- 【管理者アカウント】
+  - メールアドレス： admin@admin.com
+  - パスワード： admins
+
+ ※別途「ゲストログイン機能」（ワンクリックでログインが可能な機能）も実装していますので、ぜひそちらもご利用ください。
 
 ## サイト概要
 
@@ -45,7 +58,7 @@ Life with sneakers
 
 ### ER図
 
-![ER図](https://user-images.githubusercontent.com/83859027/128043973-251f6f40-5a73-4a33-819d-3e9b0d695623.png)
+![ER図](https://user-images.githubusercontent.com/83859027/131615294-e5d8c1b4-08dd-4945-8ee6-2c3804eb6f1b.png)
 
 ### テーブル設計書
 
