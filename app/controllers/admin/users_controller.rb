@@ -5,6 +5,12 @@ class Admin::UsersController < ApplicationController
     @users = User.page(params[:page])
   end
 
+  def search
+    @users = User.search(params[:word]).page(params[:page])
+    @word = params[:word]
+    render :index
+  end
+
   def show
     @user = User.find(params[:id])
   end

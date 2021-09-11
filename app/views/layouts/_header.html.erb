@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-main">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-main">
     <div class="container">
       <h1 class="m-0">
         <%= link_to"Lewis", root_path, class: "text-center header-title navbar-brand d-block" %>
@@ -10,11 +10,17 @@
       <% if user_signed_in? %>
       <div id="grobalNav" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <%= link_to "投稿一覧", post_sneakers_path, class: "nav-link text-center header-text" %>
+          <li class="nav-item active mr-2">
+            <%= link_to post_sneakers_path, class: "nav-link text-center header-text" do %>
+              <i class="fas fa-home"></i>
+              <span>投稿一覧</span>
+            <% end %>
           </li>
-          <li class="nav-item active">
-            <%= link_to "投稿画面", new_post_sneaker_path, class: "nav-link text-center header-text" %>
+          <li class="nav-item active mr-2">
+            <%= link_to new_post_sneaker_path, class: "nav-link text-center header-text" do %>
+              <i class="fas fa-edit"></i>
+              <span>投稿画面</span>
+            <% end %>
           </li>
           <li class="nav-item dropdown text-center pr-image">
             <a class="dropdown-toggle header-text" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -22,26 +28,41 @@
               アカウント
             </a>
           <div class="dropdown-menu">
-            <%= link_to "マイページ", user_detail_path(current_user), class: "dropdown-item" %>
-            <%= link_to  activities_path do %>
-              <p class="dropdown-item">通知一覧
+            <%= link_to user_detail_path(current_user), class: "dropdown-item" do %>
+              <i class="far fa-user-circle mr-2"></i>
+              <span>マイページ</span>
+            <% end %>
+
+            <%= link_to activities_path, class: "dropdown-item" do %>
+              <i class="far fa-bell mr-2"></i>
+              <span>通知一覧</span>
                 <span class="notification-count ml-2">
                   <% if Activity.unread_count(current_user) != 0 %>
                     <%= Activity.unread_count(current_user) %>
                   <% end %>
                 </span>
-              </p>
             <% end %>
-            <%= link_to 'お問い合わせ', chat_path(current_user), class: "dropdown-item" %>
+
+            <%= link_to chat_path(current_user), class: "dropdown-item" do %>
+              <i class="far fa-envelope mr-2"></i>
+              <span>お問い合わせ</span>
+            <% end %>
+
             <hr class="dropdown-divider">
-            <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+
+            <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+              <i class="fas fa-sign-out-alt"></i>
+              <span>サインアウト</span>
+            <% end %>
           </div>
           </li>
-          <!--<li>-->
-          <!--<form class="pr-0 col-12 col-lg-auto mb-lg-0 me-lg-3 mt-2">-->
-          <!--  <input type="search" class="form-control search-window" style="font-size: 14px;" placeholder="検索...">-->
-          <!--</form>-->
-          <!--</li>-->
+          <li>
+          <%= form_with url: post_sneakers_search_path, method: :get, class: "m-0 pr-0 col-12 col-lg-auto mb-lg-0 me-lg-3",  local: true do |f| %>
+            <%= f.hidden_field :type, value: 2 %>
+            <%= f.text_field :word, value: @word, class: "mt-1 mb-0 form-control search-window", style: "border-radius: 5px", placeholder: " 検索..." %>
+            <% f.submit "検索", class: "my-0" %>
+          <% end %>
+          </li>
         </ul>
       </div>
       <% elsif admin_signed_in? %>
@@ -51,6 +72,12 @@
           <li class="nav-item active"><%= link_to "ユーザー一覧", admin_users_path, class: "nav-link text-center header-text" %></li>
           <li class="nav-item active"><%= link_to "通知一覧", admin_activities_path, class: "nav-link text-center header-text" %></li>
           <li class="nav-item active"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-center header-text" %></li>
+          <li>
+          <%= form_with url: admin_user_search_path, method: :get, class: "m-0 pr-0 col-12 col-lg-auto mb-lg-0 me-lg-3",  local: true do |f| %>
+            <%= f.text_field :word, value: @word, class: "mt-1 mb-0 form-control search-window", style: "border-radius: 5px", placeholder: " 検索..." %>
+            <% f.submit "検索", class: "my-0" %>
+          <% end %>
+          </li>
         </ul>
       </div>
       <% else %>

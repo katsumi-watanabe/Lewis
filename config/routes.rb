@@ -52,6 +52,7 @@ Rails.application.routes.draw do
   # adminルーティング
 
   namespace :admin do
+    get 'user/search' => 'users#search'
     resources :users, only: [:index, :show, :edit, :update]
     resources :chats, only: [:index, :create, :show, :edit, :update, :destroy]
     resources :activities, only: [:index] do
