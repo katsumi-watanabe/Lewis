@@ -18,7 +18,7 @@
           </li>
           <li class="nav-item active mr-2">
             <%= link_to new_post_sneaker_path, class: "nav-link text-center header-text" do %>
-              <i class="fas fa-edit"></i>
+              <i class="far fa-plus-square"></i>
               <span>投稿画面</span>
             <% end %>
           </li>
@@ -68,10 +68,30 @@
       <% elsif admin_signed_in? %>
       <div id="grobalNav" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><%= link_to "管理者TOP", admin_chats_path, class: "nav-link text-center header-text" %></li>
-          <li class="nav-item active"><%= link_to "ユーザー一覧", admin_users_path, class: "nav-link text-center header-text" %></li>
-          <li class="nav-item active"><%= link_to "通知一覧", admin_activities_path, class: "nav-link text-center header-text" %></li>
-          <li class="nav-item active"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-center header-text" %></li>
+          <li class="nav-item active">
+            <%= link_to admin_chats_path, class: "nav-link text-center header-text" do %>
+              <i class="fas fa-home"></i>
+              <span>管理者TOP</span>
+            <% end %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to admin_users_path, class: "nav-link text-center header-text" do %>
+            <i class="fas fa-users"></i>
+            <span>ユーザー一覧</span>
+            <% end %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to admin_activities_path, class: "nav-link text-center header-text" do %>
+            <i class="fas fa-bell"></i>
+            <span>通知一覧</span>
+            <% end %>
+            </li>
+          <li class="nav-item active">
+            <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-center header-text" do %>
+            <i class="fas fa-sign-out-alt"></i>
+            <span>ログアウト</span>
+            <% end %>
+            </li>
           <li>
           <%= form_with url: admin_user_search_path, method: :get, class: "m-0 pr-0 col-12 col-lg-auto mb-lg-0 me-lg-3",  local: true do |f| %>
             <%= f.text_field :word, value: @word, class: "mt-1 mb-0 form-control search-window", style: "border-radius: 5px", placeholder: " 検索..." %>
