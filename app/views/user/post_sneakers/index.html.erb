@@ -1,35 +1,36 @@
 <div class="text-center">
   <div id="top", class="post-sneaker-box flex-sm-row row">
+
     <%= form_with url: post_sneakers_search_path, method: :get, class: "top-nav-list col-12 col-sm-3 p-0", local: true do |f| %>
     <%= f.hidden_field :keyword %>
     <%= f.hidden_field :type, value: 0 %>
-    <% if params[:commit] == 'Total' %>
-      <%= f.submit "Total", class: "active flex-sm-fill text-sm-center nav-link nav-list nav-list-select" %>
-    <% elsif !params[:commit].present?  %>
-      <%= f.submit "Total", class: "active flex-sm-fill text-sm-center nav-link nav-list nav-list-select" %>
-    <% else %>
-      <%= f.submit "Total", class: "active flex-sm-fill text-sm-center nav-link nav-list" %>
-    <% end %>
+      <% if params[:commit] == 'Total' %>
+        <%= f.submit "Total", class: "active flex-sm-fill text-sm-center nav-link nav-list nav-list-select" %>
+      <% elsif !params[:commit].present?  %>
+        <%= f.submit "Total", class: "active flex-sm-fill text-sm-center nav-link nav-list nav-list-select" %>
+      <% else %>
+        <%= f.submit "Total", class: "active flex-sm-fill text-sm-center nav-link nav-list" %>
+      <% end %>
     <% end %>
 
     <%= form_with url: post_sneakers_search_path, method: :get, class: "top-nav-list col-12 col-sm-3 p-0", local: true do |f| %>
     <%= f.hidden_field :keyword, value: 0 %>
     <%= f.hidden_field :type, value: 0 %>
-    <% if params[:commit] == "Men's" %>
-      <%= f.submit "Men's", class: "active flex-sm-fill text-sm-center nav-link nav-list nav-list-select" %>
-    <% else %>
-      <%= f.submit "Men's", class: "active flex-sm-fill text-sm-center nav-link nav-list" %>
-    <% end %>
+      <% if params[:commit] == "Men's" %>
+        <%= f.submit "Men's", class: "active flex-sm-fill text-sm-center nav-link nav-list nav-list-select" %>
+      <% else %>
+        <%= f.submit "Men's", class: "active flex-sm-fill text-sm-center nav-link nav-list" %>
+      <% end %>
     <% end %>
 
     <%= form_with url: post_sneakers_search_path, method: :get, class: "top-nav-list col-12 col-sm-3 p-0", local: true do |f| %>
     <%= f.hidden_field :keyword, value: 1 %>
     <%= f.hidden_field :type, value: 0 %>
-    <% if params[:commit] == "Women's" %>
-      <%= f.submit "Women's", class: "active flex-sm-fill text-sm-center nav-link nav-list nav-list-select" %>
-    <% else %>
-      <%= f.submit "Women's", class: "active flex-sm-fill text-sm-center nav-link nav-list" %>
-    <% end %>
+      <% if params[:commit] == "Women's" %>
+        <%= f.submit "Women's", class: "active flex-sm-fill text-sm-center nav-link nav-list nav-list-select" %>
+      <% else %>
+        <%= f.submit "Women's", class: "active flex-sm-fill text-sm-center nav-link nav-list" %>
+      <% end %>
     <% end %>
 
     <%= form_with url: post_sneakers_search_path, method: :get, class: "top-nav-list col-12 col-sm-3 p-0", local: true do |f| %>

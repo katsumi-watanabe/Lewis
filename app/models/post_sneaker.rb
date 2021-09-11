@@ -16,6 +16,11 @@ class PostSneaker < ApplicationRecord
     where(["gender_selection like?", "%#{keyword}%"])
   end
 
+  # 検索窓
+  def self.search2(word)
+    where(["sneakers_name like? OR caption like?", "%#{word}%", "%#{word}%"])
+  end
+
   # いいね機能
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
