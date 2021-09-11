@@ -61,7 +61,7 @@ class User::PostSneakersController < ApplicationController
     end
   end
 
-  # Total, Men's, Women's絞り込み
+  # Total, Men's, Women's, タイムライン絞り込み,検索窓
   def search
     if params[:type] == "0"
       @post_sneakers = PostSneaker.search(params[:keyword]).page(params[:page]).reverse_order
@@ -77,6 +77,10 @@ class User::PostSneakersController < ApplicationController
       render :index
     elsif params[:type] == "1"
       @post_sneakers = PostSneaker.where(user_id: [current_user.id, *current_user.following_ids]).page(params[:page]).reverse_order
+      render :index
+    elsif params[:type] == "2"
+      @post_sneakers = PostSneaker.search2(params[:word]).page(params[:page]).reverse_order
+      @word = params[:word]
       render :index
     end
   end
