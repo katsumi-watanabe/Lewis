@@ -4,17 +4,17 @@
   		<% if user_signed_in? %>
   			<p class="col-md-3 footer-links wow animated"><%= link_to "サイトTOP", root_path %></p>
   			<p class="col-md-3 footer-links wow animated"><%= link_to "Lewisについて", about_path %></p>
-  			<p class="col-md-3 footer-links wow animated"><%= link_to "写真の撮り方", about_path(anchor: "shootingmethod") %></p>
+  			<p class="col-md-3 footer-links wow animated"><%= link_to "写真の撮り方", about_path %></p>
         <p class="col-md-3 footer-links wow animated"><%= link_to  "お問い合わせ", chat_path(current_user) %></p>
       <% elsif admin_signed_in? %>
         <p class="col-md-3 footer-links wow animated"><%= link_to "サイトTOP", root_path %></p>
   			<p class="col-md-3 footer-links wow animated"><%= link_to "Lewisについて", about_path %></p>
-  			<p class="col-md-3 footer-links wow animated"><%= link_to "写真の撮り方", about_path(anchor: "shootingmethod") %></p>
+  			<p class="col-md-3 footer-links wow animated"><%= link_to "写真の撮り方", about_path %></p>
         <p class="col-md-3 footer-links wow animated"><%= link_to  'お問い合わせ', admin_chats_path %></p>
       <% else %>
         <p class="col-md-4 footer-links wow animated"><%= link_to "サイトTOP", root_path %></p>
   			<p class="col-md-4 footer-links wow animated"><%= link_to "Lewisについて", about_path %></p>
-  			<p class="col-md-3 footer-links wow animated"><%= link_to "写真の撮り方", about_path(anchor: "shootingmethod") %></p>
+  			<p class="col-md-3 footer-links wow animated"><%= link_to "写真の撮り方", about_path %></p>
       <% end %>
       </div>
       <div class="col footer-social d-flex sns">
