@@ -69,7 +69,7 @@ class User::PostSneakersController < ApplicationController
       render :index
     elsif params[:type] == "new"
       selection = params[:type]
-      @post_sneakers = PostSneaker.sort(selection).page(params[:page]).reverse_order
+      @post_sneakers = PostSneaker.sort(selection).page(params[:page])
       render :index
     elsif params[:type] == "likes"
       post_sneakers = PostSneaker.includes(:likes).sort { |a, b| b.likes.size <=> a.likes.size }
