@@ -111,6 +111,7 @@ table {
   margin: 0 auto;
 }
 
+
 // kaminari
 .pagination {
   display: flex;
@@ -231,7 +232,12 @@ header.border-bottom {
   min-height: 50px;
 }
 
-.alert-view {
+.notice.alert-view {
+  color: #fff;
+  background-color: #28a745;
+}
+
+.alert.alert-view {
   color: #fff;
   background-color: #FF5C2C;
 }
@@ -617,6 +623,13 @@ input[type="password"] {
   background-color: #F6F6F6;
 }
 
+
+@media screen and (max-width: 991px) {
+.dropdown-menu {
+  text-align: center;
+}
+}
+
 @media screen and (max-width: 767px) {
 body {
   padding-bottom: 500px!important;
@@ -627,8 +640,5 @@ body {
   -moz-appearance: none;
   appearance: none;
   background-color: #212121;
-}
-.dropdown-menu {
-  text-align: center;
 }
 }
