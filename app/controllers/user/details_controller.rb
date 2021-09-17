@@ -21,7 +21,7 @@ class User::DetailsController < ApplicationController
       flash[:notice] = "編集が成功しました"
     else
       render :edit
-      flash[:notice] = "編集が失敗しました"
+      flash[:alert] = "編集が失敗しました"
     end
   end
 

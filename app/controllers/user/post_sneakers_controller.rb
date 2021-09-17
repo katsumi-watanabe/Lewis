@@ -28,7 +28,7 @@ class User::PostSneakersController < ApplicationController
       flash[:notice] = "投稿が成功しました"
       redirect_to post_sneakers_path
     else
-      flash[:notice] = "投稿が失敗しました"
+      flash[:alert] = "投稿が失敗しました"
       render :new
     end
   end
@@ -44,7 +44,7 @@ class User::PostSneakersController < ApplicationController
       flash[:notice] = "編集が成功しました"
       redirect_to post_sneaker_path
     else
-      flash[:notice] = "編集が失敗しました"
+      flash[:alert] = "編集が失敗しました"
       render :edit
     end
   end
@@ -56,7 +56,7 @@ class User::PostSneakersController < ApplicationController
       flash[:notice] = "削除に成功しました"
       redirect_to post_sneakers_path
     else
-      flash[:notice] = "削除に失敗しました"
+      flash[:alert] = "削除に失敗しました"
       render :show
     end
   end
